@@ -11,7 +11,9 @@
 
 > **The mother centrosome carries a distinct maturation state. Two parallel pathways may transduce this asymmetry: (1) Cenexin→Plk1→γ-tubulin→spindle asymmetry→daughter cell size (Thomas & Meraldi 2024, PMID 39012627, human RPE1/MCF10A, 3.1% asymmetry); (2) centrosomal concentration of phospho-β-catenin targeted for degradation→asymmetric inheritance→differential Wnt signalling (Fuentealba et al. 2008, PMID 18511557 — demonstrated in human ESC and Cos7 cells: p-β-catenin and polyubiquitinated proteins asymmetrically segregate via the centrosome in mammalian mitosis).**
 >
-> **🔴 CRITICAL: Thomas & Meraldi showed SPINDLE asymmetry in human cells. Fuentealba showed CENTROSOMAL ASYMMETRIC SEGREGATION in human cells. Neither tested FATE asymmetry. Both mechanisms await validation specifically in RPE1 and NPCs. Whether these pathways change what a daughter cell becomes — that is the open question ARGUS-LP_OS exists to answer.**
+> **🔴 CRITICAL: Thomas & Meraldi showed SPINDLE asymmetry (3.1%) in human cells — but the authors themselves noted "the functional significance is unclear." Fuentealba showed CENTROSOMAL ASYMMETRIC SEGREGATION in human cells. Neither tested FATE. ARGUS-LP_OS is the FIRST direct test of whether these mechanisms produce biologically meaningful fate divergence. We do not assume. We measure.**
+>
+> **Competitive landscape:** Meraldi Lab (U Geneva) demonstrated the 3.1% mechanism but has not published fate consequences. Jessberger Lab (U Zurich, Royall 2023) showed centrosome→fate in organoid NPCs but not in single-cell time-lapse. Tsukita Lab (Odf2 domains) provides the genetic tools. ARGUS-LP_OS bridges all three: single-cell time-lapse resolution + fate readout + open platform at $24K.
 
 ### 0.1. Two Fluorescent Probes, Two Tasks
 
@@ -26,7 +28,9 @@
 
 ### 0.2. Maturation State Definition
 
-> **Maturation state is operationally defined as the Cenexin fluorescence intensity ratio: _M = I(Cenexin)ᵃ / I(Cenexin)ᵇ_. _M_ is a continuous variable in all primary analyses. A binary threshold (_M > 1.5_) is calibrated via ROC analysis in pilot experiments — Anderson & Stearns 2009 did not establish a numeric threshold.**
+> **Maturation state is operationally defined as the Cenexin fluorescence intensity ratio: _M = I(Cenexin)ᵃ / I(Cenexin)ᵇ_.** _M_ is a continuous variable in all primary analyses. A binary threshold (_M > 1.5_) is calibrated via ROC analysis in Pilot 1.
+>
+> **⚠️ Mitosis caveat:** Distal/subdistal appendages partially disassemble during mitosis (reviewer comment on Thomas & Meraldi 2024). Cenexin staining intensity may fluctuate through the cell cycle. Pilot 1 validates Cenexin signal at different cell cycle stages (interphase, prophase, metaphase, telophase) in synchronized RPE1 cells. If Cenexin intensity varies >20% across cell cycle → use Ninein as secondary marker (Royall 2023 validated Ninein for NPCs).
 
 ### 0.3. Alternative Hypotheses
 
@@ -71,7 +75,9 @@
 | Confound | Control |
 |----------|---------|
 | Centrin1-GFP/H2B-GFP may alter centrosome/cell cycle | Untagged RPE1 vs. GFP-RPE1: compare cilium kinetics in Pilot 1. Δ>10% → use lower-expression clone |
-| IR 850 nm prolonged exposure (72h) — phototoxicity unknown | IR-ON vs. IR-OFF arms in Pilot 0. Measure viability, cilium rate. If Δ>5% → reduce IR power/duty cycle |
+| IR 850 nm prolonged exposure (72h) — phototoxicity, heating unknown | IR-ON vs. IR-OFF arms in Pilot 0. Measure viability + temperature probe in medium (ΔT<0.5°C). Use pulsed mode (1s every 5 min) if continuous IR heats >0.5°C |
+| Water immersion objective evaporation → focus drift | Automated water dispenser + saturated humidity in glove-box. Monitor focus drift with GFP beads |
+| Cenexin appendages disassemble during mitosis | Pilot 1: Cenexin IF at interphase/prophase/metaphase/telophase in synchronized cells. If >20% variation → add Ninein co-stain |
 | LED 488 nm phototoxicity (≤200 ms, ≤5% power) | Dark control (no LED) vs. LED protocol. Viability ≥90% in Pilot 1 |
 | Serum starvation effects on biology | Test in Pilot 2: ±serum conditions. If serum alters M→cilium → use cycling conditions |
 | CYTOO retention >48h unknown | Pilot 2: 72h test. Fallback: gridded microwell dishes |
@@ -110,7 +116,7 @@
 | Ki67 status | Secondary | Binary (Ki67⁺/Ki67⁻) | McNemar (paired) |
 | Differentiation (NPCs) | Tertiary | Nestin/Sox2 → Tuj1/GFAP | Fisher exact |
 
-> **Rationale for time-to-ciliogenesis:** Continuous time-to-event endpoint has higher statistical power than binary outcome at a single timepoint. A 3% spindle difference may manifest as a 2-3 hour delay in cilium assembly rather than a binary yes/no — time-to-event captures this. Anderson & Stearns 2009 observed cilium ASYNCHRONY; we quantify it systematically.
+**Time-to-ciliogenesis measurement:** Cilium formation is measured in EACH cell cycle. Cells lose cilia before mitosis → reform in G1. The clock starts at cytokinesis of each division. If a cell divides before forming a cilium → competing event. Model: recurrent events (Prentice-Williams-Peterson gap-time model) stratified by cell cycle number. Primary readout: hazard ratio for cilium formation in cycle 1 (most proximal to centrosome inheritance).
 
 ### 1.3. Controls
 
@@ -158,7 +164,7 @@ coxph(Surv(time_to_cilium, cilium_status) ~ M + CellArea + DivisionNumber + Ki67
 | Stage | System | Duration | Go/No-Go |
 |:-----:|--------|:--------:|----------|
 | **Pilot 0** | GFP beads, 7 days, 60×/1.2 NA | 1 week | Drift <5 µm/24h |
-| **Pilot 1** | RPE1 Centrin1-GFP + Cenexin fix + phototoxicity | 3 days | Centrin-Cenexin ≥90% + viability ≥90% vs dark control |
+| **Pilot 1** | RPE1 Centrin1-GFP + Cenexin fix + phototoxicity + EdU proliferation | 3 days | Centrin-Cenexin ≥90% + viability ≥90% vs dark + Cenexin cell cycle stability + GFP vs WT proliferation (EdU) Δ<5% |
 | **Pilot 2** | CYTOO islands, 72h, 10 pairs | 1 week | Cell retention ≥80% |
 | **Pilot 3** | RPE1, 50 pairs | 2 weeks | Effect size for final N |
 | **Main RPE1** | RPE1-hTERT, 200 pairs, lineage tree (3 gen) | 4 weeks | Primary: time-to-ciliogenesis |
