@@ -121,6 +121,7 @@
 | LED 488 nm phototoxicity (≤200 ms, ≤5% power) | Dark control (no LED) vs. LED protocol. Viability ≥90% in Pilot 1 |
 | Serum starvation effects on biology | Test in Pilot 2: **three serum conditions** (0.5%, 1%, 5% FBS). Select condition where ≥70% cells form cilium without division. Anderson & Stearns 2009 used 0.5%. If division >30% at all conditions → use ANCOVA with division as covariate instead of Fine-Gray. |
 | CYTOO retention >48h unknown | Pilot 2: test both 48h and 72h. If 72h retention <80% but 48h ≥80% → use 48h protocol. Fallback for both: gridded microwell dishes |
+| Glove-box climate stability | Pilot 0: 7-day GFP bead test. If drift >5µm/24h → budget reserve for commercial incubator ($7,500). |
 | 3.1% spindle asymmetry biologically meaningful? | Tested by experiment: if M (continuous) does NOT predict cilium timing → 3.1% below functional threshold |
 | Stochastic inheritance vs. age effect | Anderson 2009: 94% asymmetry despite 50% random inheritance → age EFFECT dominates stochasticity. Control: randomize centrosome inheritance (Ninein KD, Royall 2023) → asymmetry should drop to ~50% if age is causal. |
 
