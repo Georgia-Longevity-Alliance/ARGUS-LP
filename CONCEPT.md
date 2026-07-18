@@ -1,6 +1,6 @@
 # CONCEPT — ARGUS-LP_OS
 
-**Version:** 50.0
+**Version:** 52.0
 **Date:** 2026-07-19
 
 ---
@@ -62,11 +62,24 @@
 >
 > **hTERT-NPCs** are the **fate model** (H₃). Royall 2023 demonstrated that in human NPCs, mother centrosome → self-renewal via Ninein. H₃ measures whether centrosome age predicts **progenitor maintenance vs. differentiation** (Nestin/Sox2 → Tuj1/GFAP).
 >
-> This two-tier design separates **platform validation** (RPE1) from **biological discovery** (NPCs), de-risking both.
+> This two-tier design separates **platform validation** (RPE1 — directly literature-supported) from **biological discovery** (NPCs — requires methodological validation).
 
 ---
 
-## 1. The Experiment: Sister Tracking
+## 1. Controls and Confounds
+
+| Confound | Control |
+|----------|---------|
+| Centrin1-GFP/H2B-GFP may alter centrosome/cell cycle | Untagged RPE1 vs. GFP-RPE1: compare cilium kinetics in Pilot 1. Δ>10% → use lower-expression clone |
+| IR 850 nm prolonged exposure (72h) — phototoxicity unknown | IR-ON vs. IR-OFF arms in Pilot 0. Measure viability, cilium rate. If Δ>5% → reduce IR power/duty cycle |
+| LED 488 nm phototoxicity (≤200 ms, ≤5% power) | Dark control (no LED) vs. LED protocol. Viability ≥90% in Pilot 1 |
+| Serum starvation effects on biology | Test in Pilot 2: ±serum conditions. If serum alters M→cilium → use cycling conditions |
+| CYTOO retention >48h unknown | Pilot 2: 72h test. Fallback: gridded microwell dishes |
+| 3.1% spindle asymmetry biologically meaningful? | Tested by experiment: if M (continuous) does NOT predict cilium timing → 3.1% below functional threshold |
+
+---
+
+## 3. The Experiment: Sister Tracking
 
 ### 1.1. Method
 
@@ -136,7 +149,7 @@ coxph(Surv(time_to_cilium, cilium_status) ~ M + CellArea + DivisionNumber + Ki67
 
 ---
 
-## 2. Cell Strategy
+## 4. Cell Strategy
 
 | Stage | System | Duration | Go/No-Go |
 |:-----:|--------|:--------:|----------|
@@ -151,7 +164,7 @@ coxph(Surv(time_to_cilium, cilium_status) ~ M + CellArea + DivisionNumber + Ki67
 
 ---
 
-## 3. Phase 2 (v2.0): Odf2 Domain Deletions — Causality
+## 5. Phase 2 (v2.0): Odf2 Domain Deletions — Causality
 
 Odf2 KO abolishes distal and subdistal appendages (Ishikawa 2005, PMID 15852003). Different Odf2 domains control different appendage types (Tateishi 2013, PMID 24189274):
 - aa 188-806 → transition fibers/distal appendages
@@ -171,7 +184,7 @@ Odf2 KO abolishes distal and subdistal appendages (Ishikawa 2005, PMID 15852003)
 
 ---
 
-## 4. Optical Design
+## 6. Optical Design
 
 | Objective | Resolution | Centriole gap at MITOSIS (>5 µm) | Cost |
 |-----------|:----------:|:-------------------------------:|:----:|
@@ -183,7 +196,7 @@ Odf2 KO abolishes distal and subdistal appendages (Ishikawa 2005, PMID 15852003)
 
 ---
 
-## 5. Budget
+## 7. Budget
 
 | Line item | $ |
 |-----------|--:|
@@ -213,7 +226,7 @@ Odf2 KO abolishes distal and subdistal appendages (Ishikawa 2005, PMID 15852003)
 
 ---
 
-## 6. Results Publication Strategy
+## 8. Results Publication Strategy
 
 | Outcome | Action |
 |---------|--------|
@@ -225,7 +238,7 @@ Odf2 KO abolishes distal and subdistal appendages (Ishikawa 2005, PMID 15852003)
 
 ---
 
-## 7. References
+## 9. References
 
 1. Anderson CT, Stearns T. *Curr Biol* 19:1498–1502 (2009). **PMID: 19682908.**
 2. Wang X et al. *Nature* 461:947–955 (2009). **PMID: 19829375.**
