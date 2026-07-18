@@ -38,6 +38,13 @@
 |----------|------------|-----------|---------------------|
 | **A: Mother → stemness** | Mature mother → progenitor | Wang 2009 (PMID 19829375); Royall 2023 (PMID 37882444) | Compare with Royall 2023. |
 | **B: Daughter → stemness** | Immature daughter → progenitor | Conduit & Raff 2010 (PMID 21145745) | Compare with Conduit 2010. |
+| **C: No correlation** | Centrosome age ≠ fate | Chatterjee 2018 (PMID 29663194) — cerebellar GNPs only | Publish null. |
+| **D: Tissue polarity reversal** | Daughter → stem (Drosophila NB), Mother → differentiating | Januschke et al. 2011 (PMID 21407209) — Nature Communications | Tissue/species-specific. ARGUS enables cross-tissue comparison. |
+
+| Scenario | Prediction | Precedent | Action if confirmed |
+|----------|------------|-----------|---------------------|
+| **A: Mother → stemness** | Mature mother → progenitor | Wang 2009 (PMID 19829375); Royall 2023 (PMID 37882444) | Compare with Royall 2023. |
+| **B: Daughter → stemness** | Immature daughter → progenitor | Conduit & Raff 2010 (PMID 21145745) | Compare with Conduit 2010. |
 | **C: No correlation** | Centrosome age ≠ fate | Chatterjee 2018 (PMID 29663194) — cerebellar GNPs only (tissue-specific null) | Publish null. |
 | **D: Tissue polarity reversal** | Daughter → stem (Drosophila NB), Mother → differentiating | Januschke et al. 2011 (PMID 21407209) — Nature Communications | Tissue/species-specific mechanisms. ARGUS enables cross-tissue comparison. |
 
@@ -177,7 +184,18 @@ coxph(Surv(time_to_cilium, cilium_status) ~ M + CellArea + DivisionNumber + Ki67
 
 ---
 
-## 5. Phase 2 (v2.0): Odf2 Domain Deletions — Causality
+## 5. Phase 2 (v2.0): Odf2 Domain Deletions — Structural Necessity, Not Age Causality
+
+> **🔴 CRITICAL DISTINCTION:** Odf2 KO proves that centrosome **structure** (appendages) is NECESSARY for cilium asymmetry. It does NOT prove that centrosome **age** (maturation state) is CAUSAL. These are different claims:
+>
+> - **Structural necessity:** "Without appendages → no asymmetry." Odf2 KO tests this.
+> - **Age causality:** "The AGE of the centrosome (divisions survived) causes fate divergence, not just the structural proteins." This requires manipulating age WITHOUT destroying structure.
+>
+> **What Odf2 domain deletions DO test:** Which appendage TYPE (distal vs. subdistal) is required for asymmetry. This is structural dissection, not age manipulation.
+>
+> **What WOULD test age causality:** Inducible PCM accumulation (tetracycline-inducible pericentrin to artificially "age" a centrosome), forced degradation of aged centrosomal proteins, or photoconversion-based age tracking (Dendra2-Centrin as in Valdes Michel 2025). These are beyond v1.0 scope — they require v3.0 (ARGUS-OS3) laser capabilities.
+>
+> **Honest framing for grant committees:** Phase 2 answers "Which centrosome substructure transmits the asymmetry signal?" — a structural question. Phase 3 answers "Is the centrosome age signal causal for fate?" — a causal question requiring ablation-capable hardware.
 
 Odf2 KO causes severe defects in distal/subdistal appendages and blocks ciliogenesis (Ishikawa 2005, PMID 15852003 — mouse F9 cells).
 - aa 188-806 → transition fibers/distal appendages (DA). Deletion → DA+SA− (distal present, subdistal absent). Cilia form but are abnormal.
