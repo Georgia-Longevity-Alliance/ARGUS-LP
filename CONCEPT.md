@@ -68,7 +68,7 @@
 >
 > **Pathway A — Spindle asymmetry (Thomas & Meraldi 2024, PMID 39012627):** Cenexin → Plk1 → pericentrin/γ-tubulin/Cdk5Rap2 → 3.1% spindle length asymmetry → daughter cell size difference → differential cilium assembly kinetics. Demonstrated in human RPE1 and MCF10A cells.
 >
-> **Pathway B — Asymmetric protein degradation (HYPOTHESIS):** Mother centrosome concentrates phospho-β-catenin and polyubiquitinated proteins targeted for proteasomal degradation → asymmetric inheritance of degradation-targeted proteins → HYPOTHESIZED to influence Wnt transcriptional programs. Asymmetric segregation demonstrated in human ESC/Cos7 (Fuentealba et al. 2008, PMID 18511557). **Transcription consequences NOT tested in human cells — this pathway is a hypothesis, not established fact.**
+> **Pathway B — Asymmetric protein degradation (POSSIBLE EXPLANATION, NOT TESTED HERE):** Mother centrosome concentrates phospho-β-catenin and polyubiquitinated proteins targeted for proteasomal degradation → asymmetric inheritance → COULD influence Wnt transcriptional programs. Segregation demonstrated in human ESC/Cos7 (Fuentealba et al. 2008, PMID 18511557). **Transcription consequences NOT tested in human cells.** Valdes Michel & Phillips 2025 (PMID 39813084) shows analogous mechanism in C. elegans (SYS-1/β-catenin at centrosome). **ARGUS-LP_OS does NOT test this mechanism.** Our goal is to establish whether the centrosome age→fate CORRELATION exists. Molecular mechanism testing requires separate biochemical experiments beyond this platform's scope.
 >
 > Both pathways predict the same observable: daughter inheriting the mature mother centrosome behaves differently. ARGUS-LP_OS measures the output. Phase 2 (Odf2 KO with domain deletions) dissects which pathway dominates.
 
