@@ -124,7 +124,7 @@
 |:----:|--------|
 | 1 | RPE1-hTERT Centrin1-GFP + H2B-GFP divide inside glove-box |
 | 2 | **Live tracking:** Centrin1-GFP follows centriole POSITIONS through mitosis |
-| 3 | Sisters tracked on CYTOO 2-cell islands for 48h. **H₂ analysis: FIRST cell cycle only** — time from cytokinesis to cilium ≥1 µm. Anderson & Stearns 2009 showed asymmetry in the immediate G1 phase; multi-generation tracking is not required for H₂. |
+| 3 | Sisters tracked on CYTOO islands for 48h. **H₂: 2-cell islands** (first cycle only, Anderson 2009). **H₃ lineage: 8-cell islands** (accommodates 2-3 generations). |
 | 4 | **Lineage tree:** track mother→daughters→granddaughters→great-granddaughters |
 | 5 | **Endpoint:** fix, Cenexin antibody → CLASSIFY + acetylated tubulin → cilium |
 | 6 | **Primary analysis:** time-to-ciliogenesis (Kaplan-Meier, hazard ratio) as function of _M_ |
@@ -293,7 +293,7 @@ Odf2 KO causes severe defects in distal/subdistal appendages and blocks ciliogen
 | Centrin1-GFP RPE1 | 0–1,000 |
 | Cenexin antibody | 200 |
 | RPE1-hTERT + NPCs | 600 |
-| CYTOO coverslips ×20 | 500 |
+| CYTOO 2-cell coverslips ×10 (H₂) + 8-cell coverslips ×10 (H₃) | 1,200 |
 | Tetraspeck beads | 200 |
 | IF antibodies | 200 |
 | Consumables | 300 |
