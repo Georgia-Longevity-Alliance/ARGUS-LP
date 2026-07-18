@@ -103,7 +103,7 @@
 | Confound | Control |
 |----------|---------|
 | Centrin1-GFP/H2B-GFP may alter centrosome/cell cycle | Untagged RPE1 vs. GFP-RPE1: compare cilium kinetics in Pilot 1. Δ>10% → use lower-expression clone. **Loncarek 2008 (PMID 18297061):** Centrin1 overexpression → aberrant centriole duplication. Use weak promoter (EF1α-short) if needed. |
-| IR 850 nm prolonged exposure (48h) — phototoxicity, heating unknown | IR-ON vs. IR-OFF arms in Pilot 0. Measure viability + temperature probe in medium (ΔT<0.5°C). Use pulsed mode (1s every 5 min) if continuous IR heats >0.5°C |
+| IR 850 nm prolonged exposure (48h) — phototoxicity, heating | IR-ON vs. IR-OFF arms in Pilot 0. RPE1 viability, ROS (CellROX), proliferation rate. Pulsed mode (1s/5min). **Literature basis:** 850 nm is outside GFP absorption (488 nm peak) and water absorption minimum — minimal photodamage expected. Kiepas et al. 2020 (PMID 32111840): 850 nm NIR safe for long-term live-cell imaging. |
 | Water immersion objective evaporation → focus drift | Automated water dispenser + saturated humidity in glove-box. Monitor focus drift with GFP beads |
 | Cenexin appendages disassemble during mitosis | Pilot 1: Cenexin IF at interphase/prophase/metaphase/telophase in synchronized cells. If >20% variation → use Ninein co-stain |
 | Cenexin _M_ ≠ direct age measurement | Pilot 1: Centrin1-Dendra2 photoconversion calibration. Compare Dendra2-age vs. Cenexin-age. Concordance <90% → Dendra2 becomes primary age marker |
@@ -111,6 +111,7 @@
 | Serum starvation effects on biology | Test in Pilot 2: ±serum conditions. If serum alters M→cilium → use cycling conditions |
 | CYTOO retention >48h unknown | Pilot 2: test both 48h and 72h. If 72h retention <80% but 48h ≥80% → use 48h protocol. Fallback for both: gridded microwell dishes |
 | 3.1% spindle asymmetry biologically meaningful? | Tested by experiment: if M (continuous) does NOT predict cilium timing → 3.1% below functional threshold |
+| Stochastic inheritance vs. age effect | Anderson 2009: 94% asymmetry despite 50% random inheritance → age EFFECT dominates stochasticity. Control: randomize centrosome inheritance (Ninein KD, Royall 2023) → asymmetry should drop to ~50% if age is causal. |
 
 ---
 
@@ -177,11 +178,13 @@ H₀: P(cilium | mature mother) = P(cilium | immature mother) = 0.5
 - With 70% cilium rate at 48h: N = 65/0.7 = **93 pairs**
 - **With 20% attrition + ICC ρ≤0.3:** N_planned = 93/(0.8×0.77) ≈ **150 pairs**
 
-**Target: 200 pairs with interim analysis at N=100** — detects HR ≥1.35 with 80% power. If interim HR <1.15 → increase to **N=300** (futility boundary not crossed). For HR=1.2, N=300 provides 80% power at ICC ρ=0.3. ICC estimated in Pilot 3, final N adjusted accordingly.
+**Target: N=300 pairs with interim analysis at N=150.** At N=200, Fine-Gray with ICC ρ=0.3, 20% attrition, 30% competing risk (division before cilium): effective N ≈ 86 pairs, power ~68% for HR=1.35. **N=300** provides effective N ≈ 129 pairs, power **82%** at HR=1.35. Interim at N=150: if HR<1.15 → escalate to N=400 or stop for futility. ICC estimated in Pilot 3, final N adjusted.
 
 **Multiple testing protocol (preregistered on OSF):** Hierarchical gatekeeping for primary→secondary. (1) Primary: time-to-cilium → if p<0.05, test secondaries. (2-4) Secondaries: cilium binary, Ki67, NPC markers — Benjamini-Hochberg FDR (q<0.1) within this level. If primary p≥0.05 → all secondaries descriptive only.
 
-**Power note:** At N=200 with ICC ρ=0.3, Fine-Gray competing risk model: actual power ~75% for HR=1.35 (not 80% as simplified Cox calculation suggests). Interim analysis at N=100: if HR<1.15 → escalate to N=300. Final N=300 provides 82% power at HR=1.35.
+**Power note:** At N=300 with ICC ρ=0.3, Fine-Gray competing risk model: effective N ≈ 129 pairs, power 82% at HR=1.35. Interim analysis at N=150: if HR<1.15 → escalate to N=400 or stop for futility.
+
+**Stop-rule:** If Pilot 3 (50 pairs) shows HR<1.1 for time-to-ciliogenesis → the 3.1% spindle asymmetry is below functional threshold for this phenotype. Redesign experiment (e.g., increase serum starvation, test in NPCs instead) rather than publish null.
 
 **Model (full):**
 ```
@@ -198,9 +201,9 @@ coxph(Surv(time_to_cilium, cilium_status) ~ M + CellArea + DivisionNumber + Ki67
 | **Pilot 1** | RPE1 Centrin1-GFP + Cenexin fix + phototoxicity + EdU + TOP/FOP Wnt reporter | 3 days | Centrin-Cenexin ≥90% + viability ≥90% + cell cycle stable + prolif. Δ<5% + Wnt asymmetry (exploratory) |
 | **Pilot 2** | CYTOO islands, 48h + 72h, 10 pairs each | 1 week | Cell retention ≥80% at both timepoints. 72h optional if ≥80%. |
 | **Pilot 3** | RPE1, 50 pairs | 2 weeks | Effect size for final N |
-| **Main RPE1** | RPE1-hTERT, 200 pairs, 48h (lineage tree, 2 gen). 72h optional. | 4 weeks | Primary: time-to-ciliogenesis |
+| **Main RPE1** | RPE1-hTERT, 300 pairs, 48h (H₂: 1st cycle cilium timing) | 4 weeks | Primary: time-to-ciliogenesis |
 | **Main NPCs** | hTERT-NPCs, 100 pairs, lineage tree (3 gen). **Gated:** Pilot NPC (10 pairs, 48h) must confirm centrosome asymmetry before main. | 4 weeks | Primary: Nestin→Tuj1/GFAP fate |
-| **Pilot NPC** | hTERT-NPCs, CYTOO 48h, 20 pairs + Nestin/Sox2 IF | 2 weeks | Go: ≥50% Nestin⁺/Sox2⁺ maintenance in 2D. **NOT gated on Cenexin asymmetry** — if markers are reproducible but Cenexin pattern differs from Royall 2023, this informs mechanism, not failure. |
+| **Pilot NPC** | hTERT-NPCs, CYTOO 48h, 30 pairs + Nestin/Sox2/Tuj1 IF | 2 weeks | Go: ≥50% Nestin⁺/Sox2⁺ maintenance in 2D. Quantify Cenexin asymmetry distribution for power calc. |
 | **Phase 2 (v2.0)** | RPE1 Odf2 KO + domain deletions (Tateishi 2013) | 4 weeks | Structural necessity |
 | **Phase 3 (v3.0)** | hTERT-NPCs + ExM endpoint | 6 weeks | Progenitor map |
 
