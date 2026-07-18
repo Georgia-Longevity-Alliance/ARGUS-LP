@@ -122,15 +122,15 @@
 |:----:|--------|
 | 1 | RPE1-hTERT Centrin1-GFP + H2B-GFP divide inside glove-box |
 | 2 | **Live tracking:** Centrin1-GFP follows centriole POSITIONS through mitosis |
-| 3 | Sisters tracked on CYTOO 2-cell islands for 48h (~2 cell cycles). 72h optional if Pilot 2 retention permits. |
+| 3 | Sisters tracked on CYTOO 2-cell islands for 48h. **H₂ analysis: FIRST cell cycle only** — time from cytokinesis to cilium ≥1 µm. Anderson & Stearns 2009 showed asymmetry in the immediate G1 phase; multi-generation tracking is not required for H₂. |
 | 4 | **Lineage tree:** track mother→daughters→granddaughters→great-granddaughters |
 | 5 | **Endpoint:** fix, Cenexin antibody → CLASSIFY + acetylated tubulin → cilium |
 | 6 | **Primary analysis:** time-to-ciliogenesis (Kaplan-Meier, hazard ratio) as function of _M_ |
 | 7 | **Secondary:** cilium presence (binary, McNemar) + Ki67 (proliferation status) |
 
-**Lineage design:** 48h = ~2 divisions. We track the full tree: which daughter inherits the mature centrosome at each division. **Centrosome age in generations 1-2** is inferred from the mitotic trajectory (mother centrosome identified at endpoint by Cenexin intensity → backtracked through Centrin1-GFP tracking). This inference is validated by the ≥90% concordance requirement in Pilot 1. Pairs with ambiguous backtracking are flagged and analysed separately as sensitivity check.
+**H₂ design rationale:** Anderson & Stearns 2009 demonstrated cilium asynchrony in the **first G1 phase** after mitosis. ARGUS-LP_OS quantifies this with time-to-event resolution. **One cell cycle is sufficient for H₂** — the mother→daughter cilium timing comparison. Multi-generation lineage is NOT required for the primary H₂ endpoint. This simplifies the experiment and eliminates the CYTOO multi-generation limitation.
 
-**72h extension (optional):** If Pilot 2 confirms ≥80% retention at 72h on CYTOO → extend to 3 generations for richer lineage data. Otherwise, 48h provides sufficient data for H₁ (platform validation) and H₂ (cilium kinetics).
+**Lineage design (H₃ only):** For NPC fate tracking, larger CYTOO patterns (8-cell islands) or gridded microwells are used to accommodate 2-3 generations. Alternatively, micromanipulator-assisted sister separation (ARGUS-OS3) enables clean multi-generation tracking.
 
 **Mitosis detection:** H2B-GFP chromatin condensation triggers 1-2 min imaging, ensuring centriole distribution is captured at the critical moment.
 
@@ -200,7 +200,7 @@ coxph(Surv(time_to_cilium, cilium_status) ~ M + CellArea + DivisionNumber + Ki67
 | **Pilot 3** | RPE1, 50 pairs | 2 weeks | Effect size for final N |
 | **Main RPE1** | RPE1-hTERT, 200 pairs, 48h (lineage tree, 2 gen). 72h optional. | 4 weeks | Primary: time-to-ciliogenesis |
 | **Main NPCs** | hTERT-NPCs, 100 pairs, lineage tree (3 gen). **Gated:** Pilot NPC (10 pairs, 48h) must confirm centrosome asymmetry before main. | 4 weeks | Primary: Nestin→Tuj1/GFAP fate |
-| **Pilot NPC** | hTERT-NPCs, CYTOO 48h, 20 pairs + Nestin/Sox2 IF | 2 weeks | Go/No-Go: ≥70% Cenexin asymmetry in 2D + ≥50% Nestin⁺/Sox2⁺ maintenance. If fail → H₃ exploratory; focus on RPE1. |
+| **Pilot NPC** | hTERT-NPCs, CYTOO 48h, 20 pairs + Nestin/Sox2 IF | 2 weeks | Go: ≥50% Nestin⁺/Sox2⁺ maintenance in 2D. **NOT gated on Cenexin asymmetry** — if markers are reproducible but Cenexin pattern differs from Royall 2023, this informs mechanism, not failure. |
 | **Phase 2 (v2.0)** | RPE1 Odf2 KO + domain deletions (Tateishi 2013) | 4 weeks | Structural necessity |
 | **Phase 3 (v3.0)** | hTERT-NPCs + ExM endpoint | 6 weeks | Progenitor map |
 
