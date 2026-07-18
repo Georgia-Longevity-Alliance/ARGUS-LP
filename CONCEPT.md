@@ -36,9 +36,12 @@
 
 | Scenario | Prediction | Precedent | Action if confirmed |
 |----------|------------|-----------|---------------------|
-| **A: Mother → stemness** | Mature mother → progenitor | Wang 2009 (PMID 19829375); Royall 2023 (PMID 37882444) | Compare with Royall 2023. Phase 3 (v2.0): PCM1/Notch mechanism. |
-| **B: Daughter → stemness** | Immature daughter → progenitor | Conduit & Raff 2010 (PMID 21145745) | Compare with Conduit 2010. Phase 3 (v2.0): alternative mechanism. |
-| **C: No correlation** | Centrosome age ≠ fate | Chatterjee 2018 (PMID 29663194) | **Publish null result.** Platform validated, biology absent in RPE1. Phase 2 (v1.5) Odf2 KO still performed — may reveal masked effect. |
+| **A: Mother → stemness** | Mature mother → progenitor | Wang 2009 (PMID 19829375); Royall 2023 (PMID 37882444) | Compare with Royall 2023. |
+| **B: Daughter → stemness** | Immature daughter → progenitor | Conduit & Raff 2010 (PMID 21145745) | Compare with Conduit 2010. |
+| **C: No correlation** | Centrosome age ≠ fate | Chatterjee 2018 (PMID 29663194) — cerebellar GNPs only (tissue-specific null) | Publish null. |
+| **D: Tissue polarity reversal** | Daughter → stem (Drosophila NB), Mother → differentiating | Januschke et al. 2011 (PMID 21407209) — Nature Communications | Tissue/species-specific mechanisms. ARGUS enables cross-tissue comparison. |
+
+> **Key insight:** The centrosome-fate relationship is **tissue- and species-specific.** Drosophila NB: daughter→stem (Januschke 2011). Mammalian glia: mother→stem (Wang 2009). Human NPC organoids: mother→self-renewal (Royall 2023). CD8+ T cells: mother→effector (Barandun 2025). There is NO universal rule. ARGUS-LP_OS provides the first platform to systematically measure this across cell types.
 
 ### 0.4. Three Hypotheses
 
@@ -176,7 +179,7 @@ coxph(Surv(time_to_cilium, cilium_status) ~ M + CellArea + DivisionNumber + Ki67
 
 ## 5. Phase 2 (v2.0): Odf2 Domain Deletions — Causality
 
-Odf2 KO abolishes distal and subdistal appendages (Ishikawa 2005, PMID 15852003). Different Odf2 domains control different appendage types (Tateishi 2013, PMID 24189274 — mouse F9 cells):
+Odf2 KO causes severe defects in distal/subdistal appendages and blocks ciliogenesis (Ishikawa 2005, PMID 15852003 — mouse F9 cells).
 - aa 188-806 → transition fibers/distal appendages (DA). Deletion → DA+SA− (distal present, subdistal absent). Cilia form but are abnormal.
 - aa 1-59 (N-terminal) → centriole recruitment. Deletion → no localization, no appendages, no cilia.
 - C-terminal domain → appendage formation after recruitment. Deletion → centrosome binding intact, appendages absent.
@@ -193,6 +196,8 @@ Odf2 KO abolishes distal and subdistal appendages (Ishikawa 2005, PMID 15852003)
 | **Odf2⁻/⁻ + Odf2(ΔC)** | C-terminal deletion | Centrosome binding intact, but NO appendage formation | **Pharmacological control.** Separates centrosome binding from appendage function |
 
 **Why this replaces HDAC6i:** Wang 2025 (PMID 40167251) is a review — no experimental data on Odf2⁻/⁻ rescue. PubMed search: 0 results for HDAC6i+Odf2 KO. Tateishi 2013 provides validated domain-level resolution. **Risk:** Tateishi used mouse F9 cells. Human RPE1 Odf2 constructs must be validated — this is a separate engineering task (6-8 weeks).
+
+**Centrosome age determination in Odf2-KO:** Without Cenexin/Odf2, the standard age marker is absent. Alternative: **Ninein** (subdistal appendage protein, validated in Royall 2023 for NPCs) or **Centrin1-GFP tracking** (trajectory-based inference from last Cenexin-positive division). Pilot experiments will validate Ninein as age proxy in Odf2-KO RPE1.
 
 ---
 
@@ -279,7 +284,8 @@ Odf2 KO abolishes distal and subdistal appendages (Ishikawa 2005, PMID 15852003)
 25. **Goutas A, Trachana V.** Stem cells' centrosomes. *World J Stem Cells* 13(9):1177-1196 (2021). **PMID: 34630857.** — Review: centrosome-directed stem cell fate manipulation.
 26. **Barandun N et al.** Targeted localization of the mother centrosome in CD8+ T cells undergoing ACD promotes memory formation. *Cell Rep* 44(1):115127 (2025). **PMID: 39764850.** — Mother centrosome → effector-like daughter (NOT memory) via ninein.
 27. **Fuentealba LC et al.** Asymmetric mitosis: Unequal segregation of proteins destined for degradation. *Proc Natl Acad Sci USA* 105(22):7732-7737 (2008). **PMID: 18511557.** — Human ESC + Cos7 + Drosophila. p-β-catenin & polyubiquitinated proteins at mother centrosome → asymmetric inheritance. Transcription consequences NOT tested in human cells.
-28. **Goutas A, Trachana V.** Stem cells' centrosomes. *World J Stem Cells* 13(9):1177-1196 (2021). **PMID: 34630857.** — Review: centrosome-directed stem cell fate manipulation.
+28. **Goutas A, Trachana V.** Stem cells' centrosomes. *World J Stem Cells* 13(9):1177-1196 (2021). **PMID: 34630857.**
+29. **Januschke J, Llamazares S, Reina J, Gonzalez C.** Drosophila neuroblasts retain the daughter centrosome. *Nat Commun* 2:243 (2011). **PMID: 21407209.** — Daughter centrosome → stem cell. Tissue polarity reversal vs. mammalian systems.
 
 ---
 
