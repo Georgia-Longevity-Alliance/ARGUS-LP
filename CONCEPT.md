@@ -86,7 +86,7 @@
 
 > **RPE1-hTERT** is an epithelial cell line used for **platform validation** and **cilium kinetics** (H₂). RPE1 does not undergo asymmetric fate-determining divisions — cilium formation is a cell cycle response (G1→G0), not a terminal fate decision. H₂ measures whether centrosome age predicts **timing of cilium assembly**, a quantitative, objectively measurable phenotype with a known baseline (Anderson & Stearns 2009: 94% asymmetric cilium growth).
 >
-> **hTERT-NPCs** are the **fate model** (H₃, co-primary). Royall 2023 demonstrated mother centrosome → self-renewal in **organoid-derived** NPCs. **⚠️ 2D contingency:** (1) Royall used hESC 3D organoids, not hTERT 2D. (2) If Pilot NPC shows <60% Cenexin asymmetry in 2D → switch to **CYTOO micropatterns with Matrigel overlay** (2.5D) which better mimics tissue architecture while maintaining compatibility with ARGUS imaging. (3) 2D is preferred for screening and mechanistic experiments (knockouts, inhibitors) due to homogeneity, accessibility, and high-throughput compatibility. **Pilot NPC** (30 pairs, 24-96h time series) determines: (a) optimal endpoint, (b) centrosome asymmetry in 2D/2.5D, (c) effect size.
+> **hTERT-NPCs** are the **fate model** (H₃, co-primary). Royall 2023 demonstrated mother centrosome → self-renewal in **organoid-derived** NPCs. **⚠️ 2D Go/No-Go:** Pilot NPC (30 pairs, 24-96h). **≥60%** Cenexin asymmetry in 2D → proceed. **40-60%** → switch to 2.5D Matrigel overlay. **<40%** → RPE1-only; NPCs become exploratory.
 >
 > This two-tier design separates **platform validation** (RPE1 — directly literature-supported) from **biological discovery** (NPCs — requires methodological validation).
 
@@ -195,7 +195,7 @@ H₀: P(cilium | mature mother) = P(cilium | immature mother) = 0.5
 
 **Multiple testing protocol (preregistered on OSF):** Hierarchical gatekeeping. (1) Primary: time-to-cilium → if p<0.05, test secondaries. (2-3) Secondaries: cilium binary, Shh/Gli1 asymmetry — Benjamini-Hochberg FDR (q<0.1). (4) NPC markers. If primary p≥0.05 → all secondaries descriptive only.
 
-**ICC sensitivity:** N=300 assumes ICC ρ=0.3. **Adjusted formula:** N_adj = N_base / (1 - attrition) × (1 + (m-1)ρ). For m=2, ρ=0.3, 20% attrition: N_adj = 300 / 0.8 × 1.3 = 487. Conservative: N=500 if ICC>0.4.
+**ICC sensitivity:** N=300 assumes ICC ρ=0.3. Total required: N_total = N_base/(1-attrition) × (1+(m-1)ρ) = 300/0.8×1.3 ≈ **500 pairs**. Effective info: 500/1.3≈385 pairs, 70% cilium rate → ~270 events, power >85% at HR=1.35. If Pilot 3 ICC>0.4 → N_total=600.
 
 **Interim analysis:** O'Brien-Fleming group sequential design. Single interim at N=150 (α spending: 0.005 at interim, 0.048 at final). Stop for efficacy if p<0.005; stop for futility if HR<1.15.
 
