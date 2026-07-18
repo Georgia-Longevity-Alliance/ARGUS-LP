@@ -76,7 +76,7 @@
 
 > **RPE1-hTERT** is an epithelial cell line used for **platform validation** and **cilium kinetics** (H₂). RPE1 does not undergo asymmetric fate-determining divisions — cilium formation is a cell cycle response (G1→G0), not a terminal fate decision. H₂ measures whether centrosome age predicts **timing of cilium assembly**, a quantitative, objectively measurable phenotype with a known baseline (Anderson & Stearns 2009: 94% asymmetric cilium growth).
 >
-> **hTERT-NPCs** are the **fate model** (H₃). Royall 2023 demonstrated mother centrosome → self-renewal in **organoid-derived** NPCs. **⚠️ Critical caveat:** Royall used hESC-derived 3D organoids, not hTERT-immortalized 2D monolayer. hTERT-NPCs may differ in centrosome asymmetry. **Pilot NPC** (10 pairs, 48h, CYTOO) validates centrosome asymmetry in 2D before main experiment. Go/No-Go: ≥70% pairs must show Cenexin asymmetry. If <70% → H₃ downgraded to exploratory; primary focus remains on RPE1 (H₂).
+> **hTERT-NPCs** are the **fate model** (H₃). Royall 2023 demonstrated mother centrosome → self-renewal in **organoid-derived** NPCs. **⚠️ Caveats:** (1) Royall used hESC-derived 3D organoids, not hTERT-immortalized 2D monolayer. (2) Organoid differentiation takes weeks; 2D NPCs may require >48h for fate markers (Tuj1/GFAP). **Pilot NPC** (30 pairs, 24-96h time series) determines: (a) optimal endpoint for fate readout, (b) centrosome asymmetry in 2D, (c) effect size for power calculation.
 >
 > This two-tier design separates **platform validation** (RPE1 — directly literature-supported) from **biological discovery** (NPCs — requires methodological validation).
 
@@ -203,8 +203,8 @@ coxph(Surv(time_to_cilium, cilium_status) ~ M + CellArea + DivisionNumber + Ki67
 | **Pilot 2** | CYTOO islands, 48h + 72h, 10 pairs each | 1 week | Cell retention ≥80% at both timepoints. 72h optional if ≥80%. |
 | **Pilot 3** | RPE1, 50 pairs | 2 weeks | Effect size for final N |
 | **Main RPE1** | RPE1-hTERT, 300 pairs, 48h (H₂: 1st cycle cilium timing) | 4 weeks | Primary: time-to-ciliogenesis |
-| **Main NPCs** | hTERT-NPCs, 100 pairs, lineage tree (3 gen). **Gated:** Pilot NPC (10 pairs, 48h) must confirm centrosome asymmetry before main. | 4 weeks | Primary: Nestin→Tuj1/GFAP fate |
-| **Pilot NPC** | hTERT-NPCs, CYTOO 48h, 30 pairs + Nestin/Sox2/Tuj1 IF | 2 weeks | Go: ≥50% Nestin⁺/Sox2⁺ maintenance in 2D. Quantify Cenexin asymmetry distribution for power calc. |
+| **Main NPCs** | hTERT-NPCs, 150 pairs, endpoint from Pilot NPC time series | 4 weeks | Primary: Nestin→Tuj1/GFAP fate |
+| **Pilot NPC** | hTERT-NPCs, CYTOO, 30 pairs, time series 24/48/72/96h + Nestin/Sox2/Tuj1/GFAP IF at each point | 2 weeks | Determine optimal endpoint + centrosome asymmetry in 2D + effect size |
 | **Phase 2 (v2.0)** | RPE1 Odf2 KO + domain deletions (Tateishi 2013) | 4 weeks | Structural necessity |
 | **Phase 3 (v3.0)** | hTERT-NPCs + ExM endpoint | 6 weeks | Progenitor map |
 
@@ -241,7 +241,7 @@ Odf2 KO causes severe defects in distal/subdistal appendages and blocks ciliogen
 
 **Why this replaces HDAC6i:** Wang 2025 (PMID 40167251) is a review — no experimental data on Odf2⁻/⁻ rescue. PubMed search: 0 results for HDAC6i+Odf2 KO. Tateishi 2013 provides validated domain-level resolution. **Risk:** Tateishi used mouse F9 cells. Human RPE1 Odf2 constructs must be validated — this is a separate engineering task (6-8 weeks).
 
-**Centrosome age determination in Odf2-KO:** Without Cenexin/Odf2, the standard age marker is absent. **Inducible Odf2 KO** (tetracycline-inducible shRNA or auxin-inducible degron). Induce KO after 1-2 Cenexin-positive divisions → backtrack from last Cenexin⁺ frame. **Plan B:** If inducible KO fails (leaky expression, incomplete KO, or toxicity) → use **Centrin1-Dendra2 photoconversion** as primary age marker (independent of appendage proteins). Photoconvert in G1 → red signal marks older centriole → track through KO. **Plan C:** Pharmacological Plk1 inhibition (BI 2536, 10 nM) — blocks Cenexin→Plk1→γ-tubulin axis without destroying centrosome structure, providing orthogonal test of the maturation pathway.
+**Centrosome age determination in Odf2-KO:** Without Cenexin/Odf2, the standard age marker is absent. **Primary alternative: Ninein** — validated by Royall 2023 (PMID 37882444) for NPCs, Barandun 2025 (PMID 39764850) for T cells. Ninein is a subdistal appendage protein that, unlike Cenexin, persists through mitosis and is NOT encoded by Odf2 (independent of the KO). **Inducible Odf2 KO** (tetracycline-inducible shRNA or auxin-inducible degron). Induce KO after 1-2 Cenexin-positive divisions → backtrack from last Cenexin⁺ frame. **Plan B:** If inducible KO fails → Centrin1-Dendra2 photoconversion as primary age marker. **Plan C:** Pharmacological Plk1 inhibition (BI 2536, 10 nM) — blocks Cenexin→Plk1→γ-tubulin axis without destroying centrosome structure.
 
 ---
 
