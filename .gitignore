@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.pyc
+venv/
+.env
+
+# Rust
+target/
+Cargo.lock
+
+# CAD / 3D prints
+*.gcode
+*.stl
+
+# Data
+*.tiff
+*.tif
+*.nd2
+*.czi
+data/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
