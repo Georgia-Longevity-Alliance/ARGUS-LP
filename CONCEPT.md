@@ -176,7 +176,7 @@ coxph(Surv(time_to_cilium, cilium_status) ~ M + CellArea + DivisionNumber + Ki67
 | Stage | System | Duration | Go/No-Go |
 |:-----:|--------|:--------:|----------|
 | **Pilot 0** | GFP beads, 7 days, 60×/1.2 NA | 1 week | Drift <5 µm/24h |
-| **Pilot 1** | RPE1 Centrin1-GFP + Cenexin fix + phototoxicity + EdU proliferation | 3 days | Centrin-Cenexin ≥90% + viability ≥90% vs dark + Cenexin cell cycle stability + GFP vs WT proliferation (EdU) Δ<5% |
+| **Pilot 1** | RPE1 Centrin1-GFP + Cenexin fix + phototoxicity + EdU + TOP/FOP Wnt reporter | 3 days | Centrin-Cenexin ≥90% + viability ≥90% + cell cycle stable + prolif. Δ<5% + Wnt asymmetry (exploratory) |
 | **Pilot 2** | CYTOO islands, 48h + 72h, 10 pairs each | 1 week | Cell retention ≥80% at both timepoints. 72h optional if ≥80%. |
 | **Pilot 3** | RPE1, 50 pairs | 2 weeks | Effect size for final N |
 | **Main RPE1** | RPE1-hTERT, 200 pairs, 48h (lineage tree, 2 gen). 72h optional. | 4 weeks | Primary: time-to-ciliogenesis |
@@ -268,10 +268,18 @@ Odf2 KO causes severe defects in distal/subdistal appendages and blocks ciliogen
 | Outcome | Action |
 |---------|--------|
 | **p<0.05, Scenario A or B** | Publish: first live-cell centrosome-aware lineage map. Platform paper + biology paper. |
-| **p≥0.05, Scenario C** | Publish: platform paper + null result. «Centrosome maturation state does not predict cilium fate in RPE1.» Negative result is scientifically valuable, confirms Chatterjee 2018. |
-| **Platform failure** | Publish: technical report. What worked, what didn't. OpenFlexure incubator data. |
+| **p≥0.05, Scenario C** | Publish: platform paper + null result. «Centrosome maturation state does not predict cilium fate in RPE1.» |
+| **Platform failure (H₁ fails)** | Publish: technical report. What worked, what didn't. OpenFlexure glove-box data. |
 
 **We publish regardless.**
+
+### 8.1. Value of a Null Result
+
+A negative H₂ result is scientifically informative, not a failure:
+1. **Functional threshold:** 3.1% spindle asymmetry (Thomas & Meraldi 2024) may be below the threshold for biologically meaningful fate divergence — establishing this threshold is valuable data.
+2. **Confirms Chatterjee 2018** in a second cell type (RPE1), strengthening the case for tissue-specific centrosome-fate coupling.
+3. **Platform validated regardless** — ARGUS-LP_OS remains the first open-source centrosome-aware lineage tracker, enabling future experiments in other cell types.
+4. **Meta-analysis contribution:** systematic negative data is rare and highly cited — knowing where centrosome asymmetry does NOT matter is as important as knowing where it does.
 
 ---
 
