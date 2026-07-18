@@ -24,9 +24,13 @@
 - [ ] Endpoint: Cenexin antibody + acetylated tubulin + Ki67 + differentiation markers
 - [ ] Publish: platform paper + biology result (regardless of outcome)
 
-## Phase 2 (v1.5) — Causality (RPE1-hTERT)
+## Phase 2 (v2.0) — Causality (RPE1-hTERT)
 
-- [ ] CRISPR Odf2 KO + HDAC6i (tubacin) rescue
+- [ ] CRISPR Odf2 KO in RPE1-hTERT (clonal selection, Western + IF validation)
+- [ ] Odf2(FL)-GFP rescue — positive control (appendages + cilia restored)
+- [ ] Odf2(Δ188-806)-GFP — distal appendages only (Tateishi 2013)
+- [ ] Odf2(Δ1-59)-GFP — no centriole recruitment, negative control
+- [ ] Odf2(ΔC)-GFP — binds centrosome, no appendages (pharmacological control)
 - [ ] Odf2⁺/⁻ heterozygous dose-response
 
 ## Phase 3 (v2.0) — Progenitor Map (hTERT-NPCs)

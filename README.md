@@ -9,7 +9,7 @@ Built on [OpenFlexure](https://openflexure.org/) v6.1.5 inside a standard CO₂ 
 | Version | Project | Hardware | Experiment | Laser | Budget |
 |:-------:|---------|----------|------------|:-----:|:------:|
 | **v1.0** | [ARGUS-LP_OS](./) | OF v6.1.5, 60×/1.2 NA WI, LED 488, glove-box (HEPA H13), night vision | RPE1 observation | ❌ | **$24,053** |
-| **v2.0** | [ARGUS-OS2](../ARGUS-OS2/) | Same as v1.0 + Odf2 KO reagents | Causality (Odf2 KO + HDAC6i) | ❌ | +$3,000 |
+| **v2.0** | [ARGUS-OS2](../ARGUS-OS2/) | Same as v1.0 + Odf2 domain deletion reagents (Tateishi 2013) | Causality (Odf2 KO + FL/Δ188-806/Δ1-59/ΔC rescue) | ❌ | +$6,000 |
 | **v3.0** | [ARGUS-OS3](../ARGUS-OS3/) | v1.0 + micromanipulator, fs laser, sCMOS, UV-C, Mac M4 Pro | NPC ablation + injection | ✅ | **$40,600** |
 
 > **First grant = v1.0** ($24,053). Observation only. Own glove-box. No laser. No micromanipulator. v2.0 and v3.0 are separate projects with their own core files.
@@ -119,7 +119,7 @@ Built on [OpenFlexure](https://openflexure.org/) v6.1.5 inside a standard CO₂ 
 
 ## What this IS NOT
 
-- **NOT** a causal experiment (Odf2 KO = [v2.0](../ARGUS-OS2/))
+- **NOT** a causal experiment (Odf2 domain deletions = [v2.0](../ARGUS-OS2/))
 - **NOT** a mechanistic study (PCM1/Notch = v3.0+)
 - **NOT** a laser ablation platform in v1.0
 - **NOT** a "barcode" — maturation state is dynamic, graded, evolved

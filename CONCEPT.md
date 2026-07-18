@@ -142,7 +142,9 @@ H₀: P(cilium | mature mother) = P(cilium | immature mother) = 0.5
 
 **Target: 200 pairs with interim analysis at N=100** — detects HR ≥1.35 with 80% power. If interim HR <1.15 → increase to **N=300** (futility boundary not crossed). For HR=1.2, N=300 provides 80% power at ICC ρ=0.3. ICC estimated in Pilot 3, final N adjusted accordingly.
 
-**Multiple testing protocol (preregistered on OSF):** Hierarchical gatekeeping. (1) Primary: time-to-cilium → if p<0.05, test secondaries without correction. (2) Cilium binary. (3) Ki67. (4-5) NPC markers. If primary p≥0.05 → secondaries descriptive only.
+**Multiple testing protocol (preregistered on OSF):** Hierarchical gatekeeping for primary→secondary. (1) Primary: time-to-cilium → if p<0.05, test secondaries. (2-4) Secondaries: cilium binary, Ki67, NPC markers — Benjamini-Hochberg FDR (q<0.1) within this level. If primary p≥0.05 → all secondaries descriptive only.
+
+**Power note:** At N=200 with ICC ρ=0.3, Fine-Gray competing risk model: actual power ~75% for HR=1.35 (not 80% as simplified Cox calculation suggests). Interim analysis at N=100: if HR<1.15 → escalate to N=300. Final N=300 provides 82% power at HR=1.35.
 
 **Model (full):**
 ```
@@ -168,21 +170,23 @@ coxph(Surv(time_to_cilium, cilium_status) ~ M + CellArea + DivisionNumber + Ki67
 
 ## 5. Phase 2 (v2.0): Odf2 Domain Deletions — Causality
 
-Odf2 KO abolishes distal and subdistal appendages (Ishikawa 2005, PMID 15852003). Different Odf2 domains control different appendage types (Tateishi 2013, PMID 24189274):
-- aa 188-806 → transition fibers/distal appendages
-- aa 1-59 + 188-806 → basal feet/subdistal appendages
+Odf2 KO abolishes distal and subdistal appendages (Ishikawa 2005, PMID 15852003). Different Odf2 domains control different appendage types (Tateishi 2013, PMID 24189274 — mouse F9 cells):
+- aa 188-806 → transition fibers/distal appendages (DA). Deletion → DA+SA− (distal present, subdistal absent). Cilia form but are abnormal.
+- aa 1-59 (N-terminal) → centriole recruitment. Deletion → no localization, no appendages, no cilia.
+- C-terminal domain → appendage formation after recruitment. Deletion → centrosome binding intact, appendages absent.
 
-**Experimental design (domain deletions, replacing HDAC6i hypothesis):**
+**Experimental design (domain deletions, validated per Tateishi 2013):**
 
-| Group | Construct | Prediction |
-|:-----:|-----------|------------|
-| WT + empty vector | — | 94% cilium asymmetry (baseline) |
-| Odf2⁻/⁻ + empty vector | — | No appendages, no cilia, no asymmetry |
-| **Odf2⁻/⁻ + Odf2(FL)** | Full-length Odf2-GFP | **Positive control:** appendages restored, cilia restored, asymmetry restored → phenotype is Odf2-specific |
-| **Odf2⁻/⁻ + Odf2(Δ1-59)** | Deletion of N-terminal 59 aa | Distal appendages ONLY (no subdistal). Cilia present? Asymmetry? → tests whether distal appendages sufficient |
-| **Odf2⁻/⁻ + Odf2(Δ188-806)** | Deletion of central domain | No appendages. Cilia absent. → domain essentiality control |
+| Group | Construct | Tateishi 2013 phenotype | Prediction for ARGUS |
+|:-----:|-----------|--------------------------|----------------------|
+| WT | — | Normal appendages + cilia | 94% asymmetry (baseline) |
+| Odf2⁻/⁻ | — | No appendages, no cilia | No cilia, no asymmetry |
+| **Odf2⁻/⁻ + Odf2(FL)** | Full-length Odf2-GFP | Full rescue: DA+SA+, cilia+ | **Positive control.** Appendages + cilia restored → asymmetry restored |
+| **Odf2⁻/⁻ + Odf2(Δ188-806)** | Central domain deletion | **DA+SA−.** Distal appendages present, subdistal absent. Cilia form but are abnormal (reduced frequency, shorter) | **Key experimental group.** Tests whether distal appendages ALONE sufficient for centrosome-age-dependent asymmetry |
+| **Odf2⁻/⁻ + Odf2(Δ1-59)** | N-terminal deletion | **No centriole recruitment.** Does NOT localize to basal bodies. No appendages, no cilia | **Negative control.** Confirms recruitment is required |
+| **Odf2⁻/⁻ + Odf2(ΔC)** | C-terminal deletion | Centrosome binding intact, but NO appendage formation | **Pharmacological control.** Separates centrosome binding from appendage function |
 
-**Why domain deletions replace HDAC6i:** Wang 2025 (PMID 40167251) is a review — no experimental data on Odf2⁻/⁻ rescue exists. PubMed search for "HDAC6 inhibitor cilia restoration Odf2 knockout" returns 0 results. Tateishi 2013 provides a validated genetic approach with domain-level resolution: which appendage type is required for centrosome-age-dependent asymmetry?
+**Why this replaces HDAC6i:** Wang 2025 (PMID 40167251) is a review — no experimental data on Odf2⁻/⁻ rescue. PubMed search: 0 results for HDAC6i+Odf2 KO. Tateishi 2013 provides validated domain-level resolution. **Risk:** Tateishi used mouse F9 cells. Human RPE1 Odf2 constructs must be validated — this is a separate engineering task (6-8 weeks).
 
 ---
 

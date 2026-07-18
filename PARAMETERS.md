@@ -91,12 +91,14 @@
 
 **We publish regardless.**
 
-## Phase 2 (v1.5) — Causality
+## Phase 2 (v2.0) — Causality
 
 | Experiment | System | Cost |
 |------------|--------|-----:|
-| Odf2 KO + HDAC6i rescue | RPE1-hTERT | $3,000 |
-| Cenexin domain-specific KO | RPE1-hTERT (Phase 3 / v2.0) | $3,000 |
+| Odf2 KO + Odf2(FL) rescue (positive control) | RPE1-hTERT | $1,500 |
+| Odf2 KO + Odf2(Δ188-806) — distal only, subdistal absent | RPE1-hTERT | $1,500 |
+| Odf2 KO + Odf2(Δ1-59) — no recruitment, no cilia (negative control per Tateishi 2013) | RPE1-hTERT | $1,500 |
+| Odf2 KO + Odf2(ΔC) — binds centrosome, no appendages (pharmacological control) | RPE1-hTERT | $1,500 |
 
 ## Phase 3 (v2.0) — Progenitor Map
 
