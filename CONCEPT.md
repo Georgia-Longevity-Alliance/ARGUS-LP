@@ -28,7 +28,7 @@
 
 ### 0.2. Maturation State Definition
 
-> **Maturation state is operationally defined as the Cenexin fluorescence intensity ratio: _M = I(Cenexin)ᵃ / I(Cenexin)ᵇ_.** _M_ is a continuous variable in all primary analyses. A binary threshold (_M > 1.5_) is calibrated via ROC analysis in Pilot 1.
+> **Maturation state is operationally defined as the Cenexin fluorescence intensity ratio: _M = I(Cenexin)ᵃ / I(Cenexin)ᵇ_.** _M_ is a continuous variable in all primary analyses. ROC calibration in Pilot 1: **Go: AUC≥0.85, sensitivity≥85%, specificity≥85%** for _M_>1.5 vs. Dendra2-assigned age. If AUC<0.80 → Dendra2 becomes primary age marker for main experiment.
 >
 > **⚠️ Mitosis caveat:** Distal/subdistal appendages partially disassemble during mitosis (reviewer comment on Thomas & Meraldi 2024). Cenexin staining intensity may fluctuate through the cell cycle. Pilot 1 validates Cenexin signal at different cell cycle stages.
 >
@@ -102,7 +102,7 @@
 
 | Confound | Control |
 |----------|---------|
-| Centrin1-GFP/H2B-GFP may alter centrosome/cell cycle | Untagged RPE1 vs. GFP-RPE1: compare cilium kinetics in Pilot 1. Δ>10% → use lower-expression clone. **Loncarek 2008 (PMID 18297061):** Centrin1 overexpression → aberrant centriole duplication. Use weak promoter (EF1α-short) if needed. |
+| Centrin1-GFP/H2B-GFP may alter centrosome/cell cycle | **CRISPR-KI preferred.** If lentiviral: Western blot (≤2× endogenous=GO), centriole count (≤2.2/G1), FRAP turnover (±20%). Loncarek 2008 (PMID 18297061). |
 | IR 850 nm prolonged exposure (48h) — phototoxicity, heating | IR-ON vs. IR-OFF arms in **Pilot 0.5**: viability (Live/Dead), proliferation (EdU), ROS (CellROX), apoptosis (caspase-3/7) at 0/24/48h. Δ>10% in any metric → reduce IR duty cycle or switch to pulsed mode (1s/10min). Kiepas et al. 2020 (PMID 32111840): 850 nm safe for long-term live-cell imaging. |
 | Water immersion objective evaporation → focus drift | Automated water dispenser + saturated humidity in glove-box. Monitor focus drift with GFP beads |
 | Cenexin appendages disassemble during mitosis | Pilot 1: Cenexin IF at interphase/prophase/metaphase/telophase. If >20% variation → Ninein co-stain |
