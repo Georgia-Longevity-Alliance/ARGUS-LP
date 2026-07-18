@@ -128,7 +128,7 @@
 | 4 | **Lineage tree:** track mother→daughters→granddaughters→great-granddaughters |
 | 5 | **Endpoint:** fix, Cenexin antibody → CLASSIFY + acetylated tubulin → cilium |
 | 6 | **Primary analysis:** time-to-ciliogenesis (Kaplan-Meier, hazard ratio) as function of _M_ |
-| 7 | **Secondary:** cilium presence (binary, McNemar) + Ki67 (proliferation status) |
+| 7 | **Secondary:** cilium presence (binary, McNemar) + **Shh signaling asymmetry** (Gli1 nuclear IF) |
 
 **H₂ design rationale:** Anderson & Stearns 2009 demonstrated cilium asynchrony in the **first G1 phase** after mitosis. ARGUS-LP_OS quantifies this with time-to-event resolution. **One cell cycle is sufficient for H₂** — the mother→daughter cilium timing comparison. Multi-generation lineage is NOT required for the primary H₂ endpoint. This simplifies the experiment and eliminates the CYTOO multi-generation limitation.
 
@@ -146,7 +146,7 @@
 |----------|:----:|-------------|----------|
 | **Time-to-ciliogenesis** | 🎯 Primary | Hours from cytokinesis to acetylated tubulin⁺ cilium ≥1 µm | Kaplan-Meier, Cox PH (hazard ratio per unit _M_) |
 | Cilium presence at 48h | Secondary | Binary (yes/no) | McNemar (paired) |
-| Ki67 status | Secondary | Binary (Ki67⁺/Ki67⁻) | McNemar (paired) |
+| Shh signaling asymmetry | Secondary | Gli1 nuclear/cytoplasmic ratio IF | McNemar (paired) |
 | Differentiation (NPCs) | Tertiary | Nestin/Sox2 → Tuj1/GFAP | Fisher exact |
 
 **Time-to-ciliogenesis measurement:** Cilium formation is measured in EACH cell cycle. Cells lose cilia before mitosis → reform in G1. The clock starts at cytokinesis of each division. If a cell divides before forming a cilium → competing event. Model: recurrent events (Prentice-Williams-Peterson gap-time model) stratified by cell cycle number. Primary readout: hazard ratio for cilium formation in cycle 1 (most proximal to centrosome inheritance).
@@ -164,7 +164,7 @@
 **Primary test (time-to-ciliogenesis):** Cox proportional hazards model.
 
 ```
-coxph(Surv(time_to_cilium, cilium_status) ~ M + CellArea + DivisionNumber + cluster(MotherID))
+coxme(Surv(time_to_cilium, cilium_status) ~ M + CellArea + DivisionNumber + (1|MotherID) + (1|IslandID) + (1|PlateID))
 ```
 
 **Secondary test (binary):** McNemar for paired binary outcome.
@@ -181,16 +181,21 @@ H₀: P(cilium | mature mother) = P(cilium | immature mother) = 0.5
 
 **Target: N=300 pairs with interim analysis at N=150.** At N=200, Fine-Gray with ICC ρ=0.3, 20% attrition, 30% competing risk (division before cilium): effective N ≈ 86 pairs, power ~68% for HR=1.35. **N=300** provides effective N ≈ 129 pairs, power **82%** at HR=1.35. Interim at N=150: if HR<1.15 → escalate to N=400 or stop for futility. ICC estimated in Pilot 3, final N adjusted.
 
-**Multiple testing protocol (preregistered on OSF):** Hierarchical gatekeeping for primary→secondary. (1) Primary: time-to-cilium → if p<0.05, test secondaries. (2-4) Secondaries: cilium binary, Ki67, NPC markers — Benjamini-Hochberg FDR (q<0.1) within this level. If primary p≥0.05 → all secondaries descriptive only.
+**Multiple testing protocol (preregistered on OSF):** Hierarchical gatekeeping. (1) Primary: time-to-cilium → if p<0.05, test secondaries. (2-3) Secondaries: cilium binary, Shh/Gli1 asymmetry — Benjamini-Hochberg FDR (q<0.1). (4) NPC markers. If primary p≥0.05 → all secondaries descriptive only.
 
 **ICC sensitivity:** N=300 assumes ICC ρ=0.3. If Pilot 3 shows ICC>0.4 → escalate to N=500 (effective N≈107 at ICC=0.5 vs. 129 at ICC=0.3). Final N determined after Pilot 3.
 
 **Stop-rule:** If Pilot 3 (50 pairs) shows HR<1.1 for time-to-ciliogenesis → the 3.1% spindle asymmetry is below functional threshold for this phenotype. Redesign (increase serum starvation, test NPCs). **Sensitivity:** If interim at N=150 shows HR<1.2 → escalate to N=500. At HR=1.2, N=500 with ICC=0.3 gives ~78% power.
 
-**Model (full):**
+**Model (full, multi-level):**
 ```
-coxph(Surv(time_to_cilium, cilium_status) ~ M + CellArea + DivisionNumber + Ki67 + strata(Generation) + cluster(MotherID))
+coxme(Surv(time_to_cilium, cilium_status) ~ M + CellArea + DivisionNumber + (1|MotherID) + (1|IslandID) + (1|PlateID))
 ```
+Random intercepts for IslandID/PlateID account for micropattern and batch variability. **Constant M:** Cenexin at endpoint is representative of division-time state (conservative — if M changes, noise ↑).
+
+**Anderson effect size gap:** Anderson & Stearns 2009 reported 94% asymmetry. Our HR=1.35 is conservative because: (a) CYTOO adds mechanical constraint, (b) hTERT-RPE1 may differ, (c) 48h time-lapse phototoxicity. If true effect ≈94% → N=300 is overpowered (detects HR=1.2).
+
+**Data/Code:** Raw images→BioImage Archive (CC0). Code→GitHub+Docker. ELN→eLabFTW. BOM in hardware/README.md.
 
 ---
 
