@@ -246,7 +246,7 @@ Odf2 KO causes severe defects in distal/subdistal appendages and blocks ciliogen
 - aa 1-59 (N-terminal) → centriole recruitment. Deletion → no localization, no appendages, no cilia.
 - C-terminal domain → appendage formation after recruitment. Deletion → centrosome binding intact, appendages absent.
 
-**Experimental design (domain deletions, validated per Tateishi 2013):**
+**Experimental design (domain deletions, structural phenotypes per Tateishi 2013; asymmetry predictions are OUR HYPOTHESIS — NOT tested by Tateishi):**
 
 | Group | Construct | Tateishi 2013 phenotype | Prediction for ARGUS |
 |:-----:|-----------|--------------------------|----------------------|
