@@ -13,7 +13,7 @@
 >
 > **🔴 CRITICAL: Thomas & Meraldi showed SPINDLE asymmetry (3.1%) in human cells — but the authors themselves noted "the functional significance is unclear." Fuentealba showed CENTROSOMAL ASYMMETRIC SEGREGATION in human cells. Neither tested FATE. ARGUS-LP_OS is the FIRST direct test of whether these mechanisms produce biologically meaningful fate divergence. We do not assume. We measure.**
 >
-> **Competitive landscape:** Meraldi Lab (U Geneva) demonstrated the 3.1% mechanism but has not published fate consequences. Jessberger Lab (U Zurich, Royall 2023) showed centrosome→fate in organoid NPCs but not in single-cell time-lapse. Tsukita Lab (Odf2 domains) provides the genetic tools. ARGUS-LP_OS bridges all three: single-cell time-lapse resolution + fate readout + open platform at $24K.
+> **Competitive landscape:** Meraldi Lab (U Geneva) demonstrated the 3.1% mechanism in RPE1 but has not published fate tracking. Jessberger Lab (U Zurich, Royall 2023) showed centrosome→fate in organoid NPCs using closed commercial systems. Tsukita Lab (Odf2 domains) provides genetic tools. **ARGUS-LP_OS is not the first to study this question — it is the first to make it ACCESSIBLE.** Unique value proposition: (1) open hardware (GPLv3/CC-BY-SA) at $24K vs. $80-200K commercial systems, (2) autonomous 48h operation with night vision, (3) integrated centrosome tracking + fate readout in a single platform. No existing system combines all three.
 
 ### 0.1. Two Fluorescent Probes, Two Tasks
 
@@ -200,8 +200,8 @@ coxph(Surv(time_to_cilium, cilium_status) ~ M + CellArea + DivisionNumber + Ki67
 | **Pilot 3** | RPE1, 50 pairs | 2 weeks | Effect size for final N |
 | **Main RPE1** | RPE1-hTERT, 200 pairs, 48h (lineage tree, 2 gen). 72h optional. | 4 weeks | Primary: time-to-ciliogenesis |
 | **Main NPCs** | hTERT-NPCs, 100 pairs, lineage tree (3 gen). **Gated:** Pilot NPC (10 pairs, 48h) must confirm centrosome asymmetry before main. | 4 weeks | Primary: Nestin→Tuj1/GFAP fate |
-| **Pilot NPC** | hTERT-NPCs, CYTOO 48h, 10 pairs | 1 week | Go/No-Go: Centrosome asymmetry present in 2D? If <70% pairs show Cenexin asymmetry → downgrade H₃ to exploratory, main focus on RPE1 |
-| **Phase 2 (v2.0)** | RPE1 Odf2 KO + HDAC6i | 4 weeks | Causality |
+| **Pilot NPC** | hTERT-NPCs, CYTOO 48h, 20 pairs + Nestin/Sox2 IF | 2 weeks | Go/No-Go: ≥70% Cenexin asymmetry in 2D + ≥50% Nestin⁺/Sox2⁺ maintenance. If fail → H₃ exploratory; focus on RPE1. |
+| **Phase 2 (v2.0)** | RPE1 Odf2 KO + domain deletions (Tateishi 2013) | 4 weeks | Structural necessity |
 | **Phase 3 (v3.0)** | hTERT-NPCs + ExM endpoint | 6 weeks | Progenitor map |
 
 ---
