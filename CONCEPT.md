@@ -1,8 +1,8 @@
 # CONCEPT — ARGUS-LP_OS
 
-**Version:** 59.0
+**Version:** 61.0
 **Date:** 2026-07-19
-> **v59:** Review #5 applied. Barandun: mother→effector corrected to mother→memory formation. Cenexin calibration: r²≥0.7→r²≥0.8. Pilot 2b: N=20→40 pairs. N=300→400 (multiple testing correction for secondary endpoints). Ki67/EdU added for G0 vs cycling distinction. Multi-state model proposed as sensitivity. Chatterjee PMID 29663194 RE-VERIFIED (Review #5 claim of ECCV computer vision article was ERRONEOUS — correct article is Cerebellum 17:685-691, doi: 10.1007/s12311-018-0935-4).
+> **v61:** Review #7 applied. Pathway A = hypothetical (Thomas 2024 did not test cilium fate). Phase 2 explicitly outside v1.0 scope. N=400 QC: automated pre-filtering via CellPose 2.0 + Bayesian tracker (~30 human-hours). Pilot 0.5: +γH2AX, JC-1, ATP. Cox covariate: time_since_cytokinesis. Pilot 2: CYTOO cilium rate measured.
 
 ---
 
@@ -77,7 +77,7 @@
 
 > Centrosome maturation state may influence daughter cell behavior through two non-mutually-exclusive pathways, both demonstrated in human cells:
 >
-> **Pathway A — Spindle asymmetry (Thomas & Meraldi 2024, PMID 39012627):** Cenexin → Plk1 → pericentrin/γ-tubulin/Cdk5Rap2 → spindle length asymmetry (**SAI = 2.7 ± 5.5%, n=28, early metaphase; 3.8 ± 5.6%, n=28, late anaphase.** Weighted mean ≈3.1% — used throughout this document as shorthand). This produces daughter cell size difference → differential cilium assembly kinetics. Demonstrated in human RPE1 and MCF10A cells. **⚠️ Pilot 3 directly verifies SAI reproducibility in ARGUS-LP_OS.**
+> **Pathway A — Spindle asymmetry (Thomas & Meraldi 2024, PMID 39012627):** Cenexin → Plk1 → pericentrin/γ-tubulin/Cdk5Rap2 → spindle length asymmetry (SAI = 2.7 ± 5.5%, n=28, early metaphase; 3.8 ± 5.6%, n=28, late anaphase. Weighted mean ≈3.1% — used throughout as shorthand). This produces daughter cell size difference. **⚠️ HYPOTHETICAL EXTENSION (NOT tested by Thomas & Meraldi):** The size difference COULD produce differential cilium assembly kinetics. Thomas & Meraldi explicitly note: "the functional significance is unclear." They did NOT test ciliogenesis, cell fate, or differentiation. **ARGUS-LP_OS tests whether SAI ≈3% is ABOVE the biological threshold for influencing cilium timing — establishing this threshold is a valuable result regardless of outcome.** Alternative mechanisms (Gasic 2015 kinetochore bias, PMID 26287477; Paridaen 2013 cilium membrane inheritance, PMID 24120134) may be more significant than spindle size asymmetry.
 >
 > **Pathway B — Asymmetric protein degradation (POSSIBLE EXPLANATION, NOT TESTED HERE):** Mother centrosome concentrates phospho-β-catenin and polyubiquitinated proteins targeted for proteasomal degradation → asymmetric inheritance → COULD influence Wnt transcriptional programs. Segregation demonstrated in human ESC/Cos7 (Fuentealba et al. 2008, PMID 18511557). **Transcription consequences NOT tested in human cells.** Valdes Michel & Phillips 2025 (PMID 39813084) shows SYS-1/β-catenin centrosomal degradation mechanism in **C. elegans (INVERTEBRATE — NOT directly applicable to human biology).** The C. elegans Wnt/β-catenin Asymmetry (WβA) pathway is evolutionarily distinct from mammalian centrosomal Wnt regulation. **ARGUS-LP_OS does NOT test this mechanism.** Our goal is to establish whether the centrosome age→fate CORRELATION exists. Molecular mechanism testing requires separate biochemical experiments beyond this platform's scope.
 >
@@ -105,7 +105,7 @@
 | 6. Cilium detection | Acetylated tubulin IF | Length ≥1 µm, contiguous signal from centriole. Automated via Ilastik or manual validation |
 | 7. Tracking QC | Manual validation of 20% frames | Inter-rater agreement >95%. Ambiguous tracks flagged and excluded from primary analysis |
 
-**SNR thresholds:** Centrin1-GFP spot SNR ≥5 at ≤5% LED, ≤200 ms. Below → excluded. **Missing frames:** <5% → interpolation. >5% → pair excluded. **Data:** BioImage Archive / Zenodo (CC0) upon publication.
+**Quality control — automated pipeline:** Manual validation of 20% frames remains. **Automated pre-filtering via CellPose 2.0 + Bayesian tracker flags ambiguous tracks (SNR drop, track crossings, mitosis mis-assignment) for priority review.** Estimated reduction in manual QC time: 60-70% (from ~80 to ~30 human-hours for N=400). Code: Python, integrated into ARGUS-LP_OS. Inter-rater agreement >95% on validated frames.
 
 ---
 
@@ -114,7 +114,7 @@
 | Confound | Control |
 |----------|---------|
 | Centrin1-GFP/H2B-GFP may alter centrosome/cell cycle | **CRISPR-KI preferred.** If lentiviral: Western blot (≤2× endogenous=GO), centriole count (≤2.2/G1), FRAP turnover (±20%). Loncarek 2008 (PMID 18297061). **🔴 Single-cell IF:** anti-centrin-2 Ab (does not cross-react with GFP) on ≥100 cells/clone. If >20% cells show Centrin1-GFP >2× endogenous centrin → clone rejected. |
-| IR 850 nm prolonged exposure (48h) — phototoxicity, heating | IR-ON vs. IR-OFF arms in **Pilot 0.5**: viability (Live/Dead), proliferation (EdU), ROS (CellROX), apoptosis (caspase-3/7) at 0/24/48h. Δ>10% in any metric → reduce IR duty cycle or switch to pulsed mode (1s/10min). Kiepas et al. 2020 (PMID 31988150): methodology for minimizing phototoxicity in live-cell fluorescence imaging. ⚠️ Note: Kiepas 2020 does NOT contain specific data on 850 nm continuous 48h illumination safety. Pilot 0.5 will generate these data as an original methodological contribution. |
+| IR 850 nm prolonged exposure (48h) — phototoxicity, heating | IR-ON vs. IR-OFF arms in **Pilot 0.5**: viability (Live/Dead), proliferation (EdU), ROS (CellROX), apoptosis (caspase-3/7), **DNA damage (γH2AX), mitochondrial membrane potential (JC-1), ATP levels** at 0/24/48h. Δ>10% in any metric → reduce IR duty cycle or switch to pulsed mode (1s/10min). Kiepas et al. 2020 (PMID 31988150): methodology for minimizing phototoxicity. ⚠️ Kiepas does NOT contain 850 nm 48h data — Pilot 0.5 generates original data. |
 | Water immersion objective evaporation → focus drift | Automated water dispenser + saturated humidity in glove-box. Monitor focus drift with GFP beads |
 | Cenexin appendages disassemble during mitosis | Pilot 1 with synchronized cells (double thymidine): Cenexin IF at G1/S/G2/M. If M-phase variation >20% vs. G1 → Dendra2 primary. |
 | Cenexin _M_ ≠ direct age | Pilot 1: Centrin1-Dendra2 photoconversion calibration |
@@ -481,4 +481,4 @@ A negative H₂ result is scientifically informative, not a failure:
 
 ---
 
-*Version 60 — 2026-07-19. Review #6: H₂ = Anderson 2009 replication + SAI correlation (not causality). N=600 (ρ=0.5). 405 nm LED + micromanipulator in base budget. Shh = technical control. Night vision optional. v1.0=CORRELATION, v3.0=CAUSALITY. 35 refs.*
+*Version 61 — 2026-07-19. Review #7: Pathway A = hypothetical (Thomas 2024 did not test cilium). Phase 2 outside v1.0. Automated QC (CellPose+Bayesian, ~30h). Pilot 0.5: +γH2AX/JC-1/ATP. Cox: +time_since_cytokinesis. CYTOO cilium rate in Pilot 2. 35 refs.*
