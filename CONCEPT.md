@@ -1,8 +1,8 @@
 # CONCEPT — ARGUS-LP_OS
 
-**Version:** 62.0
+**Version:** 63.0
 **Date:** 2026-07-19
-> **v62:** Review #8: PARAMETERS.md synchronised (Fine-Gray→Cox+cluster, N=600, night vision optional). SiR-Tubulin alternative added. Centrin1-GFP threshold 20%→10%. Plan C: gridded microwells for CYTOO 72h.
+> **v63:** Review #9: Proof-of-Concept: 10→30 pairs. Cenexin AUC threshold: 0.80→0.85 (hard stop if fail). Gasic 2015 as default alternative mechanism if SAI weak. Primary analysis: first G1 only (multi-generation = descriptive). Personnel line added to budget.
 
 ---
 
@@ -81,7 +81,7 @@
 >
 > **Pathway B — Asymmetric protein degradation (POSSIBLE EXPLANATION, NOT TESTED HERE):** Mother centrosome concentrates phospho-β-catenin and polyubiquitinated proteins targeted for proteasomal degradation → asymmetric inheritance → COULD influence Wnt transcriptional programs. Segregation demonstrated in human ESC/Cos7 (Fuentealba et al. 2008, PMID 18511557). **Transcription consequences NOT tested in human cells.** Valdes Michel & Phillips 2025 (PMID 39813084) shows SYS-1/β-catenin centrosomal degradation mechanism in **C. elegans (INVERTEBRATE — NOT directly applicable to human biology).** The C. elegans Wnt/β-catenin Asymmetry (WβA) pathway is evolutionarily distinct from mammalian centrosomal Wnt regulation. **ARGUS-LP_OS does NOT test this mechanism.** Our goal is to establish whether the centrosome age→fate CORRELATION exists. Molecular mechanism testing requires separate biochemical experiments beyond this platform's scope.
 >
-> **Pathway C — Chromosome segregation bias (Gasic et al. 2015, PMID 26287477):** Centrosome age regulates kinetochore-microtubule stability → 85% of lagging chromosomes remain on the old centrosome side → Cenexin-dependent. This creates differential daughter cell genome stability — potentially explaining why mother centrosome retention maintains stemness (prevents mutation accumulation). Not tested by ARGUS-LP_OS; noted as an additional mechanism that may contribute to fate divergence.
+> **⚠️ Default alternative mechanism (if SAI does not predict cilium timing):** Gasic et al. 2015 (PMID 26287477) — centrosome age regulates kinetochore-microtubule stability → 85% lagging chromosomes on old centrosome side → differential daughter cell genome stability. This CIN (chromosomal instability) mechanism may be the primary driver of fate divergence if the 3.1% spindle size asymmetry proves insufficient. ARGUS-LP_OS will test both mechanisms by: (a) measuring SAI in each pair (Pilot 3), (b) correlating SAI with time-to-ciliogenesis. If SAI does not predict cilium timing → CIN mechanism becomes the leading hypothesis for Phase 3 investigation.
 
 ### 0.6. Model System Clarification
 
@@ -144,7 +144,7 @@
 
 **H₂ design rationale:** Anderson & Stearns 2009 demonstrated cilium asynchrony in the **first G1 phase** after mitosis. ARGUS-LP_OS quantifies this with time-to-event resolution. **One cell cycle is sufficient for H₂** — the mother→daughter cilium timing comparison. Multi-generation lineage is NOT required for the primary H₂ endpoint. This simplifies the experiment and eliminates the CYTOO multi-generation limitation.
 
-**Lineage design (H₃ only):** For NPC fate tracking, larger CYTOO patterns (8-cell islands) or gridded microwells are used to accommodate 2-3 generations. Alternatively, micromanipulator-assisted sister separation (ARGUS-OS3) enables clean multi-generation tracking.
+**Lineage design (H₃ only):** For NPC fate tracking, larger CYTOO patterns (8-cell islands) or gridded microwells are used to accommodate 2-3 generations. **⚠️ Primary statistical analysis (N=600) is powered for the FIRST post-mitotic G1 event (time-to-ciliogenesis). Multi-generation tracking is DESCRIPTIVE — confirms mechanism qualitatively but does not contribute to primary endpoint power.** This limits risk if CYTOO multi-generation retention fails.
 
 **Mitosis detection:** H2B-GFP chromatin condensation triggers 1-2 min imaging, ensuring centriole distribution is captured at the critical moment.
 
@@ -229,8 +229,8 @@ Random intercepts for IslandID/PlateID account for micropattern and batch variab
 |:-----:|--------|:--------:|----------|
 | **Pilot 0** | GFP beads, 7 days, 60×/1.2 NA **dry** | 1 week | Drift <10 µm/24h |
 | **Pilot 0.5** | 🔴 **Water immersion 60×/1.2 NA + cell culture medium (no cells) + IR LED ON**, 72h. Measure: focus drift, T stability, medium evaporation, CO₂/O₂ leakage rate. **Also: ASA extract cytotoxicity test (MTT/WST-1, 72h/37°C on RPE1).** **Also: 5 serum conditions (0.5%, 1%, 2%, 5%, 10% FBS) × RPE1 × 48h. Measure % ciliogenesis + % division. Select condition with max(% ciliogenesis × % division). GO: ≥70% ciliogenesis AND ≥20% division at chosen condition.** | 1 week | Drift <10 µm/24h **with WI + medium**. CO₂ leak <5%/h. ASA extract viability ≥90%. IR ΔT_medium <1°C. **Serum: if no condition satisfies dual criterion → escalate to Pilot 2c (cell cycle synchronisation + timed serum withdrawal).** |
-| **Proof-of-Concept** | 🔴 **RPE1 Centrin1-GFP, ≥10 pairs, 48h, 60×/1.2 NA WI, Cenexin endpoint.** Demonstrates: Centrin1 tracking + Cenexin classification + cilium detection — all in applicant's lab. | 1 week | ≥8/10 pairs with concordant Centrin-Cenexin. **Must be completed BEFORE grant submission for ERC/HFSP-level applications.** |
-| **Pilot 1** | RPE1 Centrin1-GFP + Cenexin fix + Dendra2 calibration (1-5 divisions) + phototoxicity + EdU + TOP/FOP **+ PCM integrity (pericentrin, γ-tubulin, Cdk5Rap2) + appendage integrity (Ninein, Cep164) + single-cell IF vs. endogenous centrin (centrin-2 Ab) + Ninein vs. Cenexin concordance (backup age marker) + Cyclopamine (5 µM, 24h) ± Shh-dependence control + Ki67/EdU co-stain (distinguish G0 vs cycling cells)** | 3 days | Centrin-Cenexin ≥90% + viability ≥90% + **Cenexin vs. age r²≥0.8** (GO/NO-GO: r²<0.8→Dendra2 primary; **if Dendra2 unavailable → Ninein as backup age marker if ≥90% concordant with Cenexin**) + prolif. Δ<5% + Wnt asymmetry **+ PCM/appendage integrity vs. M + ≤20% cells with Centrin1-GFP >2× endogenous + Shh-dependence: if cilium asymmetry persists under Cyclopamine → Shh-independent (structural)** |
+| **Proof-of-Concept** | 🔴 **RPE1 Centrin1-GFP, ≥30 pairs, 48h, 60×/1.2 NA WI, Cenexin endpoint.** Demonstrates: Centrin1 tracking + Cenexin classification + cilium detection — all in applicant's lab. **≥24/30 pairs with concordant Centrin-Cenexin.** Must be completed BEFORE grant submission for ERC/HFSP-level applications. **10 pairs is insufficient to demonstrate technical proficiency; 30 pairs provides preliminary ICC estimate.** | 2 weeks | ≥24/30 pairs concordant. **If <24/30 → grant not ready for submission.** |
+| **Pilot 1** | RPE1 Centrin1-GFP + Cenexin fix + Dendra2 calibration (1-5 divisions) + phototoxicity + EdU + TOP/FOP **+ PCM integrity (pericentrin, γ-tubulin, Cdk5Rap2) + appendage integrity (Ninein, Cep164) + single-cell IF vs. endogenous centrin (centrin-2 Ab) + Ninein vs. Cenexin concordance (backup age marker) + Cyclopamine (5 µM, 24h) ± Shh-dependence control + Ki67/EdU co-stain (distinguish G0 vs cycling cells)** | 3 days | Centrin-Cenexin ≥90% + viability ≥90% + **Cenexin vs. Dendra2 AUC≥0.85** (🔴 HARD STOP: if AUC<0.85 → **Dendra2 becomes primary age marker for ALL v1.0 experiments.** Budget includes 405 nm LED + Centrin1-Dendra2 line construction. Cenexin abandoned as isolated marker.) + prolif. Δ<5% + Wnt asymmetry **+ PCM/appendage integrity vs. M + ≤10% cells with Centrin1-GFP >2× endogenous + Shh-dependence** |
 | **Pilot 2** | CYTOO islands, 48h + 72h, 10 pairs each | 1 week | Cell retention ≥80% at both timepoints. 72h optional if ≥80%. |
 | **Pilot 2b** | 🟡 **Standard coverslips (no CYTOO), RPE1 Centrin1-GFP, 40 pairs, 48h, serum condition from Pilot 0.5.** Compare cilium asynchrony on CYTOO vs. standard. | 1 week | If CYTOO asynchrony <50% of standard coverslip level → **CYTOO suppresses effect → switch to standard coverslips + micromanipulator for main experiment.** |
 | **Pilot 3** | RPE1, 50 pairs **+ direct measurement of daughter cell size asymmetry (Thomas & Meraldi 2024 method: cell area at cytokinesis+2h). Verify that 3.1% spindle asymmetry reproduces in ARGUS-LP_OS. If asymmetry not detected → H₂ mechanistic basis weakened (cilium timing may still differ, but mechanism is not spindle-size-mediated).** | 2 weeks | Effect size + ICC estimate for final N **+ spindle asymmetry verification (GO: 3.1±2% SAI detected)** |
@@ -384,11 +384,12 @@ Odf2 KO causes severe defects in distal/subdistal appendages and blocks ciliogen
 | **Micromanipulator (3-axis FOSH + microinjector + capillaries) — Plan Б for CYTOO** | **1,208** |
 | Tetraspeck beads | 200 |
 | IF antibodies (acetyl-tubulin, PCM: pericentrin/γ-tubulin/Cdk5Rap2, appendages: Ninein/Cep164, Mib1/PCM1/Notch1, centrin-2, secondary, DAPI) | 500 |
+| **Personnel** | ⚠️ **Postdoc/Research Assistant (12 weeks, 0.5 FTE).** Covers: cell culture, microscopy runs (400 pairs × 48h), manual QC validation (~30h), IF staining, data analysis. **For ERC/HFSP: personnel costs are expected — absence of salary line is a red flag.** If PI performs all work, state in-kind contribution at local postdoc rate. | **15,000** |
 | Consumables | 300 |
-| **Subtotal** | **15,438–16,438** |
-| **+25% contingency** | **3,860–4,110** |
+| **Subtotal** | **30,438–31,438** |
+| **+25% contingency** | **7,610–7,860** |
 | **SNR fallback (sCMOS)** | 1,800 |
-| **TOTAL (max)** | **$22,348** |
+| **TOTAL (max)** | **$41,098** |
 
 > Экономия: убраны микроманипулятор ($1,500), puller ($1,500), капилляры ($200). CYTOO — основной метод. Night vision (+$40) добавлен. **Резерв CYTOO (+$600) для адаптивного N при ICC>0.4.** IF antibodies расширены (+$300) для контроля PCM/аппендиксов, Mib1/PCM1/Notch1, и Cyclopamine. **Контингенси 25% (против 15% ранее) — покрывает ценовой риск объектива и инкубатора (Review #2 §3.4).**
 
