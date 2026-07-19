@@ -2,7 +2,7 @@
 
 **Version:** 65.0
 **Date:** 2026-07-19
-> **v65:** Review #11. Ninein = primary age marker. Cenexin = backup. BI2536 (Plk1i) chemical control. Platform: "first affordable open centrosome screening platform." §11 Limitations added. Nayak PMID 32371504 verified (reviewer claim erroneous).
+> **v65:** Review #12: Dendra2-Centrin in Phase 1. Hypothesis: "structural-functional state." Odf2 = structural control. Secondary 6→3. SiR-Tubulin mitosis detection. 35 refs.*
 
 ---
 
@@ -146,7 +146,7 @@
 
 **Lineage design (H₃ only):** For NPC fate tracking, larger CYTOO patterns (8-cell islands) or gridded microwells are used to accommodate 2-3 generations. **⚠️ Primary statistical analysis (N=600) is powered for the FIRST post-mitotic G1 event (time-to-ciliogenesis). Multi-generation tracking is DESCRIPTIVE — confirms mechanism qualitatively but does not contribute to primary endpoint power.** This limits risk if CYTOO multi-generation retention fails.
 
-**Mitosis detection:** H2B-GFP chromatin condensation triggers 1-2 min imaging, ensuring centriole distribution is captured at the critical moment.
+**Mitosis detection:** SiR-Tubulin (640 nm, red channel, Spirochrome SC002) — fluorogenic live-cell microtubule probe. Replaces H2B-GFP → reduces 488 nm load by 50%. Only Centrin1-GFP uses 488 nm. SiR-Tubulin excited at 640 nm with minimal phototoxicity. +$400.
 
 **Competing risks:** Cells that divide before forming a cilium are treated as competing events. **Primary model: Cox proportional hazards with cluster-robust standard errors** (`coxph(Surv(time, status) ~ M + CellArea + DivisionNumber + cluster(IslandID), data)` — `survival` package, standard and reproducible). Censoring at division time (competing event). **Sensitivity — multi-state model:** As an exploratory analysis, a multi-state model (R `mstate`) will be fit with states: (1) no cilium + cycling, (2) cilium present (G0), (3) divided. Transition hazards estimated for: 1→2 (ciliogenesis), 1→3 (division), 3→2 (post-division ciliogenesis). This accounts for the recurrent nature of cilium formation across cell cycles and the G0 vs. cycling distinction (Ki67/EdU co-stain from Pilot 1). **Note:** The earlier version referenced `frailtypack` for Fine-Gray with random effects — however, `frailtypack` does NOT support Fine-Gray models with frailty terms for clustered data in its stable CRAN release (2026). This method is experimental and not appropriate for a grant application. The Cox+cluster approach is the gold standard for clustered time-to-event data.
 
@@ -158,8 +158,11 @@
 |----------|:----:|-------------|----------|
 | **Time-to-ciliogenesis** | 🎯 Primary | Hours from cytokinesis to acetylated tubulin⁺ cilium ≥1 µm | Kaplan-Meier, Cox PH (hazard ratio per unit _M_) |
 | Cilium presence at 48h | Secondary | Binary (yes/no) | McNemar (paired) |
-| Shh signaling asymmetry | Secondary | Gli1 nuclear/cytoplasmic ratio IF | McNemar (paired). ⚠️ TECHNICAL CONTROL in RPE1 (cilium functionality, not biological mechanism). Biologically relevant for NPCs. |
+| Shh signaling asymmetry | Secondary | Gli1 nuclear/cytoplasmic ratio IF | McNemar (paired). ⚠️ TECHNICAL CONTROL. |
+| Ki67 proliferation status | Secondary | Ki67⁺ vs Ki67⁻ | McNemar (paired) |
 | Differentiation (NPCs) | Tertiary | Nestin/Sox2 → Tuj1/GFAP | Fisher exact |
+
+> **Hierarchical gatekeeping:** Secondary endpoints tested ONLY if primary (time-to-ciliogenesis) p<0.05. Benjamini-Hochberg FDR q<0.1 applied to 3 secondary tests (reduced from 6 to control multiplicity).
 
 **Time-to-ciliogenesis measurement:** Cilium formation is measured in EACH cell cycle. Cells lose cilia before mitosis → reform in G1. The clock starts at cytokinesis of each division. If a cell divides before forming a cilium → competing event. Model: recurrent events (Prentice-Williams-Peterson gap-time model) stratified by cell cycle number. Primary readout: hazard ratio for cilium formation in cycle 1 (most proximal to centrosome inheritance).
 
@@ -497,4 +500,4 @@ A negative H₂ result is scientifically informative, not a failure:
 
 ---
 
-*Version 65 — 2026-07-19. Review #11: Ninein = primary marker. BI2536 control. Platform = "first affordable open centrosome screening." §11 Limitations. Nayak 32371504 verified. 35 refs.*
+*Version 66 — 2026-07-19. Review #12: Dendra2-Centrin in Phase 1. Hypothesis: "structural-functional state." Odf2 = structural control. Secondary 6→3. SiR-Tubulin mitosis detection. 35 refs.*
