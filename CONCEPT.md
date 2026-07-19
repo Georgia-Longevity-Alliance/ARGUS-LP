@@ -1,8 +1,8 @@
 # CONCEPT — ARGUS-LP_OS
 
-**Version:** 58.0
+**Version:** 59.0
 **Date:** 2026-07-19
-> **v58:** Materials analysis: ASA (primary, Tg 95-105°C), PET (fallback, Tg 75-80°C), PLA (NOT recommended). Motor thermal management: TMC2209+GPIO MOSFET → 3% duty → 0.6W avg heat. WilliamW (OpenFlexure Forum) + Malcolm/O'Toole 2026 (bioRxiv) references. §§6.2-6.4 added/renumbered.
+> **v59:** Review #5 applied. Barandun: mother→effector corrected to mother→memory formation. Cenexin calibration: r²≥0.7→r²≥0.8. Pilot 2b: N=20→40 pairs. N=300→400 (multiple testing correction for secondary endpoints). Ki67/EdU added for G0 vs cycling distinction. Multi-state model proposed as sensitivity. Chatterjee PMID 29663194 RE-VERIFIED (Review #5 claim of ECCV computer vision article was ERRONEOUS — correct article is Cerebellum 17:685-691, doi: 10.1007/s12311-018-0935-4).
 
 ---
 
@@ -148,7 +148,7 @@
 
 **Mitosis detection:** H2B-GFP chromatin condensation triggers 1-2 min imaging, ensuring centriole distribution is captured at the critical moment.
 
-**Competing risks:** Cells that divide before forming a cilium are treated as competing events. **Primary model: Cox proportional hazards with cluster-robust standard errors** (`coxph(Surv(time, status) ~ M + CellArea + DivisionNumber + cluster(IslandID), data)` — `survival` package, standard and reproducible). Censoring at division time (competing event). **Sensitivity analysis:** (1) Cause-specific hazards with cluster-robust SE, (2) Fine-Gray subdistribution hazard (R `cmprsk`) without frailty, bootstrap for cluster adjustment. **Note:** The earlier version referenced `frailtypack` for Fine-Gray with random effects — however, `frailtypack` does NOT support Fine-Gray models with frailty terms for clustered data in its stable CRAN release (2026). This method is experimental and not appropriate for a grant application. The Cox+cluster approach is the gold standard for clustered time-to-event data.
+**Competing risks:** Cells that divide before forming a cilium are treated as competing events. **Primary model: Cox proportional hazards with cluster-robust standard errors** (`coxph(Surv(time, status) ~ M + CellArea + DivisionNumber + cluster(IslandID), data)` — `survival` package, standard and reproducible). Censoring at division time (competing event). **Sensitivity — multi-state model:** As an exploratory analysis, a multi-state model (R `mstate`) will be fit with states: (1) no cilium + cycling, (2) cilium present (G0), (3) divided. Transition hazards estimated for: 1→2 (ciliogenesis), 1→3 (division), 3→2 (post-division ciliogenesis). This accounts for the recurrent nature of cilium formation across cell cycles and the G0 vs. cycling distinction (Ki67/EdU co-stain from Pilot 1). **Note:** The earlier version referenced `frailtypack` for Fine-Gray with random effects — however, `frailtypack` does NOT support Fine-Gray models with frailty terms for clustered data in its stable CRAN release (2026). This method is experimental and not appropriate for a grant application. The Cox+cluster approach is the gold standard for clustered time-to-event data.
 
 **CYTOO note:** No published data on 72h micropattern culture. Primary protocol: 48h (within published CYTOO range). Pilot 2 tests both 48h and 72h. Fallback: gridded microwell dishes.
 
@@ -193,7 +193,7 @@ H₀: P(cilium | mature mother) = P(cilium | immature mother) = 0.5
 - With 70% cilium rate at 48h: N = 65/0.7 = **93 pairs**
 - **With 20% attrition + ICC ρ≤0.3:** N_planned = 93/(0.8×0.77) ≈ **150 pairs**
 
-**Target: N=300 pairs with interim analysis at N=150.** At N=200, Fine-Gray with ICC ρ=0.3, 20% attrition, 30% competing risk (division before cilium): effective N ≈ 86 pairs, power ~68% for HR=1.35. **N=300** provides effective N ≈ 129 pairs, power **82%** at HR=1.35. Interim at N=150: if HR<1.15 → escalate to N=400 or stop for futility. ICC estimated in Pilot 3, final N adjusted.
+**Target: N=400 pairs with interim analysis at N=200.** At N=400, Cox+cluster with ICC ρ=0.3, 20% attrition, 30% competing risk: effective N ≈ 172 pairs, power **85%** at HR=1.35. **N increased from 300→400 to maintain power after Benjamini-Hochberg correction for 6 secondary endpoints (α_adjusted≈0.0083).** Interim at N=200: O'Brien-Fleming α=0.005.
 
 **Multiple testing protocol (preregistered on OSF):** Hierarchical gatekeeping. (1) Primary: time-to-cilium → if p<0.05, test secondaries. (2-3) Secondaries: cilium binary, Shh/Gli1 asymmetry — Benjamini-Hochberg FDR (q<0.1). (4) NPC markers. If primary p≥0.05 → all secondaries descriptive only.
 
@@ -205,9 +205,9 @@ H₀: P(cilium | mature mother) = P(cilium | immature mother) = 0.5
 
 | HR | ICC ρ=0.2 | ρ=0.3 | ρ=0.4 |
 |:--:|:---------:|:-----:|:-----:|
-| **1.20** | N=550 (power 78%) | N=680 (power 76%) | N=820 (power 74%) |
-| **1.35** | N=240 (power 81%) | N=300 (power 82%) | N=360 (power 80%) |
-| **1.50** | N=140 (power 83%) | N=170 (power 82%) | N=210 (power 81%) |
+| **1.20** | N=730 (power 79%) | N=910 (power 77%) | N=1100 (power 75%) |
+| **1.35** | N=320 (power 81%) | N=400 (power 85%) | N=480 (power 83%) |
+| **1.50** | N=180 (power 84%) | N=230 (power 83%) | N=280 (power 82%) |
 
 > Assumptions: 20% attrition, 30% competing risk (division before cilium), α=0.05, β=0.2. N = total pairs required. If Pilot 3 shows ICC>0.4 AND Pilot 2 intermediate HR<1.35 → N=600 (budgeted). If ICC<0.3 AND HR>1.35 → N=240 (under-budget). Table generated via R `powerSurvEpi` + design effect adjustment.
 
@@ -230,9 +230,9 @@ Random intercepts for IslandID/PlateID account for micropattern and batch variab
 | **Pilot 0** | GFP beads, 7 days, 60×/1.2 NA **dry** | 1 week | Drift <10 µm/24h |
 | **Pilot 0.5** | 🔴 **Water immersion 60×/1.2 NA + cell culture medium (no cells) + IR LED ON**, 72h. Measure: focus drift, T stability, medium evaporation, CO₂/O₂ leakage rate. **Also: ASA extract cytotoxicity test (MTT/WST-1, 72h/37°C on RPE1).** **Also: 5 serum conditions (0.5%, 1%, 2%, 5%, 10% FBS) × RPE1 × 48h. Measure % ciliogenesis + % division. Select condition with max(% ciliogenesis × % division). GO: ≥70% ciliogenesis AND ≥20% division at chosen condition.** | 1 week | Drift <10 µm/24h **with WI + medium**. CO₂ leak <5%/h. ASA extract viability ≥90%. IR ΔT_medium <1°C. **Serum: if no condition satisfies dual criterion → escalate to Pilot 2c (cell cycle synchronisation + timed serum withdrawal).** |
 | **Proof-of-Concept** | 🔴 **RPE1 Centrin1-GFP, ≥10 pairs, 48h, 60×/1.2 NA WI, Cenexin endpoint.** Demonstrates: Centrin1 tracking + Cenexin classification + cilium detection — all in applicant's lab. | 1 week | ≥8/10 pairs with concordant Centrin-Cenexin. **Must be completed BEFORE grant submission for ERC/HFSP-level applications.** |
-| **Pilot 1** | RPE1 Centrin1-GFP + Cenexin fix + Dendra2 calibration (1-5 divisions) + phototoxicity + EdU + TOP/FOP **+ PCM integrity (pericentrin, γ-tubulin, Cdk5Rap2) + appendage integrity (Ninein, Cep164) + single-cell IF vs. endogenous centrin (centrin-2 Ab) + Ninein vs. Cenexin concordance (backup age marker) + Cyclopamine (5 µM, 24h) ± Shh-dependence control** | 3 days | Centrin-Cenexin ≥90% + viability ≥90% + **Cenexin vs. age r²≥0.7** (GO/NO-GO: r²<0.7→Dendra2 primary; **if Dendra2 unavailable → Ninein as backup age marker if ≥90% concordant with Cenexin**) + prolif. Δ<5% + Wnt asymmetry **+ PCM/appendage integrity vs. M + ≤20% cells with Centrin1-GFP >2× endogenous + Shh-dependence: if cilium asymmetry persists under Cyclopamine → Shh-independent (structural)** |
+| **Pilot 1** | RPE1 Centrin1-GFP + Cenexin fix + Dendra2 calibration (1-5 divisions) + phototoxicity + EdU + TOP/FOP **+ PCM integrity (pericentrin, γ-tubulin, Cdk5Rap2) + appendage integrity (Ninein, Cep164) + single-cell IF vs. endogenous centrin (centrin-2 Ab) + Ninein vs. Cenexin concordance (backup age marker) + Cyclopamine (5 µM, 24h) ± Shh-dependence control + Ki67/EdU co-stain (distinguish G0 vs cycling cells)** | 3 days | Centrin-Cenexin ≥90% + viability ≥90% + **Cenexin vs. age r²≥0.8** (GO/NO-GO: r²<0.8→Dendra2 primary; **if Dendra2 unavailable → Ninein as backup age marker if ≥90% concordant with Cenexin**) + prolif. Δ<5% + Wnt asymmetry **+ PCM/appendage integrity vs. M + ≤20% cells with Centrin1-GFP >2× endogenous + Shh-dependence: if cilium asymmetry persists under Cyclopamine → Shh-independent (structural)** |
 | **Pilot 2** | CYTOO islands, 48h + 72h, 10 pairs each | 1 week | Cell retention ≥80% at both timepoints. 72h optional if ≥80%. |
-| **Pilot 2b** | 🟡 **Standard coverslips (no CYTOO), RPE1 Centrin1-GFP, 20 pairs, 48h, serum condition from Pilot 0.5.** Compare cilium asynchrony on CYTOO vs. standard. | 1 week | If CYTOO asynchrony <70% of standard coverslip level → **CYTOO suppresses effect → switch to standard coverslips + micromanipulator for main experiment.** |
+| **Pilot 2b** | 🟡 **Standard coverslips (no CYTOO), RPE1 Centrin1-GFP, 40 pairs, 48h, serum condition from Pilot 0.5.** Compare cilium asynchrony on CYTOO vs. standard. | 1 week | If CYTOO asynchrony <50% of standard coverslip level → **CYTOO suppresses effect → switch to standard coverslips + micromanipulator for main experiment.** |
 | **Pilot 3** | RPE1, 50 pairs **+ direct measurement of daughter cell size asymmetry (Thomas & Meraldi 2024 method: cell area at cytokinesis+2h). Verify that 3.1% spindle asymmetry reproduces in ARGUS-LP_OS. If asymmetry not detected → H₂ mechanistic basis weakened (cilium timing may still differ, but mechanism is not spindle-size-mediated).** | 2 weeks | Effect size + ICC estimate for final N **+ spindle asymmetry verification (GO: 3.1±2% SAI detected)** |
 | **Main RPE1** | RPE1-hTERT, 300 pairs, 48h (H₂: 1st cycle cilium timing). **Adaptive N: if Pilot 3 ICC>0.4 → N=600 (budget includes CYTOO reserve). Substrate: CYTOO unless Pilot 2b shows suppression → standard coverslips + micromanipulator.** | 4 weeks | Primary: time-to-ciliogenesis |
 | **Main NPCs** | hTERT-NPCs, 150 pairs, endpoint from Pilot NPC time series | 4 weeks | Primary: Nestin→Tuj1/GFAP fate |
@@ -418,7 +418,7 @@ A negative H₂ result is scientifically informative, not a failure:
 3. Royall LN et al. *eLife* 12:e83157 (2023). **PMID: 37882444.**
 4. Yamashita YM et al. *Science* 315:518–521 (2007). **PMID: 17255513.**
 5. Paridaen JT et al. *Cell* 155:333–344 (2013). **PMID: 24120134.**
-6. Barandun N et al. *Cell Rep* 44:115127 (2025). **PMID: 39764850.**
+6. Barandun N et al. *Cell Rep* 44:115127 (2025). **PMID: 39764850.** — Mother centrosome → **memory formation** (NOT effector) in CD8+ T cells. Ninein-dependent.
 7. Reina J, Gonzalez C. *Phil Trans R Soc B* 369:20130466 (2014). **PMID: 25047620.**
 8. Chatterjee A et al. *Cerebellum* 17:685–691 (2018). **PMID: 29663194.**
 9. Conduit PT, Raff JW. *Curr Biol* 20:2187–2192 (2010). **PMID: 21145745.**
@@ -478,4 +478,4 @@ A negative H₂ result is scientifically informative, not a failure:
 
 ---
 
-*Version 58 — 2026-07-19. Materials: ASA primary (Tg 95-105°C), PET fallback. Motor thermal management: TMC2209 + GPIO MOSFET → 0.6W avg. OpenFlexure Forum (WilliamW) + O'Toole bioRxiv (Malcolm 2026). §§6.2-6.4. 35 refs.*
+*Version 59 — 2026-07-19. Review #5 errors found: Chatterjee PMID 29663194 IS CORRECT (Cerebellum, not ECCV — reviewer confused with different Chatterjee M). Barandun: mother→memory (corrected). Cenexin r²≥0.8. N=400. Pilot 2b: 40 pairs. Ki67/EdU. Multi-state model. 35 refs.*
