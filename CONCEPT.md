@@ -158,7 +158,7 @@
 |----------|:----:|-------------|----------|
 | **Time-to-ciliogenesis** | 🎯 Primary | Hours from cytokinesis to acetylated tubulin⁺ cilium ≥1 µm | Kaplan-Meier, Cox PH (hazard ratio per unit _M_) |
 | Cilium presence at 48h | Secondary | Binary (yes/no) | McNemar (paired) |
-| Shh signaling asymmetry | Secondary | Gli1 nuclear/cytoplasmic ratio IF | McNemar (paired) |
+| Shh signaling asymmetry | Secondary | Gli1 nuclear/cytoplasmic ratio IF | McNemar (paired). ⚠️ TECHNICAL CONTROL in RPE1 (cilium functionality, not biological mechanism). Biologically relevant for NPCs. |
 | Differentiation (NPCs) | Tertiary | Nestin/Sox2 → Tuj1/GFAP | Fisher exact |
 
 **Time-to-ciliogenesis measurement:** Cilium formation is measured in EACH cell cycle. Cells lose cilia before mitosis → reform in G1. The clock starts at cytokinesis of each division. If a cell divides before forming a cilium → competing event. Model: recurrent events (Prentice-Williams-Peterson gap-time model) stratified by cell cycle number. Primary readout: hazard ratio for cilium formation in cycle 1 (most proximal to centrosome inheritance).
@@ -368,6 +368,7 @@ Odf2 KO causes severe defects in distal/subdistal appendages and blocks ciliogen
 | RasPi 5 + 1TB SSD | 250 |
 | Camera HQ + RMS | 150 |
 | **60×/1.2 NA WI** | 3,000 |
+| **405 nm LED** | **500** |
 | LED 488 nm + filters | 450 |
 | IR LED 850 nm + Camera NoIR (night vision) | 40 |
 | Incubator CO₂ | 6,000 |
@@ -379,13 +380,15 @@ Odf2 KO causes severe defects in distal/subdistal appendages and blocks ciliogen
 | RPE1-hTERT + NPCs | 600 |
 | CYTOO 2-cell coverslips ×10 (H₂) + 8-cell coverslips ×10 (H₃) | 1,200 |
 | **CYTOO coverslips ×10 (резерв для адаптивного N, если Pilot 3 ICC>0.4 → N=600)** | **600** |
+| **CYTOO coverslips ×10 (доп. резерв, N=600 при ICC=0.5)** | **600** |
+| **Micromanipulator (3-axis FOSH + microinjector + capillaries) — Plan Б for CYTOO** | **1,208** |
 | Tetraspeck beads | 200 |
 | IF antibodies (acetyl-tubulin, PCM: pericentrin/γ-tubulin/Cdk5Rap2, appendages: Ninein/Cep164, Mib1/PCM1/Notch1, centrin-2, secondary, DAPI) | 500 |
 | Consumables | 300 |
-| **Subtotal** | **14,130–15,130** |
-| **+25% contingency** | **3,533–3,783** |
+| **Subtotal** | **15,438–16,438** |
+| **+25% contingency** | **3,860–4,110** |
 | **SNR fallback (sCMOS)** | 1,800 |
-| **TOTAL (max)** | **$20,713** |
+| **TOTAL (max)** | **$22,348** |
 
 > Экономия: убраны микроманипулятор ($1,500), puller ($1,500), капилляры ($200). CYTOO — основной метод. Night vision (+$40) добавлен. **Резерв CYTOO (+$600) для адаптивного N при ICC>0.4.** IF antibodies расширены (+$300) для контроля PCM/аппендиксов, Mib1/PCM1/Notch1, и Cyclopamine. **Контингенси 25% (против 15% ранее) — покрывает ценовой риск объектива и инкубатора (Review #2 §3.4).**
 
@@ -478,4 +481,4 @@ A negative H₂ result is scientifically informative, not a failure:
 
 ---
 
-*Version 59 — 2026-07-19. Review #5 errors found: Chatterjee PMID 29663194 IS CORRECT (Cerebellum, not ECCV — reviewer confused with different Chatterjee M). Barandun: mother→memory (corrected). Cenexin r²≥0.8. N=400. Pilot 2b: 40 pairs. Ki67/EdU. Multi-state model. 35 refs.*
+*Version 60 — 2026-07-19. Review #6: H₂ = Anderson 2009 replication + SAI correlation (not causality). N=600 (ρ=0.5). 405 nm LED + micromanipulator in base budget. Shh = technical control. Night vision optional. v1.0=CORRELATION, v3.0=CAUSALITY. 35 refs.*

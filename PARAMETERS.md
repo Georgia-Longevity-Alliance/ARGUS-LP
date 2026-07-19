@@ -17,7 +17,7 @@
 | **Cell line (Phase 3 / v2.0)** | hTERT-NPCs (ReNcell/Lonza) |
 | **Markers (live)** | Centrin1-GFP + H2B-GFP (stable lentiviral) — TRACKING only |
 | **Markers (endpoint)** | Cenexin antibody — CLASSIFICATION + acetylated tubulin (cilium) |
-| **Sister isolation** | CYTOO 2-cell islands (fibronectin, PEG borders). Optional: 3-axis micromanipulator (FOSH-adapted) +$1,200. |
+| **Sister isolation** | CYTOO 2-cell islands (fibronectin, PEG borders). **🔴 Micromanipulator in base budget (Review #6):** 3-axis FOSH-adapted + pneumatic microinjector + capillaries = **$1,208**. Plan Б if Pilot 2b shows CYTOO suppression. |
 | **Motor drivers** | 🔴 **TMC2209 UART (StealthChop + CoolStep) + GPIO MOSFET (IRLZ44N) on Vmot.** De-energise motors between imaging cycles. Duty: 3% (18s per 10min). Avg heat: 0.6W. DS18B20 temperature monitoring on motor housings. |
 | **Imaging interval** | 10 min (interphase) / 1 min (mitosis trigger) |
 | **Duration** | 72h continuous + 8h overnight dark recovery |
@@ -39,7 +39,7 @@
 | **Proof-of-Concept** | 🔴 **≥8/10 pairs Centrin-Cenexin concordance, applicant's lab, 48h, 60×/1.2 NA WI** | Re-evaluate Centrin1-GFP line; consider Dendra2-primary strategy |
 | Pilot 1 | Centrin-Cenexin concordance ≥90% **+ PCM/appendage integrity vs. M + ≤20% cells with Centrin1-GFP >2× endogenous + Cenexin vs. age r²≥0.7 + Ninein vs. Cenexin concordance ≥90% + Shh-dependence (Cyclopamine)** | Cenexin-mCherry line / Dendra2 primary / Ninein backup / re-clone Centrin1-GFP |
 | Pilot 2 | CYTOO cell retention ≥80%, 72h | Gridded microwells |
-| **Pilot 2b** | 🟡 **Cilium asynchrony on CYTOO ≥70% of standard coverslip level (20 pairs each, 48h)** | **Switch to standard coverslips + micromanipulator** |
+| **Pilot 2b** | 🟡 **Cilium asynchrony on CYTOO <50% of standard coverslip level (40 pairs each, 48h)** | **Switch to standard coverslips + micromanipulator** |
 | Pilot 3 | Effect size + ICC measured (50 pairs) | Adjust N (ICC>0.4 → N=600) |
 | Pilot NPC | ≥60% Cenexin asymmetry in 2D **+ Mib1/PCM1 asymmetric localization** | 2.5D Matrigel / RPE1-only |
 | SNR | ≥5 at ≤5% LED, ≤200 ms | Cooled sCMOS (+$1,800) |
@@ -53,6 +53,7 @@
 | RasPi 5 (8GB) + 1TB NVMe SSD | 250 |
 | Camera HQ + C-mount RMS adapter | 150 |
 | Objective 60×/1.2 NA WI (Olympus/Nikon, tested used) | 3,500 |
+| **405 nm LED (Dendra2 photoactivation — Plan Б age marker)** | **500** |
 | LED 488 nm + excitation/emission/dichroic filter cube (Thorlabs) | 900 |
 | IR LED 850 nm + Camera NoIR (night vision) | 50 |
 | Incubator CO₂ (new, Benchmark MyTemp / Binder CB 60) | 7,500 |
@@ -65,18 +66,22 @@
 | Culture media, FBS, supplements, antibiotics | 500 |
 | CYTOO coverslips ×20 | 1,500 |
 | **CYTOO coverslips ×10 (резерв для адаптивного N, если ICC>0.4 → N=600)** | **600** |
+| **CYTOO coverslips ×10 (доп. резерв, ICC=0.5 → N=600)** | **600** |
+| **Micromanipulator (3-axis FOSH + pneumatic microinjector + capillaries) — Plan Б CYTOO** | **1,208** |
 | Tetraspeck beads | 250 |
 | IF antibodies (acetyl-tubulin, PCM: pericentrin/γ-tubulin/Cdk5Rap2, appendages: Ninein/Cep164, Mib1/PCM1/Notch1, centrin-2, secondary, DAPI) | 700 |
 | Transfection reagents | 250 |
 | Consumables (plastic, tips, tubes, PFA, Triton X-100) | 600 |
 | Cables, connectors, power supplies, misc | 200 |
 | Shipping, customs (Georgia) | 500 |
-| **Subtotal v1.0** | **23,160** |
-| **+25% contingency** | **5,790** |
+| **Subtotal v1.0** | **24,888** |
+| **+25% contingency** | **6,222** |
 | **SNR fallback (sCMOS, net)** | **1,018** |
-| **TOTAL v1.0 (max)** | **$29,968** |
+| **TOTAL v1.0 (max)** | **$32,128** |
 
 ### Optional: Micromanipulator Module (+$1,208)
+
+> 🔴 **Micromanipulator is now IN BASE BUDGET (Review #6).** This section retained for reference only.
 
 | Line item | $ |
 |-----------|--:|
