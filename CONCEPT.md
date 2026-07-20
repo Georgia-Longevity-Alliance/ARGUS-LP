@@ -36,9 +36,11 @@
 
 | AIM | Goal | System | Primary endpoint |
 |:---:|------|--------|------------------|
-| **AIM 1** | **INSTRUMENT** — Build and validate open platform | GFP beads + RPE1 | H₁: Drift <10µm/24h, Centrin-Cenexin ≥90% |
+| **AIM 1** | **INSTRUMENT** — Build + validate platform. **Record centriole trajectories** (XYZ spindle vector per division). | GFP beads + RPE1 | H₁: Drift <10µm/24h, Centrin-Cenexin ≥90% |
 | **AIM 2** | **KINETICS** — Quantify centrosome-age→cilium timing | RPE1-hTERT | H₂: Time-to-ciliogenesis (Cox PH) |
 | **AIM 3** | **FATE** — Test centrosome-age→differentiation | hTERT-NPCs | H₃: Nestin/Sox2→Tuj1/GFAP |
+
+> **🔗 Связь с ARGUS-OS2:** Данные траекторий центриолей (AIM 1) + возраст + судьба (AIM 2-3) передаются в OS2 для проверки гипотезы lineage-памяти (конвергенция траекторий). OS1 = сбор данных. OS2 = анализ. Подробнее: `../ARGUS-OS2/CONCEPT.md` (§2 — Главный эксперимент).
 
 ---
 
@@ -123,7 +125,7 @@
 |:----:|------|------------|
 | 1. Image pre-processing | Fiji/ImageJ macro | Flat-field correction, bleach correction (exponential fit) |
 | 2. Centriole detection | CellPose 2.0 + custom tracker | TrackMate or Bayesian tracker. Min spot intensity >3σ above background |
-| 3. Mitosis detection | H2B-GFP threshold | Chromatin condensation → trigger 1-2 min imaging |
+| 3. Mitosis detection | H2B-GFP threshold + SiR-Tubulin spindle visualisation | Chromatin condensation → trigger 1-2 min imaging. **Record XYZ spindle vector** for trajectory reconstruction (OS2). |
 | 4. Lineage assignment | Custom Python (NetworkX) | Mother→daughter links based on mitotic spindle orientation + proximity |
 | 5. Cenexin quantification | Fiji ROI | Mean intensity in 3×3 px ROI centered on Centrin1 spot. Normalized to FITC beads |
 | 6. Cilium detection | Acetylated tubulin IF | Length ≥1 µm, contiguous signal from centriole. Automated via Ilastik or manual validation |
@@ -269,7 +271,7 @@ Random intercepts for IslandID/PlateID account for micropattern and batch variab
 
 ---
 
-> **После OS1 → OS2 (центриоль как lineage-память) → OS3 (прогениторные карты).** Детали в ARGUS-OS2/CONCEPT.md (v4.0) и ARGUS-OS3/.
+> **🔗 OS1 → OS2 → OS3:** После успешного завершения OS1 — данные траекторий центриолей передаются в ARGUS-OS2 для проверки гипотезы lineage-памяти (главный эксперимент: конвергенция). После успеха OS2 — ARGUS-OS3 строит прогениторные карты как граф. Детали: `../ARGUS-OS2/CONCEPT.md` (v4.0), `../ARGUS-OS3/`.
 
 ---
 

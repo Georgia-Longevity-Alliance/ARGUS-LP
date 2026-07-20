@@ -1,7 +1,7 @@
 # STATE — ARGUS-OS1
 
 **Date:** 2026-07-20
-**Status:** ✅ v70 — OS1 peer review #3 (6.2/10). Centrin1-GFP control (Bouhlel 2017: Sfi1→G1 arrest). Odf2 species difference acknowledged (Viol 2024: RPE1 ≠ F9). Phase 2 marked as requires validation.
+**Status:** ✅ v71 — OS1 ↔ OS2 синхронизированы. OS1: сбор данных + траектории (XYZ spindle vector). OS2: анализ траекторий (конвергенция). Неконфликтующие, усиливающие друг друга.
 
 ## Current Design (v50 / Platform v1.0)
 
