@@ -416,6 +416,18 @@ Odf2 KO causes severe defects in distal/subdistal appendages and blocks ciliogen
 
 **We publish regardless.**
 
+### 8.1. Recommended Funding Model (Two-Stage Grant)
+
+> **🔴 H₁, H₂, and H₃ are three projects of unequal complexity.** H₁ = instrument build (engineering). H₂ = platform validation (RPE1 kinetics). H₃ = biological discovery (NPC fate). Attempting all three in one grant risks: platform failure → biology impossible. Recommended: **two-stage funding.**
+>
+> **Stage 1 (6 months, ~$15K):** Pilot 0 + Pilot 0.5 + Proof-of-Concept (30 pairs). Deliverable: working ARGUS-LP_OS platform with published validation data (drift, IR safety, Centrin-Cenexin concordance). **Go/No-Go to Stage 2.**
+>
+> **Stage 2 (6 months, ~$45K):** Main RPE1 experiment (H₂, N=400-800 pairs). Deliverable: first live-cell centrosome-aware lineage map, replication of Anderson 2009 with time-to-event resolution, CIN co-primary endpoint.
+>
+> **H₃ (NPC fate):** Deferred to separate grant (ARGUS-NPC) or performed as optional additional experiment if Stage 2 completes ahead of schedule.
+>
+> **Rationale:** De-risks the project by validating the instrument before committing biology resources. Platform (H₁) is a standalone deliverable even if H₂ fails.
+
 ### 8.1. Value of a Null Result
 
 A negative H₂ result is scientifically informative, not a failure:
