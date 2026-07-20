@@ -1,0 +1,14 @@
+Thanks William, this is exactly what I needed to hear. A few things I'm still wondering about:
+
+PET vs ASA. If PET held up for months that's a strong vote in its favour. I was leaning ASA because of the O'Toole preprint but PET prints so much easier — no enclosure, no fumes, no warping headaches. Do you remember what brand you used? I've had bad luck with some of the cheaper PETG spools warping on big flat pieces but maybe the OpenFlexure parts are small enough not to matter.
+
+Motor heat. That's the bit that scares me. We're planning TMC2209s with CoolStep and a MOSFET on Vmot switched by a GPIO pin — kill the motor power entirely when not moving. Imaging once every 10 minutes, the motors should only be awake maybe 20 seconds per cycle so around 3% duty. Did you try anything like that or did you handle it all in software? And out of curiosity what drivers were you using? If they were A4988s those cook even when idle.
+
+The Quigly story is oddly comforting. Deformed PLA held focus for months at 20x. I need 60x so I probably can't get away with that but it tells me the platform is tougher than I thought.
+
+One last thing — has anyone in the forum tried water immersion inside an incubator? We need 60x 1.2 NA for centrosomes and I'm worried the immersion water will just evaporate over two days. If it dries out halfway through a run the whole experiment is toast.
+
+Really appreciate the help.
+
+Jaba
+https://github.com/Georgia-Longevity-Alliance/ARGUS-LP
