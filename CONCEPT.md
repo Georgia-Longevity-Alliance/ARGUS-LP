@@ -1,7 +1,8 @@
 # CONCEPT — ARGUS-LP_OS
 
-**Version:** 76.0
+**Version:** 77.0
 **Date:** 2026-07-20
+> **v77:** Review #23. Personnel: 0.75→1.0 FTE. Autofocus: closed-loop with reflective 850 nm beads. Ninein KD in Phase 1 as rapid causality test.
 > **v76:** Review #22. N=500 (AUC correction: 15% classification error→HR dilution). Sham-manipulated control. NPC 80%.
 > **v73:** Review #19. NPC N 150→300. IR strict criteria (ROS<20%, ΔT<1°C). Ninein cell-cycle calibration. coxme lineage RE.
 > **v71:** Review #17. Ninein KD added as formal v2.0 alternative to Odf2-KO (validated in human NPCs, Royall 2023). N=600 confirmed as baseline. All PMIDs re-verified.
@@ -393,12 +394,12 @@ Odf2 KO causes severe defects in distal/subdistal appendages and blocks ciliogen
 | **Micromanipulator (3-axis FOSH + microinjector + capillaries) — Plan Б for CYTOO** | **1,208** |
 | Tetraspeck beads | 200 |
 | IF antibodies (acetyl-tubulin, PCM: pericentrin/γ-tubulin/Cdk5Rap2, appendages: Ninein/Cep164, Mib1/PCM1/Notch1, centrin-2, secondary, DAPI) | 500 |
-| **Personnel** | 🔴 **Postdoc/Research Assistant, 12 weeks × 0.75 FTE.** Covers: cell culture, 600-pair microscopy runs, manual QC (~30h), IF staining, data analysis. **ERC/HFSP: personnel = 40-60% of budget. At $22K, personnel is 41% of $53.4K total.** If PI performs work, state as in-kind contribution. | **22,000** |
+| **Personnel** | 🔴 **Postdoc/Research Assistant, 12 weeks × 1.0 FTE.** Covers: cell culture, 500-pair microscopy, manual QC (~30h), IF, data analysis, writing. **Realistic workload: ~800-1000h. 1.0 FTE = ~480h in 12 weeks — tight but feasible with automated QC.** | **30,000** |
 | Consumables | 300 |
-| **Subtotal** | **37,438–38,438** |
-| **+25% contingency** | **9,360–9,610** |
+| **Subtotal** | **45,438–46,438** |
+| **+25% contingency** | **11,360–11,610** |
 | **SNR fallback (sCMOS)** | 1,800 |
-| **TOTAL (max)** | **$49,848** |
+| **TOTAL (max)** | **$59,848** |
 
 > Экономия: убраны микроманипулятор ($1,500), puller ($1,500), капилляры ($200). CYTOO — основной метод. Night vision (+$40) добавлен. **Резерв CYTOO (+$600) для адаптивного N при ICC>0.4.** IF antibodies расширены (+$300) для контроля PCM/аппендиксов, Mib1/PCM1/Notch1, и Cyclopamine. **Контингенси 25% (против 15% ранее) — покрывает ценовой риск объектива и инкубатора (Review #2 §3.4).**
 
