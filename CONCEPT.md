@@ -72,7 +72,7 @@
 >
 > **H₂ (Kinetics — validation):** In RPE1-hTERT, the daughter cell inheriting the mature mother centrosome (higher _M_) forms a primary cilium significantly earlier than its sister. **This is NOT a replication of Anderson & Stearns 2009** — it tests whether the 3.1% spindle asymmetry (Thomas & Meraldi 2024) is FUNCTIONALLY SUFFICIENT to produce differential cilium timing. RPE1 serves as platform validation + mechanistic test.
 >
-> **H₃ (Fate — biological discovery):** In hTERT-NPCs, mature mother centrosome inheritance → higher probability of maintaining progenitor identity (Nestin⁺/Sox2⁺) vs. differentiation (Tuj1⁺/GFAP⁺). **This is the primary biological question.** Royall 2023 demonstrated this in 3D organoids; ARGUS tests whether it translates to 2D — a critical step for making centrosome-fate studies accessible.
+> **H₃ (Fate — EXPLORATORY, secondary to H₂):** In hTERT-NPCs, mature mother centrosome inheritance → higher probability of maintaining progenitor identity (Nestin⁺/Sox2⁺) vs. differentiation (Tuj1⁺/GFAP⁺). **H₃ is EXPLORATORY — N=300 provides suggestive evidence, not confirmatory proof.** Royall 2023 demonstrated the effect in 3D organoids; ARGUS tests whether the correlation persists in 2D. **If 2D NPCs show no effect — consistent with Chatterjee 2018 (2D cerebellar GNPs also null) — publishable tissue-specificity result, not a failure.** Primary confirmatory result is H₂ (RPE1, N=600).
 >
 > H₁ validates the instrument. H₂ is the biological discovery in RPE1. H₃ extends to a fate-relevant model. **If H₁ fails, H₂ and H₃ are uninterpretable.** The platform must work before biology can be tested.
 
