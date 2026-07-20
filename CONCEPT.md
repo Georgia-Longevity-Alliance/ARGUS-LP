@@ -1,7 +1,8 @@
 # CONCEPT — ARGUS-LP_OS
 
-**Version:** 89.0 FINAL
+**Version:** 90.0 FINAL
 **Date:** 2026-07-20
+> **v90:** Review #37. 405 nm: laser diode module (not LED) — $500 adequate for Thorlabs DJ405-10. Duplicate Alternative Hypotheses table removed.
 > **v89:** Review #36. RECOMMENDED FOR FUNDING. SiR-Tubulin (640/680nm) and IR (850nm) — channels separated by 170nm, dichroic filters prevent crosstalk. Fallback: remove SiR-Tubulin, use H2B-GFP for mitosis.
 > **v88:** Review #35. RECOMMENDED FOR SUBMISSION. Wang 2009 (MOUSE neocortex, PMID 19829375) emphasised in Central Hypothesis as primary mammalian precedent. All 35 reviews complete. 36 verified references.
 > **v87:** Review #34. N_eff verified: DE=1+(m-1)ρ=1.4, N_eff=800/1.4=571→240 events→87% power. Reviewer's DE=2.2 was arithmetic error. Budget: $180K realistic (objective $6K).
