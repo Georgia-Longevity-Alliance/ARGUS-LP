@@ -41,7 +41,7 @@
 
 ### 0.2. Maturation State Definition
 
-> **Maturation state is operationally defined as the Ninein fluorescence intensity ratio: _M = I(Ninein)ᵃ / I(Ninein)ᵇ_.** Ninein is the PRIMARY age marker — subdistal appendage component, validated in human NPCs (Royall 2023, PMID 37882444) and CD8+ T cells (Barandun 2025, PMID 39764850). Ninein does NOT disassemble during mitosis (unlike Cenexin). **Cenexin = backup.** If Ninein vs. Cenexin concordance <90% in Pilot 1 → Cenexin becomes primary. ROC calibration: **Go: AUC≥0.85** for _M_>1.5 vs. Dendra2. If AUC<0.85 → Dendra2 primary (🔴 HARD STOP).
+> **Maturation state is operationally defined as the Ninein fluorescence intensity ratio: _M = I(Ninein)ᵃ / I(Ninein)ᵇ_.** Ninein = PRIMARY marker. **⚠️ Ninein calibration in RPE1 is an ORIGINAL METHODOLOGICAL CONTRIBUTION of ARGUS-LP_OS.** No published study has calibrated Ninein IF intensity against centrosome divisional age in RPE1. Royall 2023 used Ninein KD for causality testing (not age calibration); Barandun 2025 used membrane markers (not Ninein IF). **Pilot 1 directly calibrates Ninein against Dendra2-Centrin photoconversion (405 nm LED).** AUC≥0.85 → Ninein validated as age proxy. AUC<0.85 → Dendra2 primary. Cenexin = backup throughout.
 >
 > **⚠️ Mitosis caveat:** Distal/subdistal appendages partially disassemble during mitosis (reviewer comment on Thomas & Meraldi 2024). Cenexin staining intensity may fluctuate through the cell cycle. Pilot 1 validates Cenexin signal at different cell cycle stages.
 >
