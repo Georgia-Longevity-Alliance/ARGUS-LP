@@ -47,7 +47,7 @@ v3.0                     → технология: разделение сест
 |--------|------|
 | v1.0 (железо) | docs/VERSIONS.md, docs/V0_PROTOTYPE_ALEX.md, docs/V6_PROTOTYPE_ALEX.md |
 | v2.0 (причины) | docs/V2_CAUSALITY.md |
-| v3.0 (технология) | — будет |
+| v3.0 (технология) | docs/V3_PROGENITOR_MAPS.md |
 | Научная платформа (гранты) | CONCEPT.md |
 
 ---
