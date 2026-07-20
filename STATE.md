@@ -1,7 +1,7 @@
 # STATE — ARGUS-LP_OS
 
 **Date:** 2026-07-20
-**Status:** 🟡 v51 — V6 PROTOTYPE (Alex): 40×/0.75 dry, U2OS, cloud AI, $3-4K. Engineering MVP. See docs/V6_PROTOTYPE_ALEX.md.
+**Status:** 🟡 v53 — V0 (stock OF, ~$930) → V6 (40×/0.75, U2OS, $3-4K) → v1.0 (наблюдения, без лазера). V7 (WI 60×). V2.0 (лазер/абляция — отдельно). Научная платформа: CONCEPT.md. Инженерные: docs/VERSIONS.md.
 
 ## Current Design (v50 / Platform v1.0)
 
