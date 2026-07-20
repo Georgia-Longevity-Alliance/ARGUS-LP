@@ -1,7 +1,8 @@
 # CONCEPT — ARGUS-LP_OS
 
-**Version:** 91.0 FINAL
+**Version:** 92.0
 **Date:** 2026-07-20
+> **v92:** Review #39. Barandun: "promotes memory formation" per original title — mother→effector-like daughter, outcome = memory. Tateishi Δ4/5 = DA+SA− RE-VERIFIED (reviewer claim of DA−SA− ERRONEOUS).
 > **v91:** RECOMMENDED FOR FUNDING. Cox+cluster = PRIMARY. Fine-Gray = sensitivity.
 > **v90:** Review #37. 405 nm: laser diode module (not LED) — $500 adequate for Thorlabs DJ405-10. Duplicate Alternative Hypotheses table removed.
 > **v89:** Review #36. RECOMMENDED FOR FUNDING. SiR-Tubulin (640/680nm) and IR (850nm) — channels separated by 170nm, dichroic filters prevent crosstalk. Fallback: remove SiR-Tubulin, use H2B-GFP for mitosis.
@@ -468,7 +469,7 @@ A negative H₂ result is scientifically informative, not a failure:
 3. Royall LN et al. *eLife* 12:e83157 (2023). **PMID: 37882444.**
 4. Yamashita YM et al. *Science* 315:518–521 (2007). **PMID: 17255513.**
 5. Paridaen JT et al. *Cell* 155:333–344 (2013). **PMID: 24120134.**
-6. Barandun N et al. *Cell Rep* 44:115127 (2025). **PMID: 39764850.** — Mother centrosome → **effector-like daughter cell.** Ninein deletion impairs memory differentiation. ⚠️ NOT "mother→memory" — mother is inherited by effector-like daughter.
+6. Barandun N et al. *Cell Rep* 44:115127 (2025). **PMID: 39764850.** — Mother centrosome → effector-like daughter cell. **Title: "promotes memory formation."** Ninein deletion impairs memory differentiation. Keywords: early memory and effector cell differentiation.
 7. Reina J, Gonzalez C. *Phil Trans R Soc B* 369:20130466 (2014). **PMID: 25047620.**
 8. Chatterjee A et al. *Cerebellum* 17:685–691 (2018). **PMID: 29663194.**
 9. Conduit PT, Raff JW. *Curr Biol* 20:2187–2192 (2010). **PMID: 21145745.**
