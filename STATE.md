@@ -1,7 +1,7 @@
 # STATE — ARGUS-OS1
 
 **Date:** 2026-07-20
-**Status:** ✅ v97.2 — XY (не XYZ) для RPE1 монослоя. Z пренебрежим. C. elegans: XYZ. Возраст = n_divisions. N=600.
+**Status:** ✅ v97.5 — XYZ→position. SiR 100nM. Autofocus. Alt hypotheses noted.
 
 ## Current Design (v50 / Platform v1.0)
 
