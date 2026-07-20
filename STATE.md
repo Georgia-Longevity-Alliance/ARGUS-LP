@@ -1,7 +1,7 @@
 # STATE — ARGUS-OS1
 
 **Date:** 2026-07-20
-**Status:** ✅ v71 — OS1 ↔ OS2 синхронизированы. OS1: сбор данных + траектории (XYZ spindle vector). OS2: анализ траекторий (конвергенция). Неконфликтующие, усиливающие друг друга.
+**Status:** ✅ v97 (CLEAN) — Радикальное упрощение. Только 3 маркера: Centrin1-GFP + SiR-Tubulin + Arl13B. Возраст = траектория. $23K. OS1→OS2→OS3.
 
 ## Current Design (v50 / Platform v1.0)
 
