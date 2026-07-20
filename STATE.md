@@ -1,7 +1,7 @@
 # STATE — ARGUS-OS1
 
 **Date:** 2026-07-20
-**Status:** ✅ v68 — OS1 peer review incorporated (7.8/10). Photo-toxicity protocol detailed. 3.1% framing fixed (confident). Manual QC → confidence-based (5% review). Pipeline validated on Royall 2023 data.
+**Status:** ✅ v69 — OS1 peer review #2 (7.9/10). Valdes Michel 2025 corrected (C. elegans = evolutionary parallel, not human mechanism). Timeline realistic. IncuCyte comparison added to CONCEPT.
 
 ## Current Design (v50 / Platform v1.0)
 
