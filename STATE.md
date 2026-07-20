@@ -1,7 +1,7 @@
 # STATE — ARGUS-LP_OS
 
 **Date:** 2026-07-20
-**Status:** 🟡 v55 — v1.0 (V0+V6): наблюдение. v2.0 (V7): поиск причин — Ninein KD + Odf2 Δ4/5. v3.0: абляция + манипуляторы + лазерные пинцеты (прогениторные карты). Docs: VERSIONS.md, V0_PROTOTYPE_ALEX.md, V6_PROTOTYPE_ALEX.md, V2_CAUSALITY.md.
+**Status:** 🟡 v57 — v1.0: наблюдение. v2.0: поиск причин (аудит завершён, 20 ссылок). v3.0: прогениторные карты — решение: разделение (primary) + мтДНК (secondary) + абляция (hypothesis testing). Механические манипуляторы vs оптические пинцеты — нужен выбор.
 
 ## Current Design (v50 / Platform v1.0)
 
