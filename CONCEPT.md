@@ -1,7 +1,8 @@
 # CONCEPT — ARGUS-LP_OS
 
-**Version:** 81.0
+**Version:** 83.0
 **Date:** 2026-07-20
+> **v83:** Review #30. Tateishi 24189274 RE-VERIFIED (reviewer claim erroneous). Soung 19389396 = wrong PMID from reviewer (PARP, not centrosomes). Monte Carlo simulation added.
 > **v81:** Review #28. Personnel $45K (6mo×0.75FTE). Dendra2 base. Stats simplified. Causality = CORRELATION ONLY.
 > **v79:** Review #25. Ninein KD = structural necessity (NOT age causality). β-catenin: C. elegans = principle only. N=800. CYTOO 2b: 100 pairs. Dendra2 vs RITE. 36 refs.
 > **v77:** Review #23. Personnel: 0.75→1.0 FTE. Autofocus: closed-loop with reflective 850 nm beads. Ninein KD in Phase 1 as rapid causality test.
