@@ -1,7 +1,8 @@
 # CONCEPT — ARGUS-LP_OS
 
-**Version:** 77.0
+**Version:** 79.0
 **Date:** 2026-07-20
+> **v79:** Review #25. Ninein KD = structural necessity (NOT age causality). β-catenin: C. elegans = principle only. N=800. CYTOO 2b: 100 pairs. Dendra2 vs RITE. 36 refs.
 > **v77:** Review #23. Personnel: 0.75→1.0 FTE. Autofocus: closed-loop with reflective 850 nm beads. Ninein KD in Phase 1 as rapid causality test.
 > **v76:** Review #22. N=500 (AUC correction: 15% classification error→HR dilution). Sham-manipulated control. NPC 80%.
 > **v73:** Review #19. NPC N 150→300. IR strict criteria (ROS<20%, ΔT<1°C). Ninein cell-cycle calibration. coxme lineage RE.
