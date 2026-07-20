@@ -106,16 +106,20 @@ OS3: прогениторные карты = граф
 
 | # | Reference | PMID |
 |---|-----------|------|
-| 1 | Anderson & Stearns (2009) | 19682908 |
-| 2 | Thomas & Meraldi (2024) | 39012627 |
-| 3 | Sulston & Horvitz (1977) | 838129 |
-| 4 | Knapper et al. (2022) | 34625963 |
-| 5 | Stringer et al. (2021) | 33318659 |
-| 6 | Malcolm et al. (2026) | — |
-| 7 | Paridaen et al. (2013) | 24120134 |
-| 8 | Reina & Gonzalez (2014) | 25047620 |
-| 9 | Gaudin et al. (2021) | 34402855 |
-| 10 | Hall & Hehnly (2021) | 33561384 |
+| 1 | Anderson & Stearns (2009) — centriole age → cilium timing | 19682908 |
+| 2 | Yamashita et al. (2007) — Drosophila mGSC, mother→stem | 17255513 |
+| 3 | Januschke et al. (2011) — Drosophila NB, daughter→stem | 21407209 |
+| 4 | Wang et al. (2009) — mouse radial glia, mother→progenitor | 19829375 |
+| 5 | Chatterjee et al. (2018) — cerebellar GNP, NO correlation | 29663194 |
+| 6 | Thomas & Meraldi (2024) — Cenexin→Plk1→SAI | 39012627 |
+| 7 | Sulston & Horvitz (1977) — C. elegans complete lineage | 838129 |
+| 8 | Reina & Gonzalez (2014) — review: fate follows age | 25047620 |
+| 9 | Knapper et al. (2022) — OpenFlexure autofocus | 34625963 |
+| 10 | Stringer et al. (2021) — CellPose 2.0 | 33318659 |
+| 11 | Gaudin et al. (2021) — DISCO complex | 34402855 |
+| 12 | Hall & Hehnly (2021) — subdistal appendages | 33561384 |
+| 13 | Paridaen et al. (2013) — cilium membrane inheritance | 24120134 |
+| 14 | Gasic et al. (2015) — 85% CIN via Cenexin | 26287477 |
 
 ---
 
