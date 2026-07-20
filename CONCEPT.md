@@ -1,7 +1,8 @@
 # CONCEPT — ARGUS-LP_OS
 
-**Version:** 90.0 FINAL
+**Version:** 91.0 FINAL
 **Date:** 2026-07-20
+> **v91:** RECOMMENDED FOR FUNDING. Cox+cluster = PRIMARY. Fine-Gray = sensitivity.
 > **v90:** Review #37. 405 nm: laser diode module (not LED) — $500 adequate for Thorlabs DJ405-10. Duplicate Alternative Hypotheses table removed.
 > **v89:** Review #36. RECOMMENDED FOR FUNDING. SiR-Tubulin (640/680nm) and IR (850nm) — channels separated by 170nm, dichroic filters prevent crosstalk. Fallback: remove SiR-Tubulin, use H2B-GFP for mitosis.
 > **v88:** Review #35. RECOMMENDED FOR SUBMISSION. Wang 2009 (MOUSE neocortex, PMID 19829375) emphasised in Central Hypothesis as primary mammalian precedent. All 35 reviews complete. 36 verified references.
