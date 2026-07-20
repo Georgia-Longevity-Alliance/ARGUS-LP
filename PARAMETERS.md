@@ -1,8 +1,8 @@
 # PARAMETERS — ARGUS-LP_OS
 
-**Version:** 58.0 — Synchronised with CONCEPT v64
-**Date:** 2026-07-19
-> **v58:** Review #10. Personnel $22K (0.75 FTE). 405 nm LED base. N=600 baseline. Gasic = hypothesis.
+**Version:** 59.0 — Synchronised with CONCEPT v80
+**Date:** 2026-07-20
+> **v59:** Synced with CONCEPT v80. N=800 baseline. Combined phototoxicity (IR+488+405). Two-stage funding model. 36 refs.
 > **v54:** Materials: ASA primary (Tg 95-105°C), PET fallback. Motor drivers: TMC2209 with GPIO MOSFET de-energising → 3% duty → 0.6W avg. O'Toole bioRxiv (Malcolm 2026) ref. OpenFlexure Forum (WilliamW) pers. comm.
 
 ## Phase 1 (v1.0) — Sister Tracking (RPE1-hTERT)
@@ -11,7 +11,7 @@
 |-----------|-------|
 | **Microscope** | OpenFlexure v6.1.5, **ASA filament (primary, Tg 95-105°C, O'Toole-validated). PET fallback.** 60×/1.2 NA WI |
 | **Camera** | RasPi Camera HQ (pilot) → ZWO ASI183MM Pro cooled (+$1,018 net) SNR fallback |
-| **IR 850 nm safety** | Pilot 0.5: 72h continuous IR + WI + medium (no cells). ROS, apoptosis, proliferation, ΔT_medium. ⚠️ Kiepas 2020 (PMID 31988150) — general phototoxicity methodology, NOT 850 nm 48h-specific. Pilot 0.5 generates original data. |
+| IR 850 nm + 488 nm + 405 nm combined phototoxicity | 🔴 **Pilot 0.5c:** ALL wavelengths simultaneously (IR+488+405), 72h, full imaging duty cycle. Measure ROS, γH2AX, JC-1, ATP, viability, proliferation. Δ>10% in any metric → reduce duty cycle or remove most toxic wavelength. |
 | **Incubator** | New CO₂ (Benchmark MyTemp / Binder CB 60), 37°C, 5% CO₂, HEPA H13 |
 | **O₂** | 5% via N₂ purge + LuminOx sensor |
 | **Cell line (primary)** | RPE1-hTERT (ATCC CRL-4000) |
@@ -23,13 +23,13 @@
 | **Motor drivers** | 🔴 **TMC2209 UART (StealthChop + CoolStep) + GPIO MOSFET (IRLZ44N) on Vmot.** De-energise motors between imaging cycles. Duty: 3% (18s per 10min). Avg heat: 0.6W. DS18B20 temperature monitoring on motor housings. |
 | **Imaging interval** | 10 min (interphase) / 1 min (mitosis trigger) |
 | **Duration** | 72h continuous + 8h overnight dark recovery |
-| **N** | 300 pairs. Adaptive: if Pilot 3 ICC>0.4 → N=600 (CYTOO reserve covers +$600). Pilot: 50 pairs → effect size + ICC → final N. |
+| **N** | 800 pairs baseline (CONCEPT v80). Conservative: ICC=0.4, 30% attrition, 40% competing risk. |
 | **Primary endpoint** | Time-to-ciliogenesis (hours from cytokinesis to cilium ≥1 µm). Kaplan-Meier + Cox PH. |
 | **Secondary endpoints** | Cilium presence at 72h (binary, McNemar). Ki67 status (binary, McNemar). |
 | **Tertiary (NPCs)** | Differentiation: Nestin/Sox2 → Tuj1/GFAP (Fisher exact). |
 | **Lineage** | Full tree: mother→daughters→granddaughters→great-granddaughters (~3 cell cycles in 72h). |
 | **Statistics** | Primary: Fine-Gray subdistribution hazard with frailty terms (R `frailtypack` — supports random effects for PlateID/IslandID/MotherID). Sensitivity: cause-specific hazards + cluster-robust SE vs. Cox with censoring. Secondary: Cox PH (no competing risks). Binary: McNemar + glmer. Interim: O'Brien-Fleming, conditional power via R `rpact`/`gsDesign`. CP<20% → futility stop. CP 20-50% → adaptive N increase (Cui-Hung-Wang). |
-| **Power** | Primary: 82% at HR≥1.35 with N=300 pairs, ICC ρ=0.3, 20% attrition, 30% competing risk. If Pilot 3 ICC>0.4 → N=600 → power >85%. Secondary: 80% at 15 pp difference (65:35 split). |
+| **Power** | 82% at HR≥1.35, N=800, ICC=0.4, α=0.05, β=0.2. |
 | **Maturation state** | Cenexin ratio _M_ — continuous predictor. Binary _M>1.5_ calibrated via ROC in pilot. |
 
 ## Go/No-Go Gates
