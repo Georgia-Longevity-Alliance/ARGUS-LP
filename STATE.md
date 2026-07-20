@@ -1,7 +1,7 @@
 # STATE — ARGUS-OS1
 
 **Date:** 2026-07-20
-**Status:** ✅ v98 — Возраст = время от создания (часы), не n_divisions. |
+**Status:** ✅ v99 (MINIMAL) — 2 маркера. Судьба = делится/нет. Arl13B удалён. $40K.
 
 ## Current Design (v50 / Platform v1.0)
 
