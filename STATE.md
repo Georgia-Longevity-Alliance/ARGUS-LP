@@ -1,7 +1,7 @@
 # STATE — ARGUS-OS1
 
 **Date:** 2026-07-20
-**Status:** ✅ v67 — ARGUS-OS1 = v1.0 платформа (чистое наблюдение: возраст центриоли ↔ судьба). OS2 = lineage-память (доказательство). OS3 = прогениторные карты (после OS2).
+**Status:** ✅ v68 — OS1 peer review incorporated (7.8/10). Photo-toxicity protocol detailed. 3.1% framing fixed (confident). Manual QC → confidence-based (5% review). Pipeline validated on Royall 2023 data.
 
 ## Current Design (v50 / Platform v1.0)
 
