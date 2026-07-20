@@ -1,7 +1,7 @@
 # STATE — ARGUS-LP_OS
 
-**Date:** 2026-07-19
-**Status:** 🟡 v50 — 8 peer reviews. Time-to-ciliogenesis primary. β-catenin/Wnt mechanism. NPCs added to Phase 1.
+**Date:** 2026-07-20
+**Status:** 🟡 v51 — V6 PROTOTYPE (Alex): 40×/0.75 dry, U2OS, cloud AI, $3-4K. Engineering MVP. See docs/V6_PROTOTYPE_ALEX.md.
 
 ## Current Design (v50 / Platform v1.0)
 
