@@ -1,7 +1,7 @@
 # STATE — ARGUS-OS1
 
 **Date:** 2026-07-20
-**Status:** ✅ v97.1 — Возраст = количество делений (не пиксели). N=600. Valdes Michel исправлена.
+**Status:** ✅ v97.2 — XY (не XYZ) для RPE1 монослоя. Z пренебрежим. C. elegans: XYZ. Возраст = n_divisions. N=600.
 
 ## Current Design (v50 / Platform v1.0)
 
