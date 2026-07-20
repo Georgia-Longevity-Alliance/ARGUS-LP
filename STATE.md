@@ -1,7 +1,7 @@
 # STATE — ARGUS-OS1
 
 **Date:** 2026-07-20
-**Status:** ✅ v97 (CLEAN) — Радикальное упрощение. Только 3 маркера: Centrin1-GFP + SiR-Tubulin + Arl13B. Возраст = траектория. $23K. OS1→OS2→OS3.
+**Status:** ✅ v97.1 — Возраст = количество делений (не пиксели). N=600. Valdes Michel исправлена.
 
 ## Current Design (v50 / Platform v1.0)
 
