@@ -1,7 +1,8 @@
 # CONCEPT — ARGUS-LP_OS
 
-**Version:** 88.0 FINAL
+**Version:** 89.0 FINAL
 **Date:** 2026-07-20
+> **v89:** Review #36. RECOMMENDED FOR FUNDING. SiR-Tubulin (640/680nm) and IR (850nm) — channels separated by 170nm, dichroic filters prevent crosstalk. Fallback: remove SiR-Tubulin, use H2B-GFP for mitosis.
 > **v88:** Review #35. RECOMMENDED FOR SUBMISSION. Wang 2009 (MOUSE neocortex, PMID 19829375) emphasised in Central Hypothesis as primary mammalian precedent. All 35 reviews complete. 36 verified references.
 > **v87:** Review #34. N_eff verified: DE=1+(m-1)ρ=1.4, N_eff=800/1.4=571→240 events→87% power. Reviewer's DE=2.2 was arithmetic error. Budget: $180K realistic (objective $6K).
 > **v86:** Review #33. Two-part split recommended (Part A: instrument $20K/6mo, Part B: biology $40K/6mo). Wang 2009 = centrosome→fate in mouse neocortex (reviewer claim erroneous — verified ×33). Competitive comparison table.
