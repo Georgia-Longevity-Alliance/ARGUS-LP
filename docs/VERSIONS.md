@@ -35,9 +35,9 @@ CO₂ контроль      ❌         ✅          ✅
 ## Иерархия проектов
 
 ```
-v1.0 = V0 + V6          → наблюдение + измерение spindle pedigrees (platform)
+v1.0 = V0 + V6          → наблюдение + измерение centriole pedigrees (platform)
 v2.0 = ARGUS-OS2        → центриоль как lineage-память (C. elegans + RPE1)
-                        → 🔴 главный эксперимент: конвергенция spindle pedigrees
+                        → 🔴 главный эксперимент: конвергенция centriole pedigrees
 v3.0 = ARGUS-OS3        → прогениторные карты (ПОСЛЕ доказательства OS2)
                         → граф с классами эквивалентности
 ```
