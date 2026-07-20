@@ -137,7 +137,7 @@
 
 | Confound | Control |
 |----------|---------|
-| Centrin1-GFP/H2B-GFP may alter centrosome/cell cycle | **CRISPR-KI preferred.** If lentiviral: Western blot (≤2× endogenous=GO), centriole count (≤2.2/G1), FRAP turnover (±20%). Loncarek 2008 (PMID 18297061). **🔴 Single-cell IF:** anti-centrin-2 Ab (does not cross-react with GFP) on ≥100 cells/clone. If >20% cells show Centrin1-GFP >2× endogenous centrin → clone rejected. |
+| Centrin1-GFP/H2B-GFP may alter centrosome/cell cycle | **CRISPR-KI preferred.** If lentiviral: Western blot (≤2× endogenous=GO), centriole count (≤2.2/G1), FRAP turnover (±20%). Loncarek 2008 (PMID 18297061). **🔴 Single-cell IF:** anti-centrin-2 Ab (does not cross-react with GFP) on ≥100 cells/clone. If >20% cells show Centrin1-GFP >2× endogenous centrin → clone rejected. **🔴 Sfi1/Centrin interaction (Bouhlel 2017, PhD thesis, Sorbonne):** Sfi1 depletion in RPE1 → G1 arrest + impaired ciliogenesis. Centrin1-GFP may affect Sfi1 function. Control: compare cilium timing in WT vs Centrin1-GFP clones. Δ>10% in time-to-ciliogenesis → clone rejected. |
 | IR 850 nm prolonged exposure (48h) — phototoxicity, heating | **Pilot 0.5:** IR-ON vs. IR-OFF arms. Measurements: (a) viability (Live/Dead), (b) ROS (CellROX Green), (c) apoptosis (caspase-3/7), (d) DNA damage (γH2AX), (e) mitochondrial potential (JC-1), (f) ATP levels, (g) proliferation (EdU) — at 0/24/48h. Δ>10% in any metric → reduce IR duty cycle to pulsed mode (1s/10min). If pulsed fails → replace 850 nm with 940 nm (lower phototoxicity, less water absorption). If still fails → remove IR, use only 488 nm with 8h overnight dark recovery. **🔴 Pilot 0.5c:** ALL wavelengths simultaneously (IR+488+405), full imaging duty cycle, 72h. Δ>10% → reduce duty cycle or remove most toxic wavelength. Kiepas et al. 2020 (PMID 31988150): phototoxicity methodology. Icha et al. 2017 (PMID 28749024): phototoxicity in live fluorescence. Laissue et al. 2017 (PMID 28661494): assessing phototoxicity. **⚠️ No published 850 nm 48h data — Pilot 0.5 generates original safety data.** |
 | Water immersion objective evaporation → focus drift | Automated water dispenser + saturated humidity in glove-box. Monitor focus drift with GFP beads |
 | Cenexin appendages disassemble during mitosis | Pilot 1 with synchronized cells (double thymidine): Cenexin IF at G1/S/G2/M. If M-phase variation >20% vs. G1 → Dendra2 primary. |
@@ -271,7 +271,9 @@ Random intercepts for IslandID/PlateID account for micropattern and batch variab
 
 ## 5. Phase 2 (v2.0): Odf2 Domain Deletions — Structural Necessity, Not Age Causality
 
-> **🔴 CRITICAL DISTINCTION:** Odf2 KO proves that centrosome **structure** (appendages) is NECESSARY for cilium asymmetry. It does NOT prove that centrosome **age** (maturation state) is CAUSAL. These are different claims:
+> **🔴 CRITICAL DISTINCTION:** Odf2 KO proves that centrosome **structure** (appendages) is NECESSARY for cilium asymmetry. It does NOT prove that centrosome **age** is CAUSAL. These are different claims.
+>
+> **⚠️ SPECIES DIFFERENCE (Viol 2024, PhD thesis, Universität Heidelberg):** All Odf2 domain deletion data is from MOUSE F9 cells (Tateishi 2013). In human RPE1, Odf2-KO does NOT abolish distal appendages or cilia (Viol 2024). Odf2 Δ4/5 constructs validated in F9 may NOT produce the expected DA+SA− phenotype in RPE1. Phase 2 experiments therefore require: (a) direct EM validation of Odf2 constructs in RPE1 before main experiments, OR (b) use of mouse F9 cells for structural dissection experiments. **This is acknowledged as a risk — Phase 2 is marked as requiring independent validation before execution.**
 >
 > - **Structural necessity:** "Without appendages → no asymmetry." Odf2 KO tests this.
 > - **Age causality:** "The AGE of the centrosome (divisions survived) causes fate divergence, not just the structural proteins." This requires manipulating age WITHOUT destroying structure.

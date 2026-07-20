@@ -1,7 +1,7 @@
 # STATE — ARGUS-OS1
 
 **Date:** 2026-07-20
-**Status:** ✅ v69 — OS1 peer review #2 (7.9/10). Valdes Michel 2025 corrected (C. elegans = evolutionary parallel, not human mechanism). Timeline realistic. IncuCyte comparison added to CONCEPT.
+**Status:** ✅ v70 — OS1 peer review #3 (6.2/10). Centrin1-GFP control (Bouhlel 2017: Sfi1→G1 arrest). Odf2 species difference acknowledged (Viol 2024: RPE1 ≠ F9). Phase 2 marked as requires validation.
 
 ## Current Design (v50 / Platform v1.0)
 
