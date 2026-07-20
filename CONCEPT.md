@@ -1,8 +1,8 @@
 # CONCEPT — ARGUS-OS1
 
-**Version:** 95.0
+**Version:** 96.0
 **Date:** 2026-07-21
-> **v95:** ARGUS-OS1 = наблюдение (возраст центриоли ↔ судьба). OS2 (lineage-память) и OS3 (прогениторные карты) — отдельные проекты.
+> **v96:** OS1 очищен от Odf2/Phase2. После OS1 → OS2 (lineage-память, траектории центриолей) → OS3 (прогениторные карты). Centrin1-GFP Bouhlel контроль. Odf2 species difference (Viol 2024).
 > **v93:** Review #40. RECOMMENDED FOR FUNDING (9.1/10). +Lange & Gull 1995 (PMID 7642707): cenexin marks G₂/M-transition maturity, not chronological age. 37 refs.
 > **v92:** Review #39. Barandun: "promotes memory formation" per original title — mother→effector-like daughter, outcome = memory. Tateishi Δ4/5 = DA+SA− RE-VERIFIED (reviewer claim of DA−SA− ERRONEOUS).
 > **v91:** RECOMMENDED FOR FUNDING. Cox+cluster = PRIMARY. Fine-Gray = sensitivity.
@@ -263,47 +263,13 @@ Random intercepts for IslandID/PlateID account for micropattern and batch variab
 | **Pilot 3** | RPE1, 50 pairs **+ direct measurement of daughter cell size asymmetry (Thomas & Meraldi 2024 method: cell area at cytokinesis+2h). Verify that 3.1% spindle asymmetry reproduces in ARGUS-OS1. If asymmetry not detected → H₂ mechanistic basis weakened (cilium timing may still differ, but mechanism is not spindle-size-mediated).** | 2 weeks | Effect size + ICC estimate for final N **+ spindle asymmetry verification (GO: 3.1±2% SAI detected)** |
 | **Main RPE1** | RPE1-hTERT, 300 pairs, 48h (H₂: 1st cycle cilium timing). **Adaptive N: if Pilot 3 ICC>0.4 → N=600 (budget includes CYTOO reserve). Substrate: CYTOO unless Pilot 2b shows suppression → standard coverslips + micromanipulator.** | 4 weeks | Primary: time-to-ciliogenesis |
 | **Main NPCs** | hTERT-NPCs, 150 pairs, endpoint from Pilot NPC time series | 4 weeks | Primary: Nestin→Tuj1/GFAP fate |
-| **Pilot NPC** | hTERT-NPCs, **2.5D Matrigel overlay as PRIMARY protocol** (not fallback — better recapitulates 3D organoid microenvironment per Royall 2023). 30 pairs, 24-96h + Nestin/Sox2/Tuj1/GFAP + Mib1/PCM1/Notch1 ICD IF. | 2 weeks | ≥80% Cenexin asymmetry in 2.5D → proceed. <80% → RPE1-only (publishable tissue-specificity per Chatterjee 2018). |
-| **Phase 2 (v2.0/ARGUS-OS2)** | 🔴 **Recommended as SEPARATE GRANT.** RPE1 Odf2 KO + domain deletions (Tateishi 2013, PMID 24189274). ⚠️ Tateishi used mouse F9 cells — human RPE1 constructs require de novo validation. Realistic timeline: **20-24 weeks.** Realistic budget: **$8,000-10,000** (4 Odf2-GFP construct synthesis + CRISPR-KI + clone selection + validation). Phase 2 is NOT included in v1.0 budget — it is acknowledged as a necessary follow-up requiring independent funding. | 20-24 weeks (separate grant) | Structural necessity (separate from v1.0) |
-| **Phase 3 (v3.0/ARGUS-OS3)** | hTERT-NPCs + ExM endpoint **+ Dendra2-Centrin photoactivation (405 nm laser) for DIRECT centrosome age causality test** | 6-8 weeks | Progenitor map **+ age causality** |
+| **Pilot NPC** | hTERT-NPCs, **2.5D Matrigel overlay as PRIMARY protocol.** 30 pairs, 24-96h + Nestin/Sox2/Tuj1/GFAP + Mib1/PCM1/Notch1 ICD IF. | 2 weeks | ≥80% Cenexin asymmetry in 2.5D → proceed. <80% → RPE1-only. |
+
+> **После успешного завершения OS1:** ARGUS-OS2 исследует ТРАЕКТОРИИ центриолей (lineage-память, конвергенция). ARGUS-OS3 строит прогениторные карты как граф. Детали: `~/Desktop/Marketing/ARGUS-OS2/CONCEPT.md`, `~/Desktop/Marketing/ARGUS-OS3/`.
 
 ---
 
-## 5. Phase 2 (v2.0): Odf2 Domain Deletions — Structural Necessity, Not Age Causality
-
-> **🔴 CRITICAL DISTINCTION:** Odf2 KO proves that centrosome **structure** (appendages) is NECESSARY for cilium asymmetry. It does NOT prove that centrosome **age** is CAUSAL. These are different claims.
->
-> **⚠️ SPECIES DIFFERENCE (Viol 2024, PhD thesis, Universität Heidelberg):** All Odf2 domain deletion data is from MOUSE F9 cells (Tateishi 2013). In human RPE1, Odf2-KO does NOT abolish distal appendages or cilia (Viol 2024). Odf2 Δ4/5 constructs validated in F9 may NOT produce the expected DA+SA− phenotype in RPE1. Phase 2 experiments therefore require: (a) direct EM validation of Odf2 constructs in RPE1 before main experiments, OR (b) use of mouse F9 cells for structural dissection experiments. **This is acknowledged as a risk — Phase 2 is marked as requiring independent validation before execution.**
->
-> - **Structural necessity:** "Without appendages → no asymmetry." Odf2 KO tests this.
-> - **Age causality:** "The AGE of the centrosome (divisions survived) causes fate divergence, not just the structural proteins." This requires manipulating age WITHOUT destroying structure.
->
-> **What Odf2 domain deletions DO test:** Which appendage TYPE (distal vs. subdistal) is required for asymmetry. This is structural dissection, not age manipulation.
->
-> **Alternative path to causality (v2.0): Ninein KD.** shRNA-mediated Ninein knockdown (validated in human NPCs by Royall 2023, PMID 37882444) randomizes centrosome inheritance → if asymmetry drops to ~50%, centrosome age is causal for fate. **This is faster and lower-risk than Odf2-KO** — Ninein shRNA is commercially available, works in human cells without species barrier, and requires 4-6 weeks vs. 20-24 for Odf2-KO construct validation. Odf2 domain deletions remain as structural dissection (which appendage type), Ninein KD as causality test (does randomization abolish effect). **Both are v2.0, separate grant from v1.0.**
->
-> **Honest framing for grant committees:** Phase 2 answers "Which centrosome substructure transmits the asymmetry signal?" — a structural question. Phase 3 answers "Is the centrosome age signal causal for fate?" — a causal question requiring ablation-capable hardware.
-
-Odf2 KO causes severe defects in distal/subdistal appendages and blocks ciliogenesis (Ishikawa 2005, PMID 15852003 — mouse F9 cells).
-- **Odf2(Δ4/5)** [previously referred to as Δ188-806] → transition fibers/distal appendages (DA). Deletion → DA+SA− (distal present, subdistal absent). Cilia form but are abnormal. Per Tateishi 2013 nomenclature: Δ4/5 and Δ6/7 are the standard construct names.
-- aa 1-59 (N-terminal) → centriole recruitment. Deletion (Δ1-59 / ΔN) → no localization, no appendages, no cilia.
-- C-terminal domain → appendage formation after recruitment. Deletion → centrosome binding intact, appendages absent.
-
-**Experimental design (domain deletions, structural phenotypes per Tateishi 2013; asymmetry predictions are OUR HYPOTHESIS — NOT tested by Tateishi):**
-
-| Group | Construct | Tateishi 2013 phenotype | Prediction for ARGUS |
-|:-----:|-----------|--------------------------|----------------------|
-| WT | — | Normal appendages + cilia | 94% asymmetry (baseline) |
-| Odf2⁻/⁻ | — | No appendages, no cilia | No cilia, no asymmetry |
-| **Odf2⁻/⁻ + Odf2(FL)** | Full-length Odf2-GFP | Full rescue: DA+SA+, cilia+ | **Positive control.** Appendages + cilia restored → asymmetry restored |
-| **Odf2⁻/⁻ + Odf2(Δ4/5)** | Central domain deletion (Tateishi Δ4/5) | **DA+SA−.** Distal appendages present, subdistal absent. Cilia form but are abnormal (reduced frequency, shorter) | **Key experimental group.** Tests whether distal appendages ALONE sufficient for centrosome-age-dependent asymmetry |
-| **Odf2⁻/⁻ + Odf2(Δ1-59)** | N-terminal deletion (ΔN) | **No centriole recruitment.** Does NOT localize to basal bodies. No appendages, no cilia | **Negative control.** Confirms recruitment is required |
-| **Odf2⁻/⁻ + Odf2(ΔC)** | C-terminal deletion (note: not explicitly named in Tateishi 2013 as separate construct; inferred from domain analysis) | Centrosome binding intact, appendage formation impaired | **Exploratory binding control.** Separates centrosome binding from appendage function. ⚠️ Requires de novo construct design. |
-| **WT + Ninein KD** | shNinein | Randomizes centrosome inheritance (Royall 2023). If asymmetry drops to ~50% → centrosome age is CAUSAL for fate | **Causality control.** Orthogonal to Odf2 — tests whether randomization abolishes asymmetry |
-
-**Why this replaces HDAC6i:** Wang 2025 (PMID 40167251) is a review — no experimental data on Odf2⁻/⁻ rescue. PubMed search: 0 results for HDAC6i+Odf2 KO. **HDAC6i is NOT a valid mechanistic tool for Odf2 rescue.** Tateishi 2013 (PMID 24189274) provides validated domain-level resolution. **Risk:** Tateishi used mouse F9 cells. Human RPE1 Odf2 constructs must be validated — this is a separate engineering task (8-10 weeks, not 6-8). Budget Phase 2 accordingly.
-
-**Centrosome age determination in Odf2-KO:** Without Cenexin/Odf2, the standard age marker is absent. **⚠️ Ninein WILL NOT WORK in Odf2-KO:** Tateishi 2013 showed subdistal appendages are absent in Odf2-KO, and Ninein is a subdistal appendage component — it cannot localize without the structure. Royall 2023 validated Ninein in WT NPCs, not Odf2-KO. **Phase 2 on v1.0 CANNOT determine centrosome AGE** — only structural necessity of Odf2. Age causality requires Centrin1-Dendra2 photoconversion (405 nm laser → v3.0/ARGUS-OS3). **Honest framing:** Phase 2 tests which appendage TYPE is required for asymmetry (structural dissection), not whether centrosome age is causal.
+> **После OS1 → OS2 (центриоль как lineage-память) → OS3 (прогениторные карты).** Детали в ARGUS-OS2/CONCEPT.md (v4.0) и ARGUS-OS3/.
 
 ---
 
