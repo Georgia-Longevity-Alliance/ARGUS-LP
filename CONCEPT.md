@@ -1,8 +1,8 @@
 # CONCEPT — ARGUS-OS1
 
-**Version:** 94.0
-**Date:** 2026-07-20
-> **v94:** Renamed ARGUS-LP_OS → ARGUS-OS1. ARGUS-OS2 (causality) and ARGUS-OS3 (progenitor maps) = separate projects. See docs/VERSIONS.md. PMID 7544801→7642707 fixed.
+**Version:** 95.0
+**Date:** 2026-07-21
+> **v95:** Новая концепция ARGUS-OS2 (v4.0): центриоль как материальный носитель пространственной lineage-памяти. Главный эксперимент: конвергенция траекторий. ARGUS-OS3: прогениторные карты = граф.
 > **v93:** Review #40. RECOMMENDED FOR FUNDING (9.1/10). +Lange & Gull 1995 (PMID 7642707): cenexin marks G₂/M-transition maturity, not chronological age. 37 refs.
 > **v92:** Review #39. Barandun: "promotes memory formation" per original title — mother→effector-like daughter, outcome = memory. Tateishi Δ4/5 = DA+SA− RE-VERIFIED (reviewer claim of DA−SA− ERRONEOUS).
 > **v91:** RECOMMENDED FOR FUNDING. Cox+cluster = PRIMARY. Fine-Gray = sensitivity.
