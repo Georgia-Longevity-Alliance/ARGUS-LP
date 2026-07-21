@@ -1,6 +1,6 @@
 # PARAMETERS — ARGUS-OS1
 
-**Version:** 63.0 — sync with CONCEPT v112
+**Version:** 63.0 — sync with CONCEPT v143
 **Date:** 2026-07-21
 
 ## Model

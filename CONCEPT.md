@@ -1,8 +1,8 @@
 # CONCEPT — ARGUS-OS1
 
-**Version:** 118.0
+**Version:** 143.0
 **Date:** 2026-07-21
-> **v118:** Anderson 2009 confirmed EXPERIMENTAL. +Erpf 2020, +Balestra 2015. 12 refs.
+> **v143:** V7 $81K. Sister-cell primary. All synced.
 
 ---
 
