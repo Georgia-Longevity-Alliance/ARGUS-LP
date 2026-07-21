@@ -1,6 +1,6 @@
 # CONCEPT — ARGUS-OS1
 
-**Version:** 147.0
+****Version:** 150.0
 **Date:** 2026-07-21
 > **v143:** V7 $81K. Sister-cell primary. All synced.
 
