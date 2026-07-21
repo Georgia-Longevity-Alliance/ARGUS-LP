@@ -14,7 +14,7 @@ In C. elegans, ~88% of cells eliminate centrioles during differentiation. ~68 ce
 
 MTOC inactivation protects centrioles from elimination (Magescas & Feldman 2025, preprint). This provides mechanistic support.
 
-**Question:** can centriole fate be predicted from its pedigree?
+**Question:** does centriole pedigree independently predict fate after controlling for age and cell type? **Null hypothesis:** pedigree does NOT predict fate. Rejecting H₀ = breakthrough.
 
 ---
 
@@ -44,9 +44,9 @@ Control: age → function quality (Anderson 2009).
 | 1 | C. elegans embryo, Centrin1-GFP + histone::GFP |
 | 2 | Immobilization: microfluidic chip or agarose pad |
 | 3 | 3D time-lapse from zygote to ~100 cells (~3h, 30°C) |
-| 4 | **Pedigree: FULL history of spindle orientations per centriole** (not just last division). Each centriole carries a sequence of ∥/⟂ from zygote. Threshold: <30° = ∥, >60° = ⟂. **Pilot: measure angle distribution in 5 embryos to validate thresholds before Main.** |
+| 4 | **Pedigree: continuous 3D angle (not binary).** Full history per centriole. Pilot: validate angle measurement on 5 embryos. |
 | 5 | Centriole fate — retained or eliminated |
-| 6 | **Mixed-effects logistic regression.** fate ~ pedigree_full + age + cell_type + (1|embryo). **Causality test (optional Phase 2):** CAP-Trap MTOC manipulation (Feldman 2025). |
+| 6 | **Mixed-effects logistic regression.** fate ~ angle_3d + age + cell_type + (1|embryo). **VIF test for multicollinearity (age vs angle).** |
 
 ---
 
@@ -70,15 +70,17 @@ Control: age → function quality (Anderson 2009).
 | **Internal surveillance: 2× cameras + LED lighting** | 400 |
 | **Glove-box isolator (acrylic, HEPA H13, neoprene gloves)** | 5,000 |
 | **Neoprene gloves (spare set) + mounting rings** | 200 |
-| **Femtosecond laser NIR 800 nm (dissection/ablation)** | 15,000 |
+| **Femtosecond laser NIR 800 nm (Phase 3, optional)** | 15,000 |
 | **405 nm laser (Dendra2 photoconversion)** | 800 |
 | **Optical tweezers: 2× 1064 nm CW traps (AOD-split) — dual manipulation** | 22,000 |
 | **3-axis micromanipulator ×2 + microcapillaries + pneumatic injector — AI-controlled (Jetson AGX)** | 8,000 |
 | **Internal shelves (reagents, tools) + UV-C sterilization lamp** | 1,000 |
 | C. elegans strains + reagents + consumables | 1,500 |
 | Data analysis (compute + software) | 5,000 |
-| Contingency (20%) | 18,400 |
-| **Total** | **~110,400** |
+| Contingency (20%) | 15,200 |
+| **Total (Phase 1 — Core)** | **~91,000** |
+| Femtosecond laser (Phase 3, optional) | +18,000 |
+| **Total (all phases)** | **~109,000** |
 
 ### Comparison with equivalent systems
 
@@ -101,7 +103,8 @@ Control: age → function quality (Anderson 2009).
 
 | # | Reference | PMID |
 |---|-----------|------|
-| 1 | Sulston & Horvitz (1977) — lineage | 838129 |
+| 1 | Sulston & Horvitz (1977) — post-embryonic lineage | 838129 |
+| 2 | Sulston et al. (1983) — embryonic lineage | 3320053 |
 | 2 | Kalbfuss & Gönczy (2023) — 88% eliminate, Science Advances | 37256957 |
 | 3 | Kalbfuss, Berger & Gönczy (2023) — cell fate determines centriole fate, Dev Biol | 37414202 |
 | 4 | Gönczy & Balestra (2023) — stochastic segregation | 36988082 |
