@@ -22,6 +22,10 @@
 | Camera | sCMOS (Hamamatsu ORCA) |
 | Lasers | 488 nm + 561 nm |
 | Immobilization | Microfluidic chip |
+| AI agent | Jetson AGX Orin 64GB (275 TOPS) — local, autonomous |
+| Night vision | IR LED 850nm + 2× NoIR cameras |
+| Surveillance | 2× internal cameras + LED lighting |
+| Enclosure | Glove-box isolator (acrylic, HEPA H13, neoprene gloves) |
 | Markers | Centrin1-GFP + histone::GFP |
 
 ## Experiment
@@ -32,4 +36,4 @@
 | Duration | ~3h per embryo |
 | Temperature | 30°C |
 | Analysis | Mixed-effects logistic regression: fate ~ pedigree + age + (1|embryo) |
-| Budget | ~$52,600 |
+| Budget | ~$61,000 |

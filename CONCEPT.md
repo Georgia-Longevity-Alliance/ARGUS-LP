@@ -66,11 +66,14 @@ Control: age → function quality (Anderson 2009).
 | Temperature-controlled enclosure (PID) | 2,000 |
 | Microfluidic chip + pressure system | 2,500 |
 | OpenFlexure base (ASA, motors) | 800 |
-| Jetson Orin NX + RasPi 5 | 1,500 |
+| **AI agent: Jetson AGX Orin 64GB (275 TOPS)** | 2,500 |
+| **Night vision: IR LED 850nm + 2× NoIR cameras** | 500 |
+| **Internal surveillance: 2× cameras + LED lighting** | 400 |
+| **Glove-box isolator (acrylic, HEPA H13, neoprene gloves)** | 5,000 |
 | C. elegans strains + reagents + consumables | 1,500 |
 | Data analysis (compute + software) | 5,000 |
-| Contingency (20%) | 8,800 |
-| **Total** | **~52,600** |
+| Contingency (20%) | 10,200 |
+| **Total** | **~61,000** |
 
 ### Comparison with equivalent systems
 
@@ -83,7 +86,7 @@ Control: age → function quality (Anderson 2009).
 | **ARGUS V0 (Alex)** | OpenFlexure | ❌ | ❌ | ✅ | **$930** |
 | **ARGUS V6** | OpenFlexure | ❌ | ❌ | ✅ | **$3-4K** |
 | **ARGUS V7** | OpenFlexure + WI | ✅ | ❌ | ✅ | **$15K** |
-| **ARGUS V8** | **Light-sheet** | ✅ | ✅ | ✅ | **$53K** |
+| **ARGUS V8** | **Light-sheet + AI** | ✅ | ✅ | ✅ | **$61K** |
 
 > **ARGUS V8 — only open system with 3D time-lapse + centriole tracking. 9× cheaper than LLSM.**
 
