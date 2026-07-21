@@ -1,12 +1,12 @@
 # STATE — ARGUS-OS1
 
 **Date:** 2026-07-21
-**Status:** ✅ v106 — C. elegans only. RPE1 removed. Centriole pedigree = ∥/⟂. $10K.
+**Status:** ✅ v112 — English. C. elegans only. V8 light-sheet. $35K.
 
 ## Current
 
 - Model: C. elegans (959 cells, complete lineage)
-- Variable: centriole pedigree (∥/⟂) — defined relative to body axis
-- Fate: known for every cell
-- 2 predictions: convergence + age-independence
-- Budget: ~$10,000
+- Variable: centriole pedigree (∥/⟂)
+- Fate: retained or eliminated
+- Platform: ARGUS V8 (light-sheet)
+- Budget: ~$35,000
