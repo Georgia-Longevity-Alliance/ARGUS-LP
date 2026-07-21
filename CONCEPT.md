@@ -49,7 +49,7 @@ Control: age → function quality (Anderson 2009).
 | 1 | C. elegans embryo, Centrin1-GFP + histone::GFP |
 | 2 | Immobilization: microfluidic chip or agarose pad |
 | 3 | 3D time-lapse from zygote to ~100 cells (~3h, **25°C standard**). **Adaptive illumination — not continuous. Dark control: parallel embryos, lasers OFF.** |
-| 4 | **Pedigree: continuous 3D angle (not binary).** Full history per centriole. Pilot: validate angle measurement on 5 embryos. |
+| 4 | **Pedigree: continuous 3D angle.** Full history. Pilot validates angle measurement (5 embryos) with fiducial bead calibration. **Negative control:** RNAi-PLK-4 embryos (centrioles not formed) — confirms signal specificity. |
 | 5 | Centriole fate — retained or eliminated |
 | 6 | **Primary test: sister-cell pairs.** Compare centriole fate in sister cells — same type, different centriole age/pedigree. Mixed-effects logistic regression. **Power: N≈40 pairs needed for OR≥1.5, α=0.05, β=0.2. Pilot quantifies available same-type pairs.** **Blinding: analyst scoring centriole fate blinded to pedigree.** **Pre-registration: OSF before data collection.** |
 
@@ -91,9 +91,9 @@ Control: age → function quality (Anderson 2009).
 
 ## 5. Key References
 
-**Reproducibility:** All code, protocols, and raw data on GitHub + Zenodo (CC-BY). Step-by-step protocol on bioRxiv before data collection. **Data availability:** Raw images → BioImage Archive (EMBL-EBI). Processed data → Zenodo. Analysis code → GitHub. **Competitive landscape:** Only lab with full centriole elimination map is Gönczy lab (EPFL) — we complement by adding pedigree dimension.
+**Reproducibility:** All code, protocols, and raw data on GitHub + Zenodo (CC-BY). Protocol on bioRxiv before data collection. **Data:** Raw images → BioImage Archive. Processed → Zenodo. Code → GitHub. **Independent replication:** N2 strain (baseline) + CB4856 (Hawaiian) for cross-strain validation. **Timeline:** Pilot (2 months) → Main (4 months) → Analysis (2 months). **Biosafety:** BSL-1. C. elegans — non-pathogenic. 488nm LED — class 1 laser product.
 
-**Limitations:** (1) Stochasticity confirmed only for 4-cell stage + ABpr lineage — extrapolated. (2) Sister-cell pairs are rare (~5% of divisions) — Pilot quantifies. (3) Intestinal cells later lose centrioles — not permanent retention. (4) C. elegans-specific — requires cross-species validation.
+**Limitations:** (1) Stochasticity confirmed only for 4-cell stage + ABpr lineage — extrapolated. (2) Sister-cell pairs are rare (~5% of divisions) — Pilot quantifies exact frequency from Sulston 1983 lineage map. (3) Intestinal cells later lose centrioles (Lu & Roy 2014, PMID 25360893) — not permanent retention. (4) C. elegans-specific — requires cross-species validation. (5) Multicollinearity risk between pedigree and cell_type in invariant lineage — VIF threshold >5 triggers Plan B (sister-cell only).
 
 | # | Reference | PMID |
 |---|-----------|------|
