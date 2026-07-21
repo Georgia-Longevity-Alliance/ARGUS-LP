@@ -49,10 +49,10 @@ Control: age → function quality (Anderson 2009).
 |:---:|--------|
 | 1 | C. elegans embryo, Centrin1-GFP + histone::GFP |
 | 2 | Immobilization: microfluidic chip or agarose pad |
-| 3 | 3D time-lapse from zygote to ~100 cells (~3h, 30°C) |
+| 3 | 3D time-lapse from zygote to ~100 cells (~3h, 30°C). **Dark control: parallel embryos, lasers OFF — compare hatching rate.** |
 | 4 | **Pedigree: continuous 3D angle (not binary).** Full history per centriole. Pilot: validate angle measurement on 5 embryos. |
 | 5 | Centriole fate — retained or eliminated |
-| 6 | **Mixed-effects logistic regression.** fate ~ angle_3d + age + cell_type + (1|embryo). **VIF test for multicollinearity (age vs angle).** |
+| 6 | **Mixed-effects logistic regression.** fate ~ angle_3d + age + cell_type + (1|embryo). **Plan B (VIF>5):** compare centrioles within SAME sister-cell pair — controls cell type perfectly (Erpf 2020). |
 
 ---
 
