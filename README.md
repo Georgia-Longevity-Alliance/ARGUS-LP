@@ -4,7 +4,7 @@ ARGUS is an open microscopy platform for tracking centrioles in living embryos.
 
 **The question:** does a centriole's pedigree — the sequence of division orientations (∥ or ⟂) it went through — predict whether it will be kept or eliminated?
 
-We test this in C. elegans. It's the only organism where we know the complete cell lineage (959 cells), every division axis, and every cell's fate. Kalbfuss & Gönczy (2023) showed that ~88% of cells lose their centrioles during embryogenesis. Only 68 cells keep them. We know exactly which ones. What we don't know is whether the path the centriole took to get there matters.
+We test this in C. elegans. It's the only organism where we know the complete cell lineage (558 cells at hatching (959 total in adult)), every division axis, and every cell's fate. Kalbfuss & Gönczy (2023) showed that ~88% of cells lose their centrioles during embryogenesis. Only 68 cells keep them. We know exactly which ones. What we don't know is whether the path the centriole took to get there matters.
 
 Centriole segregation is stochastic (Gönczy & Balestra, 2023). This is good — it means any correlation we find between pedigree and fate cannot be a segregation artifact.
 
@@ -33,7 +33,7 @@ MCARA — centriole counter reset → totipotency from any cell
 
 ## Key numbers
 
-- 959 cells in C. elegans, all fates known (Sulston & Horvitz, 1977)
+- 558 cells at hatching (959 total in adult) in C. elegans, all fates known (Sulston & Horvitz, 1977)
 - ~88% eliminate centrioles during embryogenesis (Kalbfuss & Gönczy, 2023)
 - 68 cells retain them
 - Centriole segregation is stochastic (Gönczy & Balestra, 2023)
