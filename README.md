@@ -27,7 +27,8 @@ OS2 — test convergence: different pedigrees → same fate?
 OS3 — build progenitor maps as graphs with genetic networks
 
 MCARA — centriole counter reset → totipotency from any cell
-         ARGUS V8 provides the platform for this.
+         → centriole transplantation for rejuvenation
+         ARGUS V8 provides the platform for all of this.
 ```
 
 ## Key numbers
