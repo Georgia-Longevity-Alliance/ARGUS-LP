@@ -81,10 +81,10 @@ Control: age → function quality (Anderson 2009).
 | **Internal shelves (reagents, tools) + UV-C sterilization lamp** | 1,000 |
 | C. elegans strains + reagents + consumables | 1,500 |
 | Data analysis (compute + software) | 5,000 |
-| Contingency (20%) | 15,200 |
-| **Total (Phase 1 — Core)** | **~91,000** |
+| Contingency (20%) | 17,700 |
+| **Total (Phase 1 — Core)** | **~106,000** |
 | Femtosecond laser (Phase 3, optional) | +18,000 |
-| **Total (all phases)** | **~109,000** |
+| **Total (all phases)** | **~124,000** |
 
 ### Comparison with equivalent systems
 
