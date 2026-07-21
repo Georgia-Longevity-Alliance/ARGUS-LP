@@ -81,11 +81,12 @@ Control: age → function quality (Anderson 2009).
 | C. elegans strains + reagents + consumables | 1,500 |
 | **PI salary (25% FTE, 12 months)** | 15,000 |
 | **Engineer salary (50% FTE, 12 months)** | 25,000 |
+| **Lab space rental (Abastumani, 12 months)** | 5,000 |
 | Data analysis (compute + software) | 5,000 |
-| Contingency (20%) | 28,500 |
-| **Total (Phase 1 — Core)** | **~171,000** |
+| Contingency (20%) | 29,500 |
+| **Total (Phase 1 — Core)** | **~177,000** |
 | Femtosecond laser (Phase 3, optional) | +48,000 |
-| **Total (all phases)** | **~219,000** |
+| **Total (all phases)** | **~225,000** |
 
 ### Comparison with equivalent systems
 
