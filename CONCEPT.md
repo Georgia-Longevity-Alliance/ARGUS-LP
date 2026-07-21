@@ -60,14 +60,17 @@ Control: age → function quality (Anderson 2009).
 | sCMOS camera (Hamamatsu ORCA) | 8,000 |
 | 488 nm laser (single-mode) | 2,000 |
 | 561 nm laser | 2,000 |
-| Light-sheet module (cyl. lens + optics + frame) | 1,000 |
-| Microfluidic chip + system | 2,000 |
-| OpenFlexure base (ASA) | 800 |
+| Light-sheet optics (cyl. lens, scanning mirror, tube lens, dichroics, filters) | 5,000 |
+| 3-axis motorized stage + controller | 2,500 |
+| Anti-vibration optical table | 3,000 |
+| Temperature-controlled enclosure (PID) | 2,000 |
+| Microfluidic chip + pressure system | 2,500 |
+| OpenFlexure base (ASA, motors) | 800 |
 | Jetson Orin NX + RasPi 5 | 1,500 |
-| C. elegans + reagents | 1,000 |
-| Data analysis | 3,000 |
-| Contingency (20%) | 5,700 |
-| **Total** | **~35,000** |
+| C. elegans strains + reagents + consumables | 1,500 |
+| Data analysis (compute + software) | 5,000 |
+| Contingency (20%) | 8,800 |
+| **Total** | **~52,600** |
 
 ### Comparison with equivalent systems
 
@@ -80,9 +83,9 @@ Control: age → function quality (Anderson 2009).
 | **ARGUS V0 (Alex)** | OpenFlexure | ❌ | ❌ | ✅ | **$930** |
 | **ARGUS V6** | OpenFlexure | ❌ | ❌ | ✅ | **$3-4K** |
 | **ARGUS V7** | OpenFlexure + WI | ✅ | ❌ | ✅ | **$15K** |
-| **ARGUS V8** | **Light-sheet** | ✅ | ✅ | ✅ | **$35K** |
+| **ARGUS V8** | **Light-sheet** | ✅ | ✅ | ✅ | **$53K** |
 
-> **ARGUS V8 — only open system with 3D time-lapse + centriole tracking. 14× cheaper than LLSM.**
+> **ARGUS V8 — only open system with 3D time-lapse + centriole tracking. 9× cheaper than LLSM.**
 
 ---
 
