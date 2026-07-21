@@ -12,9 +12,9 @@
 
 In C. elegans, ~88% of cells eliminate centrioles during differentiation. ~68 cells retain them (Kalbfuss & Gönczy 2023, PMID 37256957). Centrioles segregate STOCHASTICALLY (Gönczy & Balestra 2023, PMID 36988082; Erpf & Mikeladze-Dvali 2020).
 
-**Stochastic segregation STRENGTHENS the hypothesis.** If which centriole (old/young) goes to which daughter is random, then age cannot explain any pedigree↔fate correlation. Pedigree (= division orientation) is INDEPENDENT of which centriole goes where. The orientation determines the tissue context → cell fate (Kalbfuss 2023). The centriole is a passenger — but its pedigree records the journey. Randomness of passenger assignment eliminates age as confound.
+**Stochastic segregation makes age ORTHOGONAL to pedigree.** If which centriole goes where is random, age and pedigree are statistically independent. This eliminates age as a confound — any observed pedigree↔fate effect must come from the pedigree itself.
 
-**Age measurement in C. elegans:** via Dendra2::SAS-4 photoconversion (Erpf & Mikeladze-Dvali 2020). Alternatively, computed from known lineage. Age is a CONTROL variable — not the primary test. Pedigree is the primary predictor. Anderson 2009 (NIH/3T3 mouse cells) demonstrates the principle that age affects function, not a direct C. elegans measurement.
+**Pedigree definition:** time-ordered sequence of division orientations (3D angles) of all cells the centriole has passed through. Measured via SAS-4::GFP tracking. Age measured via Dendra2::SAS-4 photoconversion (Erpf & Mikeladze-Dvali 2020).
 
 **Question:** does centriole pedigree independently predict fate after controlling for age and cell type? **Null hypothesis:** pedigree does NOT predict fate. Rejecting H₀ = breakthrough.
 
@@ -67,8 +67,7 @@ Control: age → function quality (Anderson 2009).
 | Anti-vibration optical table | 3,000 |
 | Temperature-controlled enclosure (PID) | 2,000 |
 | Microfluidic chip + pressure system | 2,500 |
-| **Optical bench: Invar (Fe-36Ni, TER 1.2 — zero drift)** | 3,000 |
-| **Frame + stage: Aluminum 7075 (aerospace grade, CNC milled)** | 3,500 |
+| **Frame + stage: Aluminum 7075 (aerospace grade, CNC milled) + active thermal stabilization (PID)** | 4,000 |
 | **AI agent: Jetson AGX Orin 64GB (275 TOPS) — autonomous control of microscope, manipulators, laser, data pipeline** | 2,500 |
 | **Night vision: IR LED 850nm + 2× NoIR cameras** | 500 |
 | **Internal surveillance: 2× cameras + LED lighting** | 400 |
@@ -81,8 +80,8 @@ Control: age → function quality (Anderson 2009).
 | **Internal shelves (reagents, tools) + UV-C sterilization lamp** | 1,000 |
 | C. elegans strains + reagents + consumables | 1,500 |
 | Data analysis (compute + software) | 5,000 |
-| Contingency (20%) | 17,700 |
-| **Total (Phase 1 — Core)** | **~106,000** |
+| Contingency (20%) | 17,200 |
+| **Total (Phase 1 — Core)** | **~103,000** |
 | Femtosecond laser (Phase 3, optional) | +18,000 |
 | **Total (all phases)** | **~124,000** |
 
