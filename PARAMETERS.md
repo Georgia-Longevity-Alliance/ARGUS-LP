@@ -1,6 +1,6 @@
 # PARAMETERS — ARGUS-OS1
 
-**Version:** 67.0
+**Version: 147.0
 **Date:** 2026-07-21
 
 ## Model
