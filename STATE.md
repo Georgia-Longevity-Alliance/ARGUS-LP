@@ -1,7 +1,7 @@
 # STATE — ARGUS-OS1
 
 **Date:** 2026-07-21
-**Status:** ✅ v112 — English. C. elegans only. V8 light-sheet. $35K.
+**Status:** ✅ v112 — English. C. elegans only. V7. $81K.
 
 ## Current
 
@@ -9,4 +9,4 @@
 - Variable: centriole pedigree (∥/⟂)
 - Fate: retained or eliminated
 - Platform: ARGUS V8 (light-sheet)
-- Budget: ~$35,000
+- Budget: ~$81,000

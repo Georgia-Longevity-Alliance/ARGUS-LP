@@ -2,7 +2,7 @@
 
 ## v112 (2026-07-21) — English, C. elegans only, V8 light-sheet
 
-> All files translated to English. Model: C. elegans only. Platform: ARGUS V8 (light-sheet). Budget: $35K. 10 verified references.
+> All files translated to English. Model: C. elegans only. Platform: ARGUS V8 (light-sheet). Budget: $81K (V7). 10 verified references.
 
 ## Earlier versions
 

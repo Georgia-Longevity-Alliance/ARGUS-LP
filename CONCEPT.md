@@ -20,7 +20,6 @@ In C. elegans, ~88% of cells eliminate centrioles during differentiation. ~68 ce
 - **H₁ (known, Kalbfuss 2023):** pedigree correlates with centriole fate THROUGH cell type.
 - **H₂ (tested here):** pedigree adds predictive power BEYOND cell type. **Primary test: sister-cell pairs.** When a cell divides, the two daughters are the same type — one gets the older centriole, one gets the younger. Their fates may diverge. This is the only natural experiment in C. elegans where pedigree varies while cell type is held constant. (Erpf 2020).
 
-> **Speculative mechanism (MCARA/DID, future work):** differentiation-inducing factors associated with centriole, released at trajectory nodes. Not required for Phase 1 hypothesis test.
 
 ---
 
@@ -56,37 +55,25 @@ Control: age → function quality (Anderson 2009).
 
 ---
 
-## 4. Budget
+## 4. Budget (ARGUS V7)
 
 | Item | $ |
 |------|--:|
 | 60×/1.2 NA WI objective (new) | 9,000 |
-| sCMOS camera (Hamamatsu ORCA-Fusion) | 12,000 |
-| 488 nm laser (single-mode) | 2,000 |
-| 561 nm laser | 2,000 |
-| Light-sheet optics (cyl. lens, galvo scanner, tube lenses ×2, dichroics, filters, mounts) | 15,000 |
-| 3-axis motorized stage + controller | 2,500 |
-| Anti-vibration optical table (used) | 5,000 |
-| Temperature-controlled enclosure (PID) | 2,000 |
+| sCMOS camera (mid-range) | 4,000 |
+| 488 nm LED | 500 |
 | Microfluidic chip + pressure system | 2,500 |
-| **Frame + stage: Aluminum 7075 (aerospace grade, CNC milled) + active thermal stabilization (PID)** | 4,000 |
-| **AI agent: Jetson AGX Orin 64GB (275 TOPS) — autonomous tracking, autofocus, data pipeline** | 2,500 |
-| **Night vision: IR LED 850nm + 2× NoIR cameras + 800/1064nm notch filters** | 800 |
-| **Internal surveillance: 2× cameras + LED lighting + 800/1064nm notch filters** | 600 |
-| **Glove-box isolator (acrylic, HEPA H13, neoprene gloves)** | 5,000 |
+| Frame + stage: Aluminum 7075 + thermal stabilization | 4,000 |
+| AI: RasPi 5 + Hailo-8L (local tracking) | 350 |
+| Night vision: IR LED 850nm + NoIR camera + notch filters | 500 |
 | C. elegans strains + reagents + consumables | 1,500 |
-| **PI salary (25% FTE, 12 months)** | 15,000 |
-| **Engineer salary (50% FTE, 12 months)** | 25,000 |
-| **Lab space rental (Abastumani, 12 months)** | 5,000 |
-| Data analysis (compute + software) | 5,000 |
-| Contingency (20%) | 21,000 |
-| **Total (Phase 1 — Core)** | **~126,000** |
+| PI salary (25% FTE, 12 months) | 15,000 |
+| Engineer salary (50% FTE, 12 months) | 25,000 |
+| Lab space rental (Abastumani, 12 months) | 5,000 |
+| Contingency (20%) | 13,500 |
+| **Total (ARGUS V7)** | **~81,000** |
 
-**Phase 3 equipment (not in Core):**
-
-| Femtosecond laser NIR 800 nm | 40,000 |
-| 405 nm laser (Dendra2 photoconversion) | 800 |
-| Optical tweezers: 2× 1064 nm CW traps (AOD-split) | 22,000 |
+**V8 upgrade (light-sheet, future):** +$117,000 (total ~$198,000).
 | 3-axis micromanipulator ×2 + injector — AI-controlled | 8,000 |
 | **Total (Phase 3 equipment)** | **~71,000** |
 | **Grand total (all phases)** | **~197,000** |
