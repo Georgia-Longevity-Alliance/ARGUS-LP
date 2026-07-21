@@ -1,8 +1,10 @@
-# ARGUS-OS1
+# ARGUS
 
-C. elegans only. Centriole pedigree (∥/⟂) → centriole fate.
+| Версия | Описание | Бюджет |
+|:---:|----------|:---:|
+| **V0** | Минимальная (Алекс) — OpenFlexure из коробки | ~$930 |
+| **V6** | Сухой 40×/0.75 | $3-4K |
+| **V7** | Водная иммерсия 60×/1.2 | +$8-12K |
+| **V8** | **Light-sheet.** Лучшее новое. LLSM-замена. | **~$35,000** |
 
-959 cells. 68 retain centrioles. ~88% eliminate (Kalbfuss 2023).
-Stochastic segregation (Gönczy 2023). $10K.
-
-OS1 → OS2 → OS3.
+C. elegans. Centriole pedigree (∥/⟂). $35K. OS1 → OS2 → OS3.
