@@ -14,16 +14,16 @@ We test this in C. elegans. It's the only organism with a complete cell lineage 
 |:---:|------|:---:|
 | V0 | Minimal — stock OpenFlexure (Alex) | ~$930 |
 | V6 | Dry 40×/0.75 | $3-4K |
-| **V7** | **Nikon CFI Plan Apo 60×/1.2 NA WI + Hamamatsu ORCA-Fusion BT + RasPi AI + microfluidic** | **~$98,000** |
-| V8 | V7 upgrade: light-sheet + fs-laser + tweezers + manipulators + Jetson AGX | +~$141,000 |
+| **V7** | **Nikon CFI Plan Apo 60×/1.2 NA WI + Hamamatsu ORCA-Fusion BT + RasPi AI + microfluidic** | **~$35K (hardware) / ~$98K (full study)** |
+| V8 | V7 upgrade: light-sheet + fs-laser + tweezers + manipulators + Jetson AGX | +~$141K (hardware) |
 
 V7 is the OS1 platform. V8 is the OS2/OS3 upgrade — built on V7, not a new build.
 
 ## OS1 → OS2 → OS3
 
 ```
-OS1 (V7, $98K) — measure pedigrees + fate in C. elegans
-OS2 (V7→V8, +$141K) — test convergence + centriole transplantation
+OS1 (V7, $35K HW / $98K study) — measure pedigrees + fate in C. elegans
+OS2 (V7→V8, +$141K HW) — test convergence + centriole transplantation
 OS3 — progenitor maps as graphs with genetic networks
 ```
 
