@@ -14,7 +14,7 @@ In C. elegans, ~88% of cells eliminate centrioles during differentiation. ~68 ce
 
 **Stochastic segregation STRENGTHENS the hypothesis.** If centriole distribution is random, age cannot explain any pedigree↔fate correlation. The correlation must come from the pedigree itself — the sequence of division orientations. Randomness eliminates the main confound.
 
-MTOC inactivation protects centrioles from elimination (Magescas & Feldman 2025, preprint). This provides mechanistic support.
+**Age measurement in C. elegans:** via Dendra2::SAS-4 photoconversion (Erpf & Mikeladze-Dvali 2020). Alternatively, computed from known lineage. Age is a CONTROL variable — not the primary test. Pedigree is the primary predictor. Anderson 2009 (NIH/3T3 mouse cells) demonstrates the principle that age affects function, not a direct C. elegans measurement.
 
 **Question:** does centriole pedigree independently predict fate after controlling for age and cell type? **Null hypothesis:** pedigree does NOT predict fate. Rejecting H₀ = breakthrough.
 
