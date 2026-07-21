@@ -123,7 +123,7 @@ Control: age → function quality (Anderson 2009).
 | 7 | Yamashita et al. (2007) — Drosophila mGSC | 17255513 |
 | 8 | Januschke et al. (2011) — Drosophila NB | 21407209 |
 | 9 | Wang et al. (2009) — mouse radial glia | 19829375 |
-| 10 | Coffman et al. (2016) — MT asymmetry in C. elegans | — |
+| 10 | Coffman et al. (2016) — MT asymmetry in C. elegans, MBoC | 27733624 |
 
 > **Marker note:** SAS-4::GFP (Gönczy lab) is validated for centriole tracking in C. elegans. Centrin1-GFP is the alternative. Pilot will compare both.
 
