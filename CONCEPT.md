@@ -63,7 +63,8 @@ Control: age → function quality (Anderson 2009).
 | Anti-vibration optical table | 3,000 |
 | Temperature-controlled enclosure (PID) | 2,000 |
 | Microfluidic chip + pressure system | 2,500 |
-| OpenFlexure base (**aluminum 6061 — milled, not printed. Zero thermal drift.**) | 2,500 |
+| **Optical bench: Invar (Fe-36Ni, TER 1.2 — zero drift)** | 3,000 |
+| **Frame + stage: Aluminum 7075 (aerospace grade, CNC milled)** | 3,500 |
 | **AI agent: Jetson AGX Orin 64GB (275 TOPS)** | 2,500 |
 | **Night vision: IR LED 850nm + 2× NoIR cameras** | 500 |
 | **Internal surveillance: 2× cameras + LED lighting** | 400 |
@@ -74,8 +75,8 @@ Control: age → function quality (Anderson 2009).
 | **Internal shelves (reagents, tools) + UV-C sterilization lamp** | 1,000 |
 | C. elegans strains + reagents + consumables | 1,500 |
 | Data analysis (compute + software) | 5,000 |
-| Contingency (20%) | 13,000 |
-| **Total** | **~78,000** |
+| Contingency (20%) | 13,800 |
+| **Total** | **~82,800** |
 
 ### Comparison with equivalent systems
 
