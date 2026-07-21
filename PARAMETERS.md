@@ -26,7 +26,7 @@
 | Night vision | IR LED 850nm + 2× NoIR cameras |
 | Surveillance | 2× internal cameras + LED lighting |
 | Enclosure | Glove-box isolator (acrylic, HEPA H13, neoprene gloves) |
-| Markers | Centrin1-GFP + histone::GFP. **SAS-4::GFP (Gönczy lab) as validated alternative.** |
+| Markers | **SAS-4::GFP (primary, validated).** Centrin1-GFP (alternative). + histone::GFP. |
 
 ## Experiment
 
@@ -36,4 +36,4 @@
 | Duration | ~3h per embryo |
 | Temperature | 30°C |
 | Analysis | Mixed-effects logistic regression: fate ~ pedigree + age + (1|embryo) |
-| Budget | ~$83,000 |
+| Budget | ~$106,000 (Core Phase 1), ~$124,000 (all phases) |
