@@ -1,9 +1,9 @@
 # MEMORY — ARGUS-OS1
 
-## v97 (2026-07-21) — Радикальное упрощение
+## v112 (2026-07-21) — English, C. elegans only, V8 light-sheet
 
-> Убраны все молекулярные маркеры. Только 3: Centrin1-GFP + SiR-Tubulin + Arl13B. Возраст = количество делений. Centriole pedigreeия = бинарная (∥/⟂). N=600. Бюджет $23K. Синхронизирован с OS2 v4.1 и OS3 v2.1.
+> All files translated to English. Model: C. elegans only. Platform: ARGUS V8 (light-sheet). Budget: $35K. 10 verified references.
 
-## v1-96 — Предыдущие версии
+## Earlier versions
 
-См. историю git. Включая 3 peer review, Odf2/Phase2 (удалены), 30+ проверенных ссылок.
+See git history. Key milestones: Odf2/Phase2 removed (v97). RPE1 removed (v106). Light-sheet added (v110). English (v112).

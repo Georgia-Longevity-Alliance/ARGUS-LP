@@ -48,7 +48,7 @@ Control: age → function quality (Anderson 2009).
 | 3 | 3D time-lapse from zygote to ~100 cells (~3h, 30°C) |
 | 4 | **Pedigree: spindle angle relative to A/P axis. Threshold: <30° = ∥, >60° = ⟂** |
 | 5 | Centriole fate — retained or eliminated |
-| 6 | Logistic regression: pedigree + age → fate |
+| 6 | **Mixed-effects logistic regression:** fate ~ pedigree + age + (1|embryo). N = 30-50 embryos. |
 
 ---
 
