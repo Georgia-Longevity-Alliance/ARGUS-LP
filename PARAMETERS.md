@@ -1,6 +1,6 @@
 # PARAMETERS — ARGUS-OS1
 
-**Version:** 63.0 — sync with CONCEPT v143
+**Version:** 67.0
 **Date:** 2026-07-21
 
 ## Model
@@ -17,7 +17,7 @@
 
 | Parameter | Value |
 |-----------|-------|
-| Version | ARGUS V8 (light-sheet) |
+| Version | ARGUS V7 |
 | Objective | 60×/1.2 NA WI (new) |
 | Camera | sCMOS (Hamamatsu ORCA) |
 | Lasers | 488 nm + 561 nm |
@@ -36,4 +36,4 @@
 | Duration | ~3h per embryo |
 | Temperature | 25°C |
 | Analysis | Mixed-effects logistic regression: fate ~ pedigree + age + (1|embryo) |
-| Budget | ~$126,000 (Core Phase 1), ~$197,000 (all phases) |
+| Budget | ~$35,000 (hardware only) |
