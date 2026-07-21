@@ -18,9 +18,7 @@ In C. elegans, ~88% of cells eliminate centrioles during differentiation. ~68 ce
 
 **Two nested hypotheses:**
 - **H₁ (known, Kalbfuss 2023):** pedigree correlates with centriole fate THROUGH cell type.
-- **H₂ (tested here):** pedigree adds predictive power BEYOND cell type. Different centrioles within the SAME cell type may have different pedigrees (different histories through that lineage branch). Kalbfuss showed cell type → fate at the level of cell identity. We test whether within-type pedigree variation also matters.
-
-**Alternative MTOC mechanism (Feldman 2025):** PCM/MTOC activity protects centrioles. Secondary measurement: SPD-5::GFP intensity per centriole to test whether pedigree → PCM state.
+- **H₂ (tested here):** pedigree adds predictive power BEYOND cell type. Different centrioles within the SAME cell type may have different pedigrees.
 
 > **Speculative mechanism (MCARA/DID, future work):** differentiation-inducing factors associated with centriole, released at trajectory nodes. Not required for Phase 1 hypothesis test.
 
