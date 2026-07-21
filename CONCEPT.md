@@ -46,9 +46,9 @@ Control: age → function quality (Anderson 2009).
 | 1 | C. elegans embryo, Centrin1-GFP + histone::GFP |
 | 2 | Immobilization: microfluidic chip or agarose pad |
 | 3 | 3D time-lapse from zygote to ~100 cells (~3h, 30°C) |
-| 4 | **Pedigree: spindle angle relative to A/P axis. Threshold: <30° = ∥, >60° = ⟂** |
+| 4 | **Pedigree: FULL history of spindle orientations per centriole** (not just last division). Each centriole carries a sequence of ∥/⟂ from zygote. Threshold: <30° = ∥, >60° = ⟂. **Pilot: measure angle distribution in 5 embryos to validate thresholds before Main.** |
 | 5 | Centriole fate — retained or eliminated |
-| 6 | **Mixed-effects logistic regression:** fate ~ pedigree + age + (1|embryo). N = 30-50 embryos. |
+| 6 | **Mixed-effects logistic regression.** fate ~ pedigree_full + age + cell_type + (1|embryo). **Causality test (optional Phase 2):** CAP-Trap MTOC manipulation (Feldman 2025). |
 
 ---
 
@@ -101,15 +101,17 @@ Control: age → function quality (Anderson 2009).
 | # | Reference | PMID |
 |---|-----------|------|
 | 1 | Sulston & Horvitz (1977) — lineage | 838129 |
-| 2 | Kalbfuss & Gönczy (2023) — 88% eliminate | 37256957 |
-| 3 | Gönczy & Balestra (2023) — stochastic | 36988082 |
-| 4 | Anderson & Stearns (2009) — age | 19682908 |
-| 5 | Magescas & Feldman (2025) — MTOC protects | preprint |
-| 6 | Erpf & Mikeladze-Dvali (2020) — Dendra2 | — |
-| 7 | Das (2021) — autophagy | — |
-| 8 | Yamashita et al. (2007) | 17255513 |
-| 9 | Januschke et al. (2011) | 21407209 |
-| 10 | Wang et al. (2009) | 19829375 |
+| 2 | Kalbfuss & Gönczy (2023) — 88% eliminate, Science Advances | 37256957 |
+| 3 | Kalbfuss, Berger & Gönczy (2023) — cell fate determines centriole fate, Dev Biol | 37414202 |
+| 4 | Gönczy & Balestra (2023) — stochastic segregation | 36988082 |
+| 5 | Anderson & Stearns (2009) — age | 19682908 |
+| 6 | Magescas & Feldman (2025) — MTOC protects, bioRxiv | preprint |
+| 7 | Yamashita et al. (2007) — Drosophila mGSC | 17255513 |
+| 8 | Januschke et al. (2011) — Drosophila NB | 21407209 |
+| 9 | Wang et al. (2009) — mouse radial glia | 19829375 |
+| 10 | Coffman et al. (2016) — MT asymmetry in C. elegans | — |
+
+> **Marker note:** SAS-4::GFP (Gönczy lab) is validated for centriole tracking in C. elegans. Centrin1-GFP is the alternative. Pilot will compare both.
 
 ---
 

@@ -26,7 +26,7 @@
 | Night vision | IR LED 850nm + 2× NoIR cameras |
 | Surveillance | 2× internal cameras + LED lighting |
 | Enclosure | Glove-box isolator (acrylic, HEPA H13, neoprene gloves) |
-| Markers | Centrin1-GFP + histone::GFP |
+| Markers | Centrin1-GFP + histone::GFP. **SAS-4::GFP (Gönczy lab) as validated alternative.** |
 
 ## Experiment
 
