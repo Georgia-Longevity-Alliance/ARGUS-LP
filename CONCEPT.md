@@ -70,25 +70,26 @@ Control: age → function quality (Anderson 2009).
 | Temperature-controlled enclosure (PID) | 2,000 |
 | Microfluidic chip + pressure system | 2,500 |
 | **Frame + stage: Aluminum 7075 (aerospace grade, CNC milled) + active thermal stabilization (PID)** | 4,000 |
-| **AI agent: Jetson AGX Orin 64GB (275 TOPS) — autonomous control of microscope, manipulators, laser, data pipeline** | 2,500 |
+| **AI agent: Jetson AGX Orin 64GB (275 TOPS) — autonomous tracking, autofocus, data pipeline** | 2,500 |
 | **Night vision: IR LED 850nm + 2× NoIR cameras** | 500 |
 | **Internal surveillance: 2× cameras + LED lighting** | 400 |
 | **Glove-box isolator (acrylic, HEPA H13, neoprene gloves)** | 5,000 |
-| **Neoprene gloves (spare set) + mounting rings** | 200 |
-| **Femtosecond laser NIR 800 nm (Phase 3, optional)** | 40,000 |
-| **405 nm laser (Dendra2 photoconversion)** | 800 |
-| **Optical tweezers: 2× 1064 nm CW traps (AOD-split) — dual manipulation** | 22,000 |
-| **3-axis micromanipulator ×2 + microcapillaries + pneumatic injector — AI-controlled (Jetson AGX)** | 8,000 |
-| **Internal shelves (reagents, tools) + UV-C sterilization lamp** | 1,000 |
 | C. elegans strains + reagents + consumables | 1,500 |
 | **PI salary (25% FTE, 12 months)** | 15,000 |
 | **Engineer salary (50% FTE, 12 months)** | 25,000 |
 | **Lab space rental (Abastumani, 12 months)** | 5,000 |
 | Data analysis (compute + software) | 5,000 |
-| Contingency (20%) | 29,500 |
-| **Total (Phase 1 — Core)** | **~177,000** |
-| Femtosecond laser (Phase 3, optional) | +48,000 |
-| **Total (all phases)** | **~225,000** |
+| Contingency (20%) | 21,000 |
+| **Total (Phase 1 — Core)** | **~126,000** |
+
+**Phase 3 equipment (not in Core):**
+
+| Femtosecond laser NIR 800 nm | 40,000 |
+| 405 nm laser (Dendra2 photoconversion) | 800 |
+| Optical tweezers: 2× 1064 nm CW traps (AOD-split) | 22,000 |
+| 3-axis micromanipulator ×2 + injector — AI-controlled | 8,000 |
+| **Total (Phase 3 equipment)** | **~71,000** |
+| **Grand total (all phases)** | **~197,000** |
 
 ### Comparison with equivalent systems
 
