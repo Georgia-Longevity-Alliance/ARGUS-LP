@@ -91,7 +91,7 @@ Control: age → function quality (Anderson 2009).
 | **ARGUS V7** | OpenFlexure + WI | ✅ | ❌ | ✅ | **$15K** |
 | **ARGUS V8** | **Light-sheet + AI** | ✅ | ✅ | ✅ | **$61K** |
 
-> **ARGUS V8 — only open system with 3D time-lapse + centriole tracking. 9× cheaper than LLSM.**
+> **ARGUS V8 — only open system with 3D time-lapse + centriole tracking.** Built as upgrade to V7.
 
 ---
 
