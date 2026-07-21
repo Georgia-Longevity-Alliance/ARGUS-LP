@@ -71,8 +71,8 @@ Control: age → function quality (Anderson 2009).
 | Microfluidic chip + pressure system | 2,500 |
 | **Frame + stage: Aluminum 7075 (aerospace grade, CNC milled) + active thermal stabilization (PID)** | 4,000 |
 | **AI agent: Jetson AGX Orin 64GB (275 TOPS) — autonomous tracking, autofocus, data pipeline** | 2,500 |
-| **Night vision: IR LED 850nm + 2× NoIR cameras** | 500 |
-| **Internal surveillance: 2× cameras + LED lighting** | 400 |
+| **Night vision: IR LED 850nm + 2× NoIR cameras + 800/1064nm notch filters** | 800 |
+| **Internal surveillance: 2× cameras + LED lighting + 800/1064nm notch filters** | 600 |
 | **Glove-box isolator (acrylic, HEPA H13, neoprene gloves)** | 5,000 |
 | C. elegans strains + reagents + consumables | 1,500 |
 | **PI salary (25% FTE, 12 months)** | 15,000 |
