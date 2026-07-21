@@ -10,7 +10,7 @@
 
 **Centriole pedigree (∥/⟂) → centriole fate (retained/eliminated).**
 
-In C. elegans, ~88% of cells eliminate centrioles during differentiation. ~68 cells retain them (Kalbfuss & Gönczy 2023, PMID 37256957). Centrioles segregate STOCHASTICALLY (Gönczy & Balestra 2023, PMID 36988082; Erpf & Mikeladze-Dvali 2020).
+In C. elegans, ~88% of cells eliminate centrioles during embryogenesis. ~68 cells retain them: 41 proliferating + 20 intestinal + 7 terminally differentiated (Kalbfuss & Gönczy 2023, PMID 37256957). Centrioles segregate STOCHASTICALLY (Gönczy & Balestra 2023, PMID 36988082; Erpf & Mikeladze-Dvali 2020).
 
 **Stochastic segregation makes age ORTHOGONAL to pedigree.** If which centriole goes where is random, age and pedigree are statistically independent. This eliminates age as a confound — any observed pedigree↔fate effect must come from the pedigree itself.
 
@@ -48,7 +48,7 @@ Control: age → function quality (Anderson 2009).
 |:---:|--------|
 | 1 | C. elegans embryo, Centrin1-GFP + histone::GFP |
 | 2 | Immobilization: microfluidic chip or agarose pad |
-| 3 | 3D time-lapse from zygote to ~100 cells (~3h, 30°C). **Dark control: parallel embryos, lasers OFF — compare hatching rate.** |
+| 3 | 3D time-lapse from zygote to ~100 cells (~3h, **25°C standard**). **Adaptive illumination — not continuous. Dark control: parallel embryos, lasers OFF.** |
 | 4 | **Pedigree: continuous 3D angle (not binary).** Full history per centriole. Pilot: validate angle measurement on 5 embryos. |
 | 5 | Centriole fate — retained or eliminated |
 | 6 | **Primary test: sister-cell pairs.** Compare centriole fate in sister cells — same type, different centriole age/pedigree. Mixed-effects logistic regression. Plan B (whole-population): fate ~ angle_3d + age + cell_type + (1|embryo). |
