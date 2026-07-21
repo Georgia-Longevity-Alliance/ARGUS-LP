@@ -70,10 +70,14 @@ Control: age → function quality (Anderson 2009).
 | **Night vision: IR LED 850nm + 2× NoIR cameras** | 500 |
 | **Internal surveillance: 2× cameras + LED lighting** | 400 |
 | **Glove-box isolator (acrylic, HEPA H13, neoprene gloves)** | 5,000 |
+| **Neoprene gloves (spare set) + mounting rings** | 200 |
+| **Femtosecond laser NIR 800 nm (dissection/ablation)** | 15,000 |
+| **3-axis micromanipulator ×2 + microcapillaries + pneumatic injector** | 8,000 |
+| **Internal shelves (reagents, tools) + UV-C sterilization lamp** | 1,000 |
 | C. elegans strains + reagents + consumables | 1,500 |
 | Data analysis (compute + software) | 5,000 |
-| Contingency (20%) | 10,200 |
-| **Total** | **~61,000** |
+| Contingency (20%) | 12,600 |
+| **Total** | **~75,600** |
 
 ### Comparison with equivalent systems
 

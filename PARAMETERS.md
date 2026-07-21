@@ -36,4 +36,4 @@
 | Duration | ~3h per embryo |
 | Temperature | 30°C |
 | Analysis | Mixed-effects logistic regression: fate ~ pedigree + age + (1|embryo) |
-| Budget | ~$61,000 |
+| Budget | ~$76,000 |
