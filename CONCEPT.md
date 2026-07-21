@@ -71,12 +71,14 @@ Control: age → function quality (Anderson 2009).
 | **Glove-box isolator (acrylic, HEPA H13, neoprene gloves)** | 5,000 |
 | **Neoprene gloves (spare set) + mounting rings** | 200 |
 | **Femtosecond laser NIR 800 nm (dissection/ablation)** | 15,000 |
+| **405 nm laser (Dendra2 photoconversion)** | 800 |
+| **Optical tweezers: 1064 nm CW laser + spatial light modulator** | 18,000 |
 | **3-axis micromanipulator ×2 + microcapillaries + pneumatic injector** | 8,000 |
 | **Internal shelves (reagents, tools) + UV-C sterilization lamp** | 1,000 |
 | C. elegans strains + reagents + consumables | 1,500 |
 | Data analysis (compute + software) | 5,000 |
-| Contingency (20%) | 13,800 |
-| **Total** | **~82,800** |
+| Contingency (20%) | 17,600 |
+| **Total** | **~105,600** |
 
 ### Comparison with equivalent systems
 
