@@ -46,31 +46,31 @@ Control: age → function quality (Anderson 2009).
 
 ### 🆕 Iron-Based Centriole Detection (Heidenhain's Iron Haematoxylin)
 
-> **Идея (Jaba Tqemaladze, 2026-07-21):** Железный гематоксилин по Гейденгайну — метод, которым Бовери открыл центриоли в 1900 году (Scheer 2014, PMID 25047623). В отличие от GFP, не требует трансгенных линий. Центриоль удерживает железо после дифференцировки, когда всё окружающее уже отмыто.
+> **Idea (Jaba Tqemaladze, 2026-07-21):** Heidenhain's iron haematoxylin — the method Boveri used to discover centrioles in 1900 (Scheer 2014, PMID 25047623). Unlike GFP, it does not require transgenic lines. The centriole retains iron after differentiation, when surrounding structures are already destained.
 
-**Почему это важно для ARGUS:**
-1. **Рутинный гистологический метод** — не требует трансгенных Constructs
-2. **Окрашивает всю центриоль** — не только белки (SAS-4, Centrin1), но и железосвязывающий core
-3. **Независим от GFP** — можно верифицировать GFP-данные ортогональным методом
-4. **$5-10 на образец** — vs $500+ на трансгенные линии
+**Why this matters for ARGUS:**
+1. **Routine histological method** — no transgenic constructs required
+2. **Stains the entire centriole** — not only proteins (SAS-4, Centrin1) but also the iron-binding core
+3. **Independent of GFP** — can verify GFP data with an orthogonal method
+4. **$5-10 per sample** — vs $500+ for transgenic lines
 
-**Протокол (адаптация для C. elegans whole-mount):**
-| Шаг | Действие | Время |
+**Protocol (adapted for C. elegans whole-mount):**
+| Step | Action | Time |
 |:---:|---------|:----:|
-| 1 | Фиксация: Bouin's fluid или 4% PFA + 2.5% glutaraldehyde | 30 мин |
-| 2 | Пермеабилизация: freeze-crack или acetone | 10 мин |
-| 3 | Протравка: 2.5% железо-аммонийные квасцы | 1-12 ч |
-| 4 | Окраска: 0.5% гематоксилин | 1-12 ч |
-| 5 | Дифференцировка: 2.5% железо-аммонийные квасцы (контроль под микроскопом) | 5-30 мин |
-| 6 | Дегидратация + mounting | 30 мин |
+| 1 | Fixation: Bouin's fluid or 4% PFA + 2.5% glutaraldehyde | 30 min |
+| 2 | Permeabilization: freeze-crack or acetone | 10 min |
+| 3 | Mordant: 2.5% iron-ammonium alum | 1-12 h |
+| 4 | Staining: 0.5% haematoxylin | 1-12 h |
+| 5 | Differentiation: 2.5% iron-ammonium alum (microscope control) | 5-30 min |
+| 6 | Dehydration + mounting | 30 min |
 
-**Предсказание:** Центриоли видны как чёрные точки даже в клетках, где GFP-сигнал SAS-4/Centrin1 потерян.
+**Prediction:** Centrioles visible as black dots even in cells where GFP signal of SAS-4/Centrin1 is lost.
 
-**Референс:** Scheer 2014 (PMID 25047623), Fig. 7b.
+**Reference:** Scheer 2014 (PMID 25047623), Fig. 7b.
 
 ---
 
-### Основной эксперимент (GFP)
+### Main Experiment (GFP)
 
 | Step | Action |
 |:---:|--------|

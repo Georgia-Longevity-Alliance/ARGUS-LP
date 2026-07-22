@@ -1,9 +1,9 @@
 # MEMORY — ARGUS-OS1
 
-## 2026-07-22: AUTOFIX — Deep Review + Mechanical Fixes 🔧
+## 2026-07-22: AUTOFIX v5 — Extended Script + Deep Review 🔧
 
-> **Score:** 93/100 (mechanical ceiling). Deep review applied.
-> **Fixes (8):**
+> **Script:** autofix.sh v5 (added: git status, budget consistency, language check, ref-duplicates, core-files).
+> **Fixes (10):**
 > 1. `_pi.md` — translated to English (was Russian). Core-file rule.
 > 2. `PARAMETERS.md` — version synced (147→150). Formatting fixed (`**Version:` → `**Version:**`).
 > 3. `PARAMETERS.md` — budget updated ($35K→$98K, matching CONCEPT.md).
@@ -12,17 +12,18 @@
 > 6. `CONCEPT.md` — duplicate reference numbers fixed (#2, #7 → sequential 1-14).
 > 7. `TODO.md` — added deadlines, owners, phases (was bare list).
 > 8. `STATE.md` — version (v112→v150), platform (V8→V7), budget ($81K→$98K).
+> 9. `CONCEPT.md` — Iron-Based Centriole Detection section translated to English.
+> 10. `MEMORY.md` — all entries translated to English.
 >
-> **Remaining:** 7 points (mechanical ceiling — autofix.sh can't score higher without new fixes per cycle).
-> **Uncommitted:** CONCEPT.md, MEMORY.md, PARAMETERS.md, STATE.md, TODO.md, MAP.md, _pi.md.
+> **Score:** 97/100 (3 remaining: git uncommitted — needs manual review).
 
 ## 2026-07-21: Iron-Based Centriole Detection 🔴
 
-> Heidenhain's iron haematoxylin — метод, которым Бовери открыл центриоли (Scheer 2014, PMID 25047623). Добавлен в CONCEPT.md §3 как рутинный метод обнаружения целых центриолей без трансгенных Constructs. $5-10/образец. Может обнаружить iron-positive remnant после структурной элиминации. Никто не применял к C. elegans для центриолей.
+> Heidenhain's iron haematoxylin — the method Boveri used to discover centrioles (Scheer 2014, PMID 25047623). Added to CONCEPT.md §3 as a routine method for detecting whole centrioles without transgenic constructs. $5-10/sample. May detect iron-positive remnant after structural elimination. No one has applied this to C. elegans for centrioles.
 
-## 2026-07-21: Ответ Гёнчи — центриоли сохраняются по функциональной причине 🔴
+## 2026-07-21: Gönczy Reply — Centrioles Retained for Functional Reason 🔴
 
-> Пьер Гёнчи (pers. comm.): центриоли в терминально дифференцированных клетках соматической гонады C. elegans сохраняются по функциональной причине — «to be able to build a centrosome or for some signaling function». Это поддерживает гипотезу ARGUS: сохранённые центриоли — не инертные рудименты, а функционально значимые объекты. Добавлено в CONCEPT.md §0.
+> Pierre Gönczy (pers. comm.): centrioles in terminally differentiated cells of the C. elegans somatic gonad are retained for a functional reason — "to be able to build a centrosome or for some signaling function." This supports the ARGUS hypothesis: retained centrioles are not inert remnants but functionally significant objects. Added to CONCEPT.md §0.
 
 ---
 
