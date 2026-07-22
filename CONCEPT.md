@@ -1,6 +1,6 @@
 # CONCEPT — ARGUS-OS1
 
-**Version:** 160.0
+**Version:** 161.0
 **Date:** 2026-07-22
 
 ---
@@ -66,11 +66,15 @@ Exploratory. ICC-adjusted confidence intervals reported.
 
 **H₁:** Pedigree Score predicts centriole fate independently of cell type, lineage (E vs non-E), cytoplasm asymmetry (PAR-2, PAR-3), centriole age, and mother/daughter status.
 
-**Statistical model (Bayesian, brms with weakly informative priors):**
+**Statistical model — Cox survival with competing risks (Fine-Gray):**
 ```
-fate ~ PedigreeScore + age + mother_daughter + lineage(E_vs_nonE) + PAR2 + PAR3 + (1|embryo) + (1|cell_lineage)
+Survival(time_to_SAS4_loss) ~ PedigreeScore + age + mother_daughter + PAR2 + PAR3 + frailty(embryo)
 ```
-**Priors (brms, pre-registered):** Fixed effects ~ **Student-t(3, 0, 1)** (regularizing — avoids OR inflation of Normal(0,1)). Random effects ~ Half-Student-t(3, 0, 2.5). **ICC:** intra-class correlation for lineage random effect reported; power recalculated accounting for ICC.
+**Primary outcome:** time (minutes from zygote) until SAS-4::GFP loss. Censored: cells with SAS-4 retained at end of imaging window.
+**Competing risk:** apoptosis (CED-3::mCherry positive) — Fine-Gray subdistribution hazard model.
+**Rationale:** Binary fate ignores timing. A centriole lost at 50 min vs 170 min carries different biological meaning. Cox PH uses ALL timepoints, increasing power vs binary logistic regression.
+**Power:** N=100 embryos, ~50 centrioles/embryo after exclusions, ~30% event rate → >80% power for HR≥1.5 with α=0.05.
+**Package:** `survival` + `coxme` (R). Frailty term `(1|embryo)` accounts for within-embryo correlation (ICC).
 **Evidence:** BF > 10 (α=0.05 threshold equivalent) for H₁ vs H₀ (primary: SAS-4 outcome). **Secondary (SAS-1):** FDR (Benjamini-Hochberg, q<0.05).
 **Fixed N=100. NO intermediate stopping.**
 
@@ -87,7 +91,8 @@ fate ~ PedigreeScore + age + mother_daughter + lineage(E_vs_nonE) + PAR2 + PAR3 
 | Centrin1::BFP | Orthogonal centriole marker (cross-validation P4) |
 | Dendra2::SAS-4 | Age measurement via photoconversion (Pilot P1). **405 nm laser required.** |
 | PAR-2::GFP + **PAR-3::mCherry** | Cytoplasm asymmetry: posterior + anterior cortex |
-| **CED-3::mCherry** | **Apoptosis marker: exclude dying cells** |
+| **CED-3::mCherry** | Apoptosis: competing risk in Fine-Gray model |
+| **SPD-2::GFP** | PCM marker: functional (PCM+) vs zombie (PCM−) centrioles. 5 embryos. |
 | Histone::CFP | Nucleus segmentation |
 | spd-2(or165) / plk-1(RNAi) | Positive control: centriole loss mutants |
 
@@ -113,7 +118,7 @@ fate ~ PedigreeScore + age + mother_daughter + lineage(E_vs_nonE) + PAR2 + PAR3 
 
 | Step | Action |
 |:---:|--------|
-| P1 | **Stochasticity validation.** Dendra2::SAS-4 photoconversion at 8-, 16-, 32-, 64-cell stages. 10 embryos. **405 nm laser.** **Non-photoconverted control:** 5 embryos with Dendra2 but NO 405nm exposure — same imaging otherwise. If aberrant divisions >5% in photoconverted vs control → method invalid. **Go/No-Go:** Spearman ρ(age, pedigree) < 0.1 at ALL stages → age≈orthogonal ✅. ρ ≥ 0.1 → age mandatory covariate ⚠️. ρ ≥ 0.3 → re-evaluate hypothesis 🔴. |
+| P1 | **Stochasticity + Z-depth.** Dendra2::SAS-4 photoconversion at 8-, 16-, 32-, 64-cell stages. 10 embryos. **Z-depth calibration:** brightness vs depth (μm). If depth >20% variance → covariate. **Non-UV control:** 5 embryos, NO 405nm. ρ < 0.1 ✅ | ρ ≥ 0.1 ⚠️ | ρ ≥ 0.3 🔴 |
 | P2 | **Phototoxicity ceiling.** Test 488/561/405nm at 2-min vs 5-min intervals. Metrics: division rate, morphology, hatching rate. **Go/No-Go:** if division rate drops >10% at 2-min interval → switch to 5-min interval OR upgrade to light-sheet (V8). |
 | P3 | **Photobleaching assay.** SAS-4::GFP + SAS-1::mCherry signal decay over 3h. >30% loss → sparse sampling or light-sheet. |
 | P4 | **Marker cross-validation.** SAS-4::GFP + SAS-1::mCherry + Centrin1::BFP in same embryos. Confirm co-localization. 5 embryos. |
