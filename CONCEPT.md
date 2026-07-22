@@ -1,6 +1,6 @@
 # CONCEPT — ARGUS-OS1
 
-**Version:** 177.0
+**Version:** 178.0
 **Date:** 2026-07-22
 
 ---
@@ -10,7 +10,7 @@
 ### What is KNOWN (literature)
 
 1. ~88% of cells eliminate centrioles by the **comma stage** of C. elegans embryogenesis. ~68 cells retain them at that stage (Kalbfuss & Gönczy 2023, PMID 37256957). **Timing gap:** our imaging window (zygote→~100 cells, ~3h) ends BEFORE comma stage. Cells classified as "retained" at 100-cell stage may eliminate centrioles later. **We measure "retained at 100-cell window" — a snapshot, not final fate.**
-2. Centriole segregation is STOCHASTIC at the 4-cell stage (Gönczy & Balestra 2023, PMID 36988082) and ABpr lineage (Erpf & Mikeladze-Dvali 2020). Full-embryogenesis stochasticity is TESTED in Pilot P1. NOTE: Erpf (2020) found asymmetric inheritance in ABprpppap lineage (80/20 old→anterior daughter), suggesting pedigree-centriole fate link already exists in C. elegans — supporting H₁.
+2. Centriole segregation is STOCHASTIC at the 4-cell stage (Gönczy & Balestra 2023, PMID 36988082) and ABpr lineage (Erpf & Mikeladze-Dvali 2020). Full-embryogenesis stochasticity is TESTED in Pilot P1. NOTE: Erpf (2020) found asymmetric inheritance in ABprpppap lineage (80/20 old→anterior daughter), suggesting pedigree-centriole fate link already exists in C. elegans — supporting H₁. Counterpoint: ABprpppaa line shows 57/43 (not different from random, Erpf 2020) — lineage-specific effects must be tested via lineage×PedigreeScore interaction.
 3. E-lineage (intestinal) cells lose centrioles during post-embryonic endoreduplication (Lu & Roy 2014, PMID 25360893). **EXCLUDED from primary analysis** (different elimination mechanism). Separate secondary analysis on E-lineage only.
 4. ~17% (113/671 cells) undergo programmed cell death (Sulston 1983). **EXCLUDED via CED-3::mKate2 (588nm)** (competing risk in Cause-Specific Hazards model).
 5. Centriole elimination in oogenesis initiates with SAS-1 central tube loss (Magescas et al. 2023, PMID 37987153). **SAS-1::miRFP670 (670nm, far-red, NO GFP overlap) serves as an early marker** — SAS-1 disappearance precedes SAS-4 loss, providing an early signal of impending elimination. **Caveat:** Magescas (2023) studied primarily oocytes; somatic applicability tested in Pilot P6.
@@ -24,7 +24,7 @@
 **H₁ (alternative):** Pedigree Score — a PCA composite of 5 division-orientation metrics — independently predicts whether a centriole is retained or eliminated at the 100-cell window.
 
 **Pedigree Score (PCA):** (a) fraction ∥ divisions, (b) mean 3D angle change, (c) angle variance, (d) orientation switches, (e) cumulative angular path → first principal component.
-**Operational definitions:** (a) fraction ∥ = count(∥ divisions)/total divisions, where ∥ = angle between division axis and A-P axis <30°. (b) Mean 3D angle = mean(arccos(|v₁·v₂|)) between consecutive divisions. (c) Angle variance = var(angles). (d) Orientation switches = count of ∥→⟂ or ⟂→∥ transitions. (e) Cumulative angular path = Σ arccos(|vᵢ·vᵢ₊₁|). All computed in embryo-centered coordinates. **PCA:** first principal component across 5 standardized metrics, computed per-embryo then pooled.
+**Operational definitions:** (a) fraction ∥ = count(∥ divisions)/total divisions, where ∥ = angle between division axis and A-P axis <30°. (b) Mean 3D angle = mean(arccos(|v₁·v₂|)) between consecutive divisions. (c) Angle variance = var(angles). (d) Orientation switches = count of ∥→⟂ or ⟂→∥ transitions. (e) Cumulative angular path = Σ arccos(|vᵢ·vᵢ₊₁|). All computed in embryo-centered coordinates. **PCA:** first principal component across 5 standardized metrics, computed per-embryo then pooled. **PCA weights pre-registered on OSF** — fixed BEFORE main data collection to prevent overfitting..
 
 **Primary test — Sister-cell pairs (eliminates ICC):**
 When a cell divides, one daughter gets the older centriole, one the younger. Both inherit identical cell type, cytoplasm, and lineage. **Pedigree difference IS the only systematic difference.** This is the cleanest causal design.
@@ -236,7 +236,7 @@ If Pedigree Score correlates with fate in OS1, OS2 tests causality via **centrio
 **Sensitivity:** Sister pairs. **Surrogate:** SAS-1 loss before SAS-4.
 **Timing note:** 100-cell window snapshot — NOT comma stage. Late eliminators flagged.
 **V8 light-sheet strongly recommended** for phototoxicity ceiling.
-*33 refs. Sister-pairs PRIMARY. Joint model (JMbayes2). Composite fate (SAS-4+SPD-2). $264K.*
+*34 refs. Sister-pairs PRIMARY. Joint model (JMbayes2). Composite fate (SAS-4+SPD-2). $264K.*
 
 ---
 
