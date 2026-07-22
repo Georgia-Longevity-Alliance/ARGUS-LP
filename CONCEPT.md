@@ -1,7 +1,7 @@
 # CONCEPT — ARGUS-OS1
 
-****Version:** 150.0
-**Date:** 2026-07-21
+****Version:** 152.0
+**Date:** 2026-07-22
 > **v143:** V7 $81K. Sister-cell primary. All synced.
 
 ---
@@ -70,16 +70,27 @@ Control: age → function quality (Anderson 2009).
 
 ---
 
+### Pilot Phase (3 months) — Before Main Experiment
+
+| Step | Action |
+|:---:|--------|
+| P1 | **Stochasticity validation.** Test random segregation at ALL stages (not just 4-cell + ABpr). Use Dendra2::SAS-4 photoconversion at 8-, 16-, 32-, 64-cell stages. 10 embryos. **Criterion:** if segregation is non-random at any stage → age becomes confound → must stratify by age. |
+| P2 | **Phototoxicity ceiling.** Determine max imaging duration without viability loss. Metrics: division rate, morphology score, hatching rate. Test 488nm + 561nm with 60×/1.2 NA WI at 5-min Z-stack intervals. Find safe duty cycle. |
+| P3 | **Photobleaching assay.** Measure SAS-4::GFP signal decay over 3h. If >30% loss → switch to sparse temporal sampling or increase laser power budget. |
+| P4 | **Marker cross-validation.** Double transgenic line: Centrin1-GFP + SAS-4::mCherry in same embryos. Confirm both markers track same centrioles. 5 embryos. |
+| P5 | **Same-type sister pair quantification.** From Sulston 1983 lineage map: count divisions where both daughters have identical cell type at hatching. If <40 pairs in 100 embryos → switch to Plan C (within-type pedigree comparison, see Analysis). |
+| P6 | **Pedigree feature extraction.** Define 5 quantitative metrics: (a) fraction of ∥ divisions, (b) mean 3D angle change, (c) variance of angles, (d) number of orientation switches, (e) cumulative angular path. Test independence from cell type on synthetic data. |
+
 ### Main Experiment (GFP)
 
 | Step | Action |
 |:---:|--------|
-| 1 | C. elegans embryo, Centrin1-GFP + histone::GFP |
-| 2 | Immobilization: microfluidic chip or agarose pad |
-| 3 | 3D time-lapse from zygote to ~100 cells (~3h, **25°C standard**). **Adaptive illumination — not continuous. Dark control: parallel embryos, lasers OFF.** |
-| 4 | **Pedigree: continuous 3D angle.** Full history. Pilot validates angle measurement (5 embryos) with fiducial bead calibration. **Negative control:** RNAi-PLK-4 embryos (centrioles not formed) — confirms signal specificity. |
-| 5 | Centriole fate — retained or eliminated |
-| 6 | **Primary test: sister-cell pairs.** Compare centriole fate in sister cells. Mixed-effects logistic regression. **Power: N≈40 pairs for OR≥1.5 (α=0.05, β=0.2). OR≥1.5 justified by Kalbfuss 2023: cell type explains ~80% of fate variance — pedigree expected to explain residual 20% (OR≈1.5-2.0). Pilot quantifies available same-type pairs. Blinding: analyst blinded to pedigree. Pre-registration: OSF.** |
+| 1 | C. elegans embryo, Centrin1-GFP + SAS-4::mCherry + histone::BFP (triple transgenic). |
+| 2 | Immobilization: microfluidic chip or agarose pad. **Second modality: phase contrast** for cell boundary tracking (no additional light stress). |
+| 3 | 3D time-lapse from zygote to ~100 cells (~3h, **25°C standard**). **Adaptive illumination — not continuous.** Duty cycle from Pilot P2. **Dark control: parallel embryos, lasers OFF.** |
+| 4 | **Pedigree: 5 metrics per centriole.** Full history + extracted features. Pilot validates angle measurement (5 embryos) with fiducial bead calibration. |
+| 5 | **Controls:** (a) **Negative:** RNAi-PLK-4 embryos (centrioles not formed). (b) **Positive:** gut lineage (E cells — known centriole loss at endoreduplication, Lu & Roy 2014). |
+| 6 | **Primary test: within-type pedigree comparison.** For each cell type with ≥5 cells, compare centriole fate by pedigree features. Mixed-effects logistic regression: fate ~ pedigree_features + age + (1|embryo) + (1|cell_type). **Plan C (if <40 same-type sister pairs):** compare centrioles within same cell type — does pedigree predict fate variance? **Power: N=100 embryos for OR≥1.5 (α=0.05, β=0.2). Bayesian hierarchical model as supplement. Blinding: analyst blinded to pedigree. Pre-registration: OSF.** |
 
 ---
 
@@ -87,25 +98,27 @@ Control: age → function quality (Anderson 2009).
 
 | Item | $ |
 |------|--:|
-| 60×/1.2 NA WI objective (Nikon CFI Plan Apo, new) | 12,000 |
-| sCMOS camera (Hamamatsu ORCA-Fusion BT, new) | 15,000 |
-| 488 nm LED | 500 |
+| 60×/1.2 NA WI objective (Nikon CFI Plan Apo, new) | 13,500 |
+| sCMOS camera (Hamamatsu ORCA-Fusion BT, new) | 18,500 |
+| 488 nm LED + 561 nm LED | 800 |
+| Phase contrast condenser + objectives | 2,500 |
 | Microfluidic chip + pressure system | 2,500 |
 | Frame + stage: Aluminum 7075 + thermal stabilization | 4,000 |
-| AI: RasPi 5 + Hailo-8L (local tracking) | 350 |
+| AI: Jetson AGX Orin 64GB (275 TOPS, local tracking) | 2,000 |
 | Night vision: IR LED 850nm + NoIR camera + notch filters | 500 |
-| C. elegans strains + reagents + consumables | 1,500 |
+| C. elegans strains (triple transgenic + RNAi) + reagents + consumables | 3,000 |
 | PI salary (25% FTE, 12 months) | 15,000 |
-| Engineer salary (50% FTE, 12 months) | 25,000 |
+| Engineer salary (50% FTE, 12 months) | 30,000 |
 | Lab space rental (Abastumani, 12 months) | 5,000 |
-| Contingency (20%) | 16,400 |
-| **Hardware subtotal** | **~35,000** | |
-| Personnel + lab + contingency | 63,000 |
-| **Total (ARGUS V7)** | **~98,000** |
+| Contingency (30%) | 29,000 |
+| **Hardware subtotal** | **~47,300** | |
+| Personnel + lab | 50,000 |
+| Contingency (30%) | 29,000 |
+| **Total (ARGUS V7)** | **~126,000** |
 
 | 3-axis micromanipulator ×2 + injector — AI-controlled | 8,000 |
 | **Total (Phase 3 equipment)** | **~71,000** |
-| **Grand total (all phases)** | **~197,000** |
+| **Grand total (all phases)** | **~225,000** |
 
 ### Comparison with equivalent systems
 
@@ -113,7 +126,7 @@ Control: age → function quality (Anderson 2009).
 |--------|------|:---:|:---:|:---:|--:|
 | **ARGUS V0 (Alex)** | OpenFlexure | ❌ | ❌ | ✅ | **$930** |
 | **ARGUS V6** | OpenFlexure | ❌ | ❌ | ✅ | **$3-4K** |
-| **ARGUS V7** | OpenFlexure + WI + sCMOS + AI | ✅ | ✅ | ✅ | **$35K** |
+| **ARGUS V7** | OpenFlexure + WI + sCMOS + AI + phase | ✅ | ✅ | ✅ | **$47K (HW)** |
 
 ---
 
@@ -121,7 +134,7 @@ Control: age → function quality (Anderson 2009).
 
 **Reproducibility:** All code, protocols, and raw data on GitHub + Zenodo (CC-BY). Protocol on bioRxiv before data collection. **Data:** Raw images → BioImage Archive. Processed → Zenodo. Code → GitHub. **Independent replication:** N2 strain (baseline) + CB4856 (Hawaiian) for cross-strain validation. **Timeline:** Pilot (2 months) → Main (4 months) → Analysis (2 months). **Biosafety:** BSL-1. C. elegans — non-pathogenic. 488nm LED — class 1 laser product.
 
-**Limitations:** (1) Stochasticity confirmed only for 4-cell stage + ABpr lineage — extrapolated. (2) Sister-cell pairs are rare (~5% of divisions) — Pilot quantifies exact frequency from Sulston 1983 lineage map. (3) Intestinal cells later lose centrioles (Lu & Roy 2014, PMID 25360893) — not permanent retention. (4) C. elegans-specific — requires cross-species validation. (5) Multicollinearity risk between pedigree and cell_type in invariant lineage — VIF threshold >5 triggers Plan B (sister-cell only).
+**Limitations:** (1) Stochasticity confirmed only for 4-cell stage + ABpr lineage — **Pilot P1 tests all stages** before main experiment. (2) Sister-cell pairs are rare (~5% of divisions) — Pilot P5 quantifies; **Plan C** uses within-type pedigree comparison if <40 pairs. (3) Intestinal cells later lose centrioles (Lu & Roy 2014, PMID 25360893) — not permanent retention; accounted as positive control. (4) C. elegans-specific — requires cross-species validation. (5) Multicollinearity risk between pedigree and cell_type — mitigated by within-type comparison (Plan C) + VIF monitoring. (6) Phototoxicity from 3h 3D imaging — Pilot P2 determines safe duty cycle. (7) Heidenhain's haematoxylin not validated for C. elegans centrioles — Pilot P6 validates with anti-SAS-4 co-stain.
 
 | # | Reference | PMID |
 |---|-----------|------|
@@ -131,7 +144,7 @@ Control: age → function quality (Anderson 2009).
 | 4 | Kalbfuss, Berger & Gönczy (2023) — centriolar protein mapping, Dev Biol | 37414202 |
 | 5 | Gönczy & Balestra (2023) — stochastic segregation | 36988082 |
 | 6 | Anderson & Stearns (2009) — age → cilium timing (EXPERIMENTAL, NIH/3T3) | 19682908 |
-| 7 | Erpf & Mikeladze-Dvali (2020) — Dendra2::SAS-4 centriole tracking | microPublication |
+| 7 | Erpf & Mikeladze-Dvali (2020) — Dendra2::SAS-4 centriole tracking | DOI:10.17912/micropub.biology.000286 |
 | 8 | Balestra et al. (2015) — SAS-4::GFP stability in embryos, Cell Research | 25892868 |
 | 9 | Yamashita et al. (2007) — Drosophila mGSC | 17255513 |
 | 10 | Januschke et al. (2011) — Drosophila NB | 21407209 |
@@ -140,8 +153,8 @@ Control: age → function quality (Anderson 2009).
 | 13 | Kalbfuss & Gönczy (2023) — centriole elimination review, Open Biol | 37963546 |
 | 14 | Croisier et al. (2025) — EM confirms centrioles in rectal cells, microPublication | 40475707 |
 
-> **Marker note:** SAS-4::GFP (Gönczy lab) is validated for centriole tracking in C. elegans. Centrin1-GFP is the alternative. Pilot will compare both.
+| 15 | Lu & Roy (2014) — centriole loss in intestine during endoreduplication | 25360893 |
 
 ---
 
-*C. elegans only. Pedigree = 3D angle. V7. $98K. 14 refs.*
+*C. elegans only. Pedigree = 5 metrics. V7. $126K. 15 refs. Pilot validates stochasticity at all stages.*

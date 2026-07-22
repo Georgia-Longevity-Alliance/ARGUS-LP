@@ -1,12 +1,15 @@
 # STATE — ARGUS-OS1
 
-**Date:** 2026-07-21
-**Status:** ✅ v150 — English. C. elegans only. V7. $98K.
+**Date:** 2026-07-22
+**Status:** ✅ v152 — Post peer-review. Budget realistic ($126K). Pilot validates stochasticity at all stages.
 
 ## Current
 
 - Model: C. elegans (959 cells, complete lineage)
-- Variable: centriole pedigree (∥/⟂)
+- Variable: centriole pedigree (5 metrics)
 - Fate: retained or eliminated
-- Platform: ARGUS V7 (OpenFlexure + 60×/1.2 NA WI + sCMOS + AI)
-- Budget: ~$98,000 (hardware: ~$35,000 + personnel/lab/contingency: ~$63,000)
+- Platform: ARGUS V7 (OpenFlexure + 60×/1.2 NA WI + sCMOS + phase contrast + AI)
+- Markers: Centrin1-GFP + SAS-4::mCherry + histone::BFP (triple transgenic)
+- Budget: ~$126,000 (HW: ~$47K + personnel: $50K + contingency 30%: $29K)
+- Pilot: 3 months (stochasticity + phototoxicity + markers + pairs)
+- Main: N=100 embryos
