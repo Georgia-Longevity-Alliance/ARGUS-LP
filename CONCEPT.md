@@ -1,6 +1,6 @@
 # CONCEPT — ARGUS-OS1
 
-**Version:** 167.0
+**Version:** 168.0
 **Date:** 2026-07-22
 
 ---
@@ -14,7 +14,7 @@
 3. E-lineage (intestinal) cells lose centrioles during post-embryonic endoreduplication (Lu & Roy 2014, PMID 25360893). **EXCLUDED from primary analysis** (different elimination mechanism). Separate secondary analysis on E-lineage only.
 4. ~12% of embryonic cells undergo programmed cell death (Sulston 1983). **EXCLUDED via CED-3::mCherry** (competing risk in Cause-Specific Hazards model).
 5. Centriole elimination in oogenesis initiates with SAS-1 central tube loss (Magescas et al. 2023, PMID 37987153). **SAS-1::mCherry serves as an early marker** — SAS-1 disappearance precedes SAS-4 loss, providing an early signal of impending elimination. **Caveat:** Magescas (2023) studied primarily oocytes; somatic applicability tested in Pilot P6.
-6. Based on OToole (2003) centriole ultrastructure and Magescas (2023) SAS-1 dynamics, we HYPOTHESIZE PCM disassembles before the core. Tested directly via SPD-2::mCherry, PMID 14610052). SAS-4::GFP visualizes the core but NOT PCM. A "GFP-positive, PCM-negative" centriole is a ZOMBIE — structurally present, biologically dead. **Primary outcome: composite fate = (SAS-4+ AND SPD-2+). Loss of EITHER for >30 min = eliminated (Bobinnec 1998: PCM can regenerate).** This eliminates misclassification of zombie centrioles as "retained." SPD-2::mCherry tracked in ALL N=100 embryos.
+6. Based on OToole (2003) centriole ultrastructure and Magescas (2023) SAS-1 dynamics, we HYPOTHESIZE PCM disassembles before the core. Tested via SPD-2::mCherry (PCM). Note: Fu & Glover (2012, Drosophila) place SPD-2 at centriole-PCM interface — C. elegans localization may differ. SPD-5 as alternative PCM marker in 5 embryos., PMID 14610052). SAS-4::GFP visualizes the core but NOT PCM. A "GFP-positive, PCM-negative" centriole is a ZOMBIE — structurally present, biologically dead. **Primary outcome: composite fate = (SAS-4+ AND SPD-2+). Loss of EITHER for >30 min = eliminated (Bobinnec 1998: PCM can regenerate).** This eliminates misclassification of zombie centrioles as "retained." SPD-2::mCherry tracked in ALL N=100. Exploratory: AIR-1::GFP in 20 embryos (Plourde 2025 — direct centrosome asymmetry measure). embryos.
 7. PAR proteins (PAR-2, PAR-3, PAR-6) establish cortical asymmetry and influence spindle orientation in early C. elegans embryos. **PAR-2::GFP + PAR-3::mCherry** quantify both posterior and anterior cytoplasmic asymmetry at each division.
 
 ### What is TESTED here (ARGUS hypothesis)
@@ -124,7 +124,7 @@ Survival:    time_to_composite_loss ~ PedigreeScore + age + PAR_ratio + frailty(
 | P3 | **Photobleaching assay.** SAS-4::GFP + SAS-1::mCherry signal decay over 3h. >30% loss → sparse sampling or light-sheet. |
 | P4 | **Marker cross-validation.** SAS-4::GFP + SAS-1::mCherry + Centrin1::BFP in same embryos. Confirm co-localization. 5 embryos. |
 | P5 | **Sister-pair quantification.** From Sulston 1983: count same-type sister pairs. **This is PRIMARY test candidate pool.** |
-| P6 | **SAS-1→SAS-4 latency.** In 10 embryos, measure time (min) between SAS-1::mCherry loss and SAS-4::GFP loss for ≥50 centrioles. **Validity thresholds:** (a) mean latency <15 min, (b) variance <30% of mean, (c) latency predicts SAS-4 loss in >80% of cells. If ALL three met → SAS-1 is valid surrogate. Otherwise → descriptive only. |
+| P6 | **SAS-1→SAS-4 latency + oogenesis comparison.** Compare somatic latency with published oogenesis data (Pierron 2023: SAS-1 lost in -10 oocyte). Test SPD-5 as alternative early PCM marker. In 10 embryos, measure time (min) between SAS-1::mCherry loss and SAS-4::GFP loss for ≥50 centrioles. **Validity thresholds:** (a) mean latency <15 min, (b) variance <30% of mean, (c) latency predicts SAS-4 loss in >80% of cells. If ALL three met → SAS-1 is valid surrogate. Otherwise → descriptive only. |
 | P7 | **Ciliogenesis cross-check + exclusion validation.** Compare Kalbfuss 68 vs WormAtlas cilial neurons. >50% overlap → flag. Also validate CED-3::mCherry + histone::CFP morphology against Sulston 1983 apoptosis map. |
 | P8 | **Mother/daughter identification.** Validate Dendra2::SAS-4 signal ratio: older centriole = dimmer (diluted photoconverted protein). Compare with lineage-based age prediction. 5 embryos. |
 
