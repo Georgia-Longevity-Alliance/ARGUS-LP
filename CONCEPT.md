@@ -1,6 +1,6 @@
 # CONCEPT — ARGUS-OS1
 
-**Version:** 185.0
+**Version:** 186.0
 **Date:** 2026-07-22
 
 ---
@@ -126,7 +126,7 @@ Survival:    time_to_composite_loss ~ PedigreeScore + age + PAR_ratio + frailty(
 | P3 | **Photobleaching assay.** SAS-4::GFP + SAS-1::miRFP670 (670nm, far-red, NO GFP overlap) signal decay over 3h. >30% loss → sparse sampling or light-sheet. |
 | P4 | **Marker cross-validation.** SAS-4::GFP + SAS-1::miRFP670 (670nm, far-red, NO GFP overlap) + Centrin1::BFP in same embryos. Confirm co-localization. 5 embryos. |
 | P5 | **Sister-pair quantification.** From Sulston 1983: count same-type sister pairs. **This is PRIMARY test candidate pool.** |
-| P6 | **SAS-1→SAS-4 latency + oogenesis comparison.** Compare somatic latency with published oogenesis data (Pierron 2023: SAS-1 lost in -10 oocyte). Test SPD-5 as alternative early PCM marker. In 10 embryos, measure time (min) between SAS-1::miRFP670 (670nm, far-red, NO GFP overlap) loss and SAS-4::GFP loss for ≥50 centrioles. **Validity thresholds:** (a) mean latency <15 min, (b) variance <30% of mean, (c) latency predicts SAS-4 loss in >80% of cells. If ALL three met → SAS-1 valid. Otherwise → descriptive only (STRICT: NOT "2 of 3"). |
+| P6 | **SAS-1→SAS-4 latency + oogenesis comparison.** Compare somatic latency with published oogenesis data (Pierron 2023: SAS-1 lost in -10 oocyte). Test SPD-5 as alternative early PCM marker. In 10 embryos, measure time (min) between SAS-1::miRFP670 (670nm, far-red, NO GFP overlap) loss and SAS-4::GFP loss for ≥50 centrioles. **Validity thresholds:** (a) mean latency <15 min, (b) variance <30% of mean, (c) latency predicts SAS-4 loss in >80% of cells. If ALL three met → SAS-1 valid. Otherwise → SAS-1 descriptive only. BACKUP: SPD-5::mCherry as alternative early PCM marker (validated in P6 alongside SAS-1). |
 | P7 | **Ciliogenesis cross-check + exclusion validation.** Compare Kalbfuss 68 vs WormAtlas cilial neurons. >50% overlap → flag. Also validate CED-3::mKate2 (588nm) + histone::CFP morphology against Sulston 1983 apoptosis map. |
 | P8 | **Mother/daughter identification.** Validate Dendra2::SAS-4 signal ratio: older centriole = RED (561nm channel) (diluted photoconverted protein). Compare with lineage-based age prediction. 5 embryos. |
 
@@ -241,4 +241,4 @@ If Pedigree Score correlates with fate in OS1, OS2 tests causality via **centrio
 
 ---
 
-**Limitations:** (1) 100-cell window ≠ comma stage — Pilot P0 validates dynamics specifically in 0→100-cell window. (2) E-lineage EXCLUDED (post-embryonic elimination mechanism differs). (3) CED-3 for apoptosis exclusion. (4) SAS-1 somatic applicability tested in P6; secondary outcome until validated. (5) V7 spinning disk with adaptive illumination; V8 light-sheet deferred to OS2. (6) PCM loss before core (O'Toole 2003). (7) SPD-2::mCherry composite fate in ALL N=100 embryos. (8) Temperature control ±0.1°C. (9) Sister-pair count: Sulston (1983) → ~5 same-type pairs/embryo → ~500 total pairs across 100 embryos. Power >80% for OR≥1.5 with paired design.
+**Limitations:** (1) 100-cell window ≠ comma stage — Pilot P0 validates dynamics specifically in 0→100-cell window. (2) E-lineage EXCLUDED from primary (post-embryonic elimination via endoreduplication — Lu & Roy 2014). Separate secondary analysis.. (3) CED-3::mKate2 + DIC morphology (cell rounding, refractility) for apoptosis exclusion. (4) SAS-1 somatic applicability tested in P6; secondary outcome until validated. (5) V7 spinning disk with adaptive illumination; V8 light-sheet deferred to OS2. (6) PCM loss before core (O'Toole 2003). (7) SPD-2::mCherry composite fate in ALL N=100 embryos. (8) Temperature control ±0.1°C. (9) Sister-pair count: Sulston (1983) → ~5 same-type pairs/embryo → ~500 total pairs across 100 embryos. Power >80% for OR≥1.5 with paired design.
