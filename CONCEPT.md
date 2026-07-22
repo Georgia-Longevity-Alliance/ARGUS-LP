@@ -1,6 +1,6 @@
 # CONCEPT — ARGUS-OS1
 
-**Version:** 169.0
+**Version:** 170.0
 **Date:** 2026-07-22
 
 ---
@@ -12,8 +12,8 @@
 1. ~88% of cells eliminate centrioles by the **comma stage** of C. elegans embryogenesis. ~68 cells retain them at that stage (Kalbfuss & Gönczy 2023, PMID 37256957). **Timing gap:** our imaging window (zygote→~100 cells, ~3h) ends BEFORE comma stage. Cells classified as "retained" at 100-cell stage may eliminate centrioles later. **We measure "retained at 100-cell window" — a snapshot, not final fate.**
 2. Centriole segregation is STOCHASTIC at the 4-cell stage (Gönczy & Balestra 2023, PMID 36988082) and ABpr lineage (Erpf & Mikeladze-Dvali 2020). Full-embryogenesis stochasticity is TESTED in Pilot P1 (NOT assumed).
 3. E-lineage (intestinal) cells lose centrioles during post-embryonic endoreduplication (Lu & Roy 2014, PMID 25360893). **EXCLUDED from primary analysis** (different elimination mechanism). Separate secondary analysis on E-lineage only.
-4. ~12% of embryonic cells undergo programmed cell death (Sulston 1983). **EXCLUDED via CED-3::mCherry** (competing risk in Cause-Specific Hazards model).
-5. Centriole elimination in oogenesis initiates with SAS-1 central tube loss (Magescas et al. 2023, PMID 37987153). **SAS-1::mCherry serves as an early marker** — SAS-1 disappearance precedes SAS-4 loss, providing an early signal of impending elimination. **Caveat:** Magescas (2023) studied primarily oocytes; somatic applicability tested in Pilot P6.
+4. ~12% of embryonic cells undergo programmed cell death (Sulston 1983). **EXCLUDED via CED-3::mKate2 (588nm)** (competing risk in Cause-Specific Hazards model).
+5. Centriole elimination in oogenesis initiates with SAS-1 central tube loss (Magescas et al. 2023, PMID 37987153). **SAS-1::mNeonGreen (505nm) serves as an early marker** — SAS-1 disappearance precedes SAS-4 loss, providing an early signal of impending elimination. **Caveat:** Magescas (2023) studied primarily oocytes; somatic applicability tested in Pilot P6.
 6. Based on OToole (2003) centriole ultrastructure and Magescas (2023) SAS-1 dynamics, we HYPOTHESIZE PCM disassembles before the core. Tested via SPD-2::mCherry (PCM). Note: Fu & Glover (2012, Drosophila) place SPD-2 at centriole-PCM interface — C. elegans localization may differ. SPD-5 as alternative PCM marker in 5 embryos., PMID 14610052). SAS-4::GFP visualizes the core but NOT PCM. A "GFP-positive, PCM-negative" centriole is a ZOMBIE — structurally present, biologically dead. **Primary outcome: composite fate = (SAS-4+ AND SPD-2+). Loss of EITHER for >30 min = eliminated (Bobinnec 1998: PCM can regenerate).** This eliminates misclassification of zombie centrioles as "retained." SPD-2::mCherry tracked in ALL N=100. Exploratory: AIR-1::GFP in 20 embryos (Plourde 2025 — direct centrosome asymmetry measure). embryos.
 7. PAR proteins (PAR-2, PAR-3, PAR-6) establish cortical asymmetry and influence spindle orientation in early C. elegans embryos. **PAR-2::GFP + PAR-3::mCherry** quantify both posterior and anterior cytoplasmic asymmetry at each division.
 
@@ -88,11 +88,11 @@ Survival:    time_to_composite_loss ~ PedigreeScore + age + PAR_ratio + frailty(
 | Marker | Purpose |
 |--------|--------|
 | SAS-4::GFP | Centriole core tracking (validated, Gönczy lab) |
-| **SAS-1::mCherry** | **Early marker: central tube loss precedes SAS-4 loss (Magescas 2023, oocytes; somatic validation in P6)** |
+| **SAS-1::mNeonGreen (505nm)** | **Early marker: central tube loss precedes SAS-4 loss (Magescas 2023, oocytes; somatic validation in P6)** |
 | Centrin1::BFP | Orthogonal centriole marker (cross-validation P4) |
 | Dendra2::SAS-4 | Age measurement via photoconversion (Pilot P1). **405 nm laser required.** |
 | **PAR-2/PAR-3 ratio** (PAR-2::GFP + PAR-3::mCherry) | Cortical asymmetry index |
-| **CED-3::mCherry** | Apoptosis: competing risk in Cause-Specific Hazards model |
+| **CED-3::mKate2 (588nm)** | Apoptosis: competing risk in Cause-Specific Hazards model |
 | **SPD-2::mCherry** (561nm) | PCM marker: functional vs zombie. ALL N=100 embryos. Distinct λ from SAS-4::GFP (488nm). |
 | Histone::CFP | Nucleus segmentation |
 | spd-2(or165) / plk-1(RNAi) | Positive control: centriole loss mutants |
@@ -121,11 +121,11 @@ Survival:    time_to_composite_loss ~ PedigreeScore + age + PAR_ratio + frailty(
 |:---:|--------|
 | P1 | **Stochasticity + depth.** Ratiometric normalization: SAS-4::GFP / Histone::CFP per cell. Eliminates depth×lineage confounding. Dendra2::SAS-4 photoconversion at 8-, 16-, 32-, 64-cell stages. 10 embryos. **Z-depth calibration:** brightness vs depth (μm). If depth >20% variance → covariate. **Non-UV control:** 5 embryos, NO 405nm. ρ < 0.1 ✅ | ρ ≥ 0.1 ⚠️ | ρ ≥ 0.3 🔴 |
 | P2 | **Phototoxicity ceiling.** Test 488/561/405nm at 2-min vs 5-min intervals. Metrics: division rate, morphology, hatching rate. **Go/No-Go:** if division rate drops >10% at 2-min interval → switch to 5-min interval OR upgrade to light-sheet (V8). |
-| P3 | **Photobleaching assay.** SAS-4::GFP + SAS-1::mCherry signal decay over 3h. >30% loss → sparse sampling or light-sheet. |
-| P4 | **Marker cross-validation.** SAS-4::GFP + SAS-1::mCherry + Centrin1::BFP in same embryos. Confirm co-localization. 5 embryos. |
+| P3 | **Photobleaching assay.** SAS-4::GFP + SAS-1::mNeonGreen (505nm) signal decay over 3h. >30% loss → sparse sampling or light-sheet. |
+| P4 | **Marker cross-validation.** SAS-4::GFP + SAS-1::mNeonGreen (505nm) + Centrin1::BFP in same embryos. Confirm co-localization. 5 embryos. |
 | P5 | **Sister-pair quantification.** From Sulston 1983: count same-type sister pairs. **This is PRIMARY test candidate pool.** |
-| P6 | **SAS-1→SAS-4 latency + oogenesis comparison.** Compare somatic latency with published oogenesis data (Pierron 2023: SAS-1 lost in -10 oocyte). Test SPD-5 as alternative early PCM marker. In 10 embryos, measure time (min) between SAS-1::mCherry loss and SAS-4::GFP loss for ≥50 centrioles. **Validity thresholds:** (a) mean latency <15 min, (b) variance <30% of mean, (c) latency predicts SAS-4 loss in >80% of cells. If ALL three met → SAS-1 is valid surrogate. Otherwise → descriptive only. |
-| P7 | **Ciliogenesis cross-check + exclusion validation.** Compare Kalbfuss 68 vs WormAtlas cilial neurons. >50% overlap → flag. Also validate CED-3::mCherry + histone::CFP morphology against Sulston 1983 apoptosis map. |
+| P6 | **SAS-1→SAS-4 latency + oogenesis comparison.** Compare somatic latency with published oogenesis data (Pierron 2023: SAS-1 lost in -10 oocyte). Test SPD-5 as alternative early PCM marker. In 10 embryos, measure time (min) between SAS-1::mNeonGreen (505nm) loss and SAS-4::GFP loss for ≥50 centrioles. **Validity thresholds:** (a) mean latency <15 min, (b) variance <30% of mean, (c) latency predicts SAS-4 loss in >80% of cells. If ALL three met → SAS-1 is valid surrogate. Otherwise → descriptive only. |
+| P7 | **Ciliogenesis cross-check + exclusion validation.** Compare Kalbfuss 68 vs WormAtlas cilial neurons. >50% overlap → flag. Also validate CED-3::mKate2 (588nm) + histone::CFP morphology against Sulston 1983 apoptosis map. |
 | P8 | **Mother/daughter identification.** Validate Dendra2::SAS-4 signal ratio: older centriole = dimmer (diluted photoconverted protein). Compare with lineage-based age prediction. 5 embryos. |
 
 **Go/No-Go criteria:**
@@ -145,7 +145,7 @@ Survival:    time_to_composite_loss ~ PedigreeScore + age + PAR_ratio + frailty(
 
 | Stage | Action | N |
 |:---:|--------|:---:|
-| **1** | **Collect ALL data.** 3D time-lapse: zygote→~100 cells, ~3h at 25°C. Adaptive illumination: 2-min intervals (5-min if P2 fails). Z-stack 21 slices × 0.4 μm. **Light-sheet (V8) strongly recommended** — reduces phototoxicity ×10 vs widefield. PAR-2 + PAR-3 channels. CED-3 channel. Phase contrast for boundaries. **Negative control:** RNAi-PLK-4. **Positive control:** spd-2(or165). | 100 embryos |
+| **1** | **Collect ALL data.** 3D time-lapse: zygote→~100 cells, ~3h at 25°C. Adaptive illumination: 1-min intervals for primary (capture fast elimination events). 5-min fallback if phototoxicity exceeds threshold (Pilot P2).. Z-stack 21 slices × 0.4 μm. **Light-sheet (V8) strongly recommended** — reduces phototoxicity ×10 vs widefield. PAR-2 + PAR-3 channels. CED-3 channel. Phase contrast for boundaries. **Negative control:** RNAi-PLK-4. **Positive control:** spd-2(or165). | 100 embryos |
 | **2** | **Bootstrap Mixed Model (PRIMARY).** Fate ~ PedigreeScore + age + PAR2 + PAR3 + (1|embryo/lineage). 1,000 bootstrap resamples of embryos. **Bayesian BF>10.** **Exclusion:** E-lineage cells, CED-3(+) apoptotic cells, cells with <3 timepoints. **Outcome variables:** (a) SAS-4 retention, (b) SAS-1 retention (early signal of impending elimination). | ~6,800 centrioles after exclusions |
 | **3** | **Sister-pair sensitivity analysis.** If ≥40 same-type pairs → within-pair comparison. Secondary, not required for conclusions. | Subset of Stage 1 |
 | **4** | **E-lineage secondary analysis.** Intestinal cells separately: does Pedigree Score predict which cells lose centrioles during endoreduplication? Post-embryonic follow-up (additional 2h imaging at L1 stage). | E-lineage cells only |
@@ -192,7 +192,7 @@ If Pedigree Score correlates with fate in OS1, OS2 tests causality via **centrio
 
 - **Temperature calibration (Pilot P0):** Compare 20°C (Sulston standard) vs 25°C. If elimination pattern differs → use 20°C.
 
-- **Spectral unmixing:** SPD-2::mCherry + SAS-4::GFP + CED-3::mCherry channels unmixed to prevent cross-excitation.
+- **Spectral unmixing:** SPD-2::mCherry + SAS-4::GFP + CED-3::mKate2 (588nm) channels unmixed to prevent cross-excitation.
 
 ## 5. Key References
 
