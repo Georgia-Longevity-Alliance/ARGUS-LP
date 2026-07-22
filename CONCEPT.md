@@ -1,6 +1,6 @@
 # CONCEPT — ARGUS-OS1
 
-**Version:** 180.0
+**Version:** 181.0
 **Date:** 2026-07-22
 
 ---
@@ -15,7 +15,7 @@
 4. ~17% (113/671 cells) undergo programmed cell death (Sulston 1983). **EXCLUDED via CED-3::mKate2 (588nm)** (competing risk in Cause-Specific Hazards model).
 5. Centriole elimination in oogenesis initiates with SAS-1 central tube loss (Magescas et al. 2023, PMID 37987153). **SAS-1::miRFP670 (670nm, far-red, NO GFP overlap) serves as an early marker** — SAS-1 disappearance precedes SAS-4 loss, providing an early signal of impending elimination. **Caveat:** Magescas (2023) studied primarily oocytes; somatic applicability tested in Pilot P6.
 6. Based on OToole (2003) centriole ultrastructure and Magescas (2023) SAS-1 dynamics, we HYPOTHESIZE PCM disassembles before the core. Tested via SPD-2::mCherry (PCM). Note: Fu & Glover (2012, Drosophila) place SPD-2 at centriole-PCM interface — C. elegans localization may differ. SPD-5 as alternative PCM marker in 5 embryos., PMID 14610052). SAS-4::GFP visualizes the core but NOT PCM. A "GFP-positive, PCM-negative" centriole is a ZOMBIE — structurally present, biologically dead. **Primary outcome: composite fate = (SAS-4+ AND SPD-2+). Loss of EITHER for >30 min = eliminated (30-min threshold: empirically chosen (>2 imaging intervals rules out transient focal plane loss). Validated in Pilot P3. (Bobinnec 1998, HeLa 12h disassembly — confirms phenomenon exists, NOT the timescale.)).** This eliminates misclassification of zombie centrioles as "retained." SPD-2::mCherry tracked in ALL N=100. Exploratory: AIR-1::GFP in 20 embryos (Plourde 2025 — direct centrosome asymmetry measure). embryos.
-7. PAR proteins (PAR-2, PAR-3, PAR-6) establish cortical asymmetry and influence spindle orientation in early C. elegans embryos. **PAR-2::GFP + PAR-3::mCherry** quantify both posterior and anterior cytoplasmic asymmetry at each division.
+7. PAR proteins (PAR-2, PAR-3, PAR-6) establish cortical asymmetry and influence spindle orientation in early C. elegans embryos. **PAR-2::GFP + PAR-3::mCherry** control proper embryonic polarity (cortical, not cytoplasmic). MEX-5::GFP as cytoplasmic asymmetry marker in 20 embryo subset..
 
 ### What is TESTED here (ARGUS hypothesis)
 
@@ -237,7 +237,7 @@ If Pedigree Score correlates with fate in OS1, OS2 tests causality via **centrio
 **Sensitivity:** Sister pairs. **Surrogate:** SAS-1 loss before SAS-4.
 **Timing note:** 100-cell window snapshot — NOT comma stage. Late eliminators flagged.
 **V8 light-sheet strongly recommended** for phototoxicity ceiling.
-*36 refs. Sister-pairs PRIMARY. Joint model (JMbayes2). Composite fate (SAS-4+SPD-2). $264K.*
+*37 refs. Sister-pairs PRIMARY. Joint model (JMbayes2). Composite fate (SAS-4+SPD-2). $264K.*
 
 ---
 
