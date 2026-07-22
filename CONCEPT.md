@@ -1,6 +1,6 @@
 # CONCEPT — ARGUS-OS1
 
-**Version:** 158.0
+**Version:** 159.0
 **Date:** 2026-07-22
 
 ---
@@ -25,19 +25,16 @@
 
 **Pedigree Score (PCA):** (a) fraction ∥ divisions, (b) mean 3D angle change, (c) angle variance, (d) orientation switches, (e) cumulative angular path → first principal component.
 
-**Primary test — Bootstrap Mixed Model (fixed N=100 embryos):**
+**Primary test — Sister-cell pairs (eliminates ICC):**
+When a cell divides, one daughter gets the older centriole, one the younger. Both inherit identical cell type, cytoplasm, and lineage. **Pedigree difference IS the only systematic difference.** This is the cleanest causal design.
+
+**ICC power calculation:** For N=100 embryos with ~68 centrioles each, ICC≈0.3 → N_eff = 100/(1+67×0.3) ≈ 4.7. **Within-embryo mixed models have <20% power for OR=1.2.** Sister-pair design eliminates ICC entirely.
+
+**Secondary — Bootstrap Mixed Model (all cells):**
 ```
-fate ~ PedigreeScore + age + time_since_last_division + mother_daughter + lineage(E_vs_nonE) + PAR2 + PAR3 + (1|embryo) + (1|cell_lineage)
+fate ~ PedigreeScore + age + time_since_last_division + mother_daughter + PAR2 + PAR3 + (1|embryo) + (1|cell_lineage)
 ```
-Bootstrap: 1,000 embryo resamples. **Power: recalculated with ICC.** BF>10, β<0.1.
-**Priors:** Student-t(3,0,1) fixed effects (regularizing). Half-Student-t(3,0,2.5) random.
-**NO intermediate stopping.** Fixed N=100.
-
-**Comma-stage validation (N=20 embryos):** Extended imaging (+2h, ~200→350 cells) for a subset to verify that 100-cell PedigreeScore predicts final comma-stage elimination. **Critical for surrogate endpoint validation.**
-
-**Inter-rater reliability:** Two independent classifiers (human + AI). **Cohen's Kappa ≥ 0.85 required.** Below threshold → third arbitrator.
-
-**E-lineage strategy:** INCLUDED as factor `lineage(E_vs_nonE)`, NOT excluded. Test PedigreeScore × lineage interaction. If significant → lineage-specific models.
+Exploratory. ICC-adjusted confidence intervals reported.
 
 **Fate classification (3 categories):**
 - **Early eliminators:** centriole lost ≤100-cell window
@@ -120,7 +117,7 @@ fate ~ PedigreeScore + age + mother_daughter + lineage(E_vs_nonE) + PAR2 + PAR3 
 | P2 | **Phototoxicity ceiling.** Test 488/561/405nm at 2-min vs 5-min intervals. Metrics: division rate, morphology, hatching rate. **Go/No-Go:** if division rate drops >10% at 2-min interval → switch to 5-min interval OR upgrade to light-sheet (V8). |
 | P3 | **Photobleaching assay.** SAS-4::GFP + SAS-1::mCherry signal decay over 3h. >30% loss → sparse sampling or light-sheet. |
 | P4 | **Marker cross-validation.** SAS-4::GFP + SAS-1::mCherry + Centrin1::BFP in same embryos. Confirm co-localization. 5 embryos. |
-| P5 | **Sister-pair quantification.** From Sulston 1983: count same-type sister pairs. **This is sensitivity analysis, not primary test.** |
+| P5 | **Sister-pair quantification.** From Sulston 1983: count same-type sister pairs. **This is PRIMARY test candidate pool.** |
 | P6 | **SAS-1→SAS-4 latency measurement.** In 10 embryos, measure time (minutes) between SAS-1::mCherry loss and SAS-4::GFP loss for ≥50 centrioles across cell types. **Go/No-Go:** if latency variance across cell types >2-fold → latency must be modeled as cell-type-specific. If mean latency <5 min → SAS-1 and SAS-4 loss are near-simultaneous (surrogate invalid). |
 | P7 | **Ciliogenesis cross-check + exclusion validation.** Compare Kalbfuss 68 vs WormAtlas cilial neurons. >50% overlap → flag. Also validate CED-3::mCherry + histone::CFP morphology against Sulston 1983 apoptosis map. |
 | P8 | **Mother/daughter identification.** Validate Dendra2::SAS-4 signal ratio: older centriole = dimmer (diluted photoconverted protein). Compare with lineage-based age prediction. 5 embryos. |
@@ -152,30 +149,30 @@ fate ~ PedigreeScore + age + mother_daughter + lineage(E_vs_nonE) + PAR2 + PAR3 
 
 ---
 
-## 4. Budget (ARGUS V7 + V8 light-sheet)
+## 4. Budget (ARGUS V7+V8, 24 months)
 
 | Item | $ |
 |------|--:|
 | 60×/1.2 NA WI objective (Nikon CFI Plan Apo) | 13,500 |
-| sCMOS camera (Hamamatsu ORCA-Fusion BT) | 18,500 |
-| 405 nm laser (Dendra2 photoconversion) | 1,200 |
-| 488 nm + 561 nm + 640 nm LED/lasers | 1,500 |
-| **Light-sheet module (V8) — MANDATORY** (Keller et al. 2008, PMID 18845710: 10-100× lower phototoxicity) | 8,000 |
-| **Light-sheet delivery + installation + calibration** | 3,000 |
+| sCMOS camera (Hamamatsu ORCA-Fusion BT) | 22,000 |
+| 405 nm + 488 nm + 561 nm + 640 nm lasers | 2,500 |
+| **Light-sheet module (V8) — MANDATORY** | 25,000 |
+| Light-sheet delivery + installation + calibration | 5,000 |
 | Phase contrast condenser + objectives | 2,500 |
-| Microfluidic chip + pressure system | 2,500 |
+| Microfluidic chip + pressure system | 5,000 |
 | Frame + stage: Aluminum 7075 + thermal stabilization | 4,000 |
-| AI: Jetson AGX Orin 64GB (275 TOPS) | 2,000 |
+| AI: Jetson AGX Orin 64GB (275 TOPS) | 3,000 |
 | Night vision: IR LED + NoIR + notch filters | 500 |
-| C. elegans strains (7 markers + RNAi + mutants) + reagents | 5,500 |
-| PI salary (25% FTE, 12 months) | 15,000 |
-| Engineer salary (50% FTE, 12 months) | 30,000 |
-| Lab space rental (Abastumani, 12 months) | 5,000 |
-| Contingency (25%) | 27,000 |
-| **Hardware subtotal** | **~62,700** |
-| Personnel + lab | 50,000 |
-| Contingency (25%) | 27,000 |
-| **Total (ARGUS V7+V8)** | **~140,000** |
+| C. elegans strains (8 markers + RNAi + mutants) + reagents | 10,000 |
+| Equipment maintenance (2 years) | 10,000 |
+| Consumables (coverslips, agarose, plates, 2 years) | 5,000 |
+| Conference travel + collaboration visits | 5,000 |
+| Open Access publication fees | 5,000 |
+| PI salary (25% FTE, 24 months) | 30,000 |
+| Engineer salary (50% FTE, 24 months) | 60,000 |
+| Lab space rental (Abastumani, 24 months) | 10,000 |
+| Contingency (20%) | 43,000 |
+| **Total (ARGUS V7+V8, 24 months)** | **~260,000** |
 
 ---
 
@@ -207,6 +204,9 @@ fate ~ PedigreeScore + age + mother_daughter + lineage(E_vs_nonE) + PAR2 + PAR3 
 | 22 | **Feldman & Priess (2012)** — centrosome + PAR-3 in MTOC hand-off, epithelial polarization, Curr Biol | 22425160 |
 | 23 | **Mikeladze-Dvali et al. (2012)** — centriole elimination during C. elegans oogenesis, Development | 22492357 |
 | 24 | **Cabernard & Doe (2009)** — spindle orientation in Drosophila neuroblast homeostasis, Dev Cell | 19619498 |
+| 25 | **Delattre, Canard & Gönczy (2006)** — sequential protein recruitment in C. elegans centriole formation, Curr Biol | 16979563 |
+| 26 | **Dammermann et al. (2004)** — centriole assembly requires centriolar and PCM proteins, Dev Cell | 15572125 |
+| 27 | **Pintard & Bowerman (2019)** — mitotic cell division in C. elegans, Genetics | 30626640 |
 
 ---
 
@@ -215,7 +215,7 @@ fate ~ PedigreeScore + age + mother_daughter + lineage(E_vs_nonE) + PAR2 + PAR3 
 **Sensitivity:** Sister pairs. **Surrogate:** SAS-1 loss before SAS-4.
 **Timing note:** 100-cell window snapshot — NOT comma stage. Late eliminators flagged.
 **V8 light-sheet strongly recommended** for phototoxicity ceiling.
-*24 refs. V7+V8 mandatory. $140K. Student-t priors. Comma-stage validation (N=20). Cohen's Kappa ≥0.85.*
+*27 refs. Sister-pairs PRIMARY (ICC-free). $260K/24mo.*
 
 ---
 
