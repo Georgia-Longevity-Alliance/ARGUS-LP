@@ -1,6 +1,6 @@
 # PARAMETERS — ARGUS-OS1
 
-**Version:** 154.0  
+**Version:** 155.0
 **Date:** 2026-07-22
 
 ## Model
@@ -8,39 +8,36 @@
 | Parameter | Value |
 |-----------|-------|
 | Organism | C. elegans (N2 Bristol, hermaphrodite) |
-| Stage | Embryo, zygote → ~100 cells (~3h at 25°C) |
-| Cells retaining centrioles | 41 proliferating + 20 intestinal + 7 terminally differentiated = **68 total** |
-| Cells eliminating centrioles | ~490 (~88%) |
-| Pedigree | Pedigree Score (PCA of 5 metrics): fraction ∥, mean angle, angle variance, switches, cumulative path |
+| Imaging window | Zygote → ~100 cells (~3h at 25°C). **Snapshot at 100-cell, NOT comma stage.** |
+| Cells with centrioles at 100-cell | ~68 (41 proliferating + 20 intestinal + 7 terminally differentiated) |
+| E-lineage (gut) | EXCLUDED from primary analysis (post-embryonic centriole loss) |
+| Apoptotic cells | EXCLUDED via CED-3::mCherry (~12% of cells) |
+| Pedigree | Pedigree Score (PCA): fraction ∥, mean angle, angle variance, switches, cumulative path |
 
 ## Platform
 
 | Parameter | Value |
 |-----------|-------|
-| Version | ARGUS V7 |
-| Objective | 60×/1.2 NA WI (new) |
+| Version | ARGUS V7 + V8 light-sheet (strongly recommended) |
+| Objective | 60×/1.2 NA WI |
 | Camera | sCMOS (Hamamatsu ORCA-Fusion BT) |
-| Lasers | 405 nm (Dendra2) + 488 nm + 561 nm |
-| Second modality | Phase contrast (cell boundary tracking) |
-| Immobilization | Microfluidic chip |
-| AI agent | Jetson AGX Orin 64GB (275 TOPS) — local tracking, blind pedigree computation |
-| Night vision | IR LED 850nm + 2× NoIR cameras |
-| Enclosure | Glove-box isolator (acrylic, HEPA H13, neoprene gloves) |
-| Markers | SAS-4::GFP + Centrin1::mCherry + Histone::BFP + PAR-2::GFP + Dendra2::SAS-4 |
+| Lasers | 405 nm + 488 nm + 561 nm + 640 nm |
+| Light-sheet | V8 module — 10× lower phototoxicity vs widefield |
+| Interval | 2-min (5-min fallback per Pilot P2) |
+| AI | Jetson AGX Orin 64GB (blind pedigree computation) |
+| Markers (7) | SAS-4::GFP, SAS-1::mCherry, Centrin1::BFP, Dendra2::SAS-4, PAR-2::GFP, PAR-3::mCherry, CED-3::mCherry, Histone::CFP |
 
 ## Experiment
 
 | Parameter | Value |
 |-----------|-------|
-| Pilot N | 10 embryos (stochasticity + phototoxicity + marker validation + pair quantification + ciliogenesis) |
-| Main N | 100 embryos (intermediate analysis at 50; expand to 200 if BF<3) |
-| Duration | ~3h per embryo |
-| Temperature | 25°C |
-| Design | Sequential 3-stage: (1) collect all, (2) sister pairs, (3) within-type permutation (10K shuffles) |
-| Primary evidence | Bayes Factor > 10 for H₁ vs H₀ |
-| Supplementary | Permutation test p < 0.05 after Bonferroni + FDR |
-| Controls | Negative: RNAi-PLK-4. Positive: spd-2(or165)/plk-1(RNAi) mutants. Dark: parallel embryos. |
-| Cytoplasm control | PAR-2::GFP (posterior cortex asymmetry) |
+| Primary test | Bootstrap Mixed Model: fate ~ PedigreeScore + age + PAR2 + PAR3 + (1\|embryo) + (1\|lineage) |
+| Bootstrap | 1,000 embryo resamples |
+| Power | OR≥1.2, BF>10, β<0.1 with N=100 embryos (~6,800 centrioles after exclusions) |
+| Sensitivity | Sister-cell pairs (Stage 3, secondary) |
+| Outcomes | (a) SAS-4 retention, (b) SAS-1 retention (earlier decision point) |
+| Exclusions | E-lineage, CED-3(+) apoptotic, <3 timepoints |
+| Intermediate | After 50 embryos: BF<3→N=200, BF>10→stop |
+| Controls | Negative: RNAi-PLK-4. Positive: spd-2(or165)/plk-1(RNAi) |
 | Blind protocol | AI tracks → human classifies fate → pedigree computed last |
-| Pre-registration | OSF |
-| Budget | ~$128,500 (HW: ~$48,500 + personnel: $50,000 + contingency 30%: $30,000) |
+| Budget | ~$143000 (HW: ~$59.7K + personnel: $50K + contingency: $33K) |

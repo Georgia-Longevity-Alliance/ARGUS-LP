@@ -1,16 +1,16 @@
 # STATE — ARGUS-OS1
 
 **Date:** 2026-07-22
-**Status:** ✅ v154 — Post deep audit. $128.5K. Bayesian primary (BF>10). Sequential 3-stage. 405nm laser. PAR-2 control. spd-2/plk-1 mutants.
+**Status:** ✅ v155 — Super-strict audit. Bootstrap Mixed Model primary. Exclusion criteria. SAS-1 surrogate. CED-3 apoptosis. Light-sheet mandatory. $143K.
 
 ## Current
 
-- Model: C. elegans (959 cells)
-- Hypothesis: Pedigree Score (PCA) → centriole fate (H₀: no effect, H₁: BF>10)
-- Design: Sequential 3-stage (collect→sisters→permutation within-type)
-- Platform: ARGUS V7 (OpenFlexure + 60×/1.2 NA WI + sCMOS + 405/488/561nm + phase contrast + AI)
-- Markers: SAS-4::GFP + Centrin1::mCherry + Histone::BFP + PAR-2::GFP + Dendra2::SAS-4
-- Controls: Negative: RNAi-PLK-4. Positive: spd-2(or165)/plk-1(RNAi)
-- Budget: ~$128,500 (HW: ~$48.5K + personnel: $50K + contingency 30%: $30K)
-- Pilot: 3 months, 7 Go/No-Go criteria
-- Main: N=100, intermediate analysis at 50
+- Hypothesis: Pedigree Score (PCA) → centriole fate. H₀: no effect. H₁: BF>10.
+- Primary: Bootstrap Mixed Model (1,000 resamples, N=100→~6,800 centrioles)
+- Sensitivity: Sister-cell pairs (Stage 3, secondary)
+- Outcomes: SAS-4 retention + SAS-1 retention (earlier decision point)
+- Exclusions: E-lineage (gut), CED-3(+) apoptotic, <3 timepoints
+- Markers (8): SAS-4, SAS-1, Centrin1, Dendra2, PAR-2, PAR-3, CED-3, Histone
+- Platform: V7+V8 light-sheet
+- Lasers: 405+488+561+640 nm
+- Budget: ~$143,000
