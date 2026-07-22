@@ -1,6 +1,6 @@
 # CONCEPT — ARGUS-OS1
 
-****Version:** 152.0
+****Version:** 153.0
 **Date:** 2026-07-22
 > **v143:** V7 $81K. Sister-cell primary. All synced.
 
@@ -81,6 +81,12 @@ Control: age → function quality (Anderson 2009).
 | P5 | **Same-type sister pair quantification.** From Sulston 1983 lineage map: count divisions where both daughters have identical cell type at hatching. If <40 pairs in 100 embryos → switch to Plan C (within-type pedigree comparison, see Analysis). |
 | P6 | **Pedigree feature extraction.** Define 5 quantitative metrics: (a) fraction of ∥ divisions, (b) mean 3D angle change, (c) variance of angles, (d) number of orientation switches, (e) cumulative angular path. Test independence from cell type on synthetic data. |
 
+**Pilot Go/No-Go criteria:**
+- P1 (stochasticity): if Spearman ρ(age, pedigree) > 0.3 at any stage (p < 0.05) → age becomes covariate, NOT eliminated
+- P2 (phototoxicity): if division rate drops >10% vs dark control → reduce duty cycle or switch to HyD detector
+- P3 (photobleaching): if SAS-4::GFP signal decays >30% over 3h → sparse temporal sampling
+- P5 (sister pairs): if <40 same-type sister pairs in 100 embryos → switch to Plan C (within-type comparison) as PRIMARY
+
 ### Main Experiment (GFP)
 
 | Step | Action |
@@ -134,7 +140,7 @@ Control: age → function quality (Anderson 2009).
 
 **Reproducibility:** All code, protocols, and raw data on GitHub + Zenodo (CC-BY). Protocol on bioRxiv before data collection. **Data:** Raw images → BioImage Archive. Processed → Zenodo. Code → GitHub. **Independent replication:** N2 strain (baseline) + CB4856 (Hawaiian) for cross-strain validation. **Timeline:** Pilot (2 months) → Main (4 months) → Analysis (2 months). **Biosafety:** BSL-1. C. elegans — non-pathogenic. 488nm LED — class 1 laser product.
 
-**Limitations:** (1) Stochasticity confirmed only for 4-cell stage + ABpr lineage — **Pilot P1 tests all stages** before main experiment. (2) Sister-cell pairs are rare (~5% of divisions) — Pilot P5 quantifies; **Plan C** uses within-type pedigree comparison if <40 pairs. (3) Intestinal cells later lose centrioles (Lu & Roy 2014, PMID 25360893) — not permanent retention; accounted as positive control. (4) C. elegans-specific — requires cross-species validation. (5) Multicollinearity risk between pedigree and cell_type — mitigated by within-type comparison (Plan C) + VIF monitoring. (6) Phototoxicity from 3h 3D imaging — Pilot P2 determines safe duty cycle. (7) Heidenhain's haematoxylin not validated for C. elegans centrioles — Pilot P6 validates with anti-SAS-4 co-stain.
+**Limitations:** (1) Stochasticity confirmed only for 4-cell stage + ABpr lineage — **Pilot P1 tests all stages** before main experiment. (2) Sister-cell pairs are rare (~5% of divisions) — Pilot P5 quantifies; **Plan C** uses within-type pedigree comparison if <40 pairs. (3) Intestinal cells later lose centrioles (Lu & Roy 2014, PMID 25360893) — not permanent retention; accounted as positive control. (4) C. elegans-specific — requires cross-species validation. (5) Multicollinearity risk between pedigree and cell_type — mitigated by within-type comparison (Plan C) + VIF monitoring. (6) Phototoxicity from 3h 3D imaging — Pilot P2 determines safe duty cycle; HyD (GaAsP) detector recommended for 10× lower laser power. (7) Heidenhain's haematoxylin not validated for C. elegans centrioles — Pilot validates with anti-SAS-4 co-stain. (8) Multiple testing: 5 pedigree metrics × multiple cell types → **Bonferroni correction** (α/25) or **FDR** (Benjamini-Hochberg, q < 0.05). Pre-registered on OSF.
 
 | # | Reference | PMID |
 |---|-----------|------|
@@ -145,16 +151,20 @@ Control: age → function quality (Anderson 2009).
 | 5 | Gönczy & Balestra (2023) — stochastic segregation | 36988082 |
 | 6 | Anderson & Stearns (2009) — age → cilium timing (EXPERIMENTAL, NIH/3T3) | 19682908 |
 | 7 | Erpf & Mikeladze-Dvali (2020) — Dendra2::SAS-4 centriole tracking | DOI:10.17912/micropub.biology.000286 |
-| 8 | Balestra et al. (2015) — SAS-4::GFP stability in embryos, Cell Research | 25892868 |
+| 8 | Balestra et al. (2015) — paternal centrioles persist in C. elegans embryos, Cell Research | 25906994 |
 | 9 | Yamashita et al. (2007) — Drosophila mGSC | 17255513 |
 | 10 | Januschke et al. (2011) — Drosophila NB | 21407209 |
 | 11 | Wang et al. (2009) — mouse radial glia | 19829375 |
 | 12 | Coffman et al. (2016) — MT asymmetry in C. elegans, MBoC | 27733624 |
 | 13 | Kalbfuss & Gönczy (2023) — centriole elimination review, Open Biol | 37963546 |
 | 14 | Croisier et al. (2025) — EM confirms centrioles in rectal cells, microPublication | 40475707 |
-
 | 15 | Lu & Roy (2014) — centriole loss in intestine during endoreduplication | 25360893 |
+| 16 | Magescas, Kalbfuss & Gönczy (2023) — centriole elimination in oogenesis: SAS-1 loss initiates, EMBO J | 37987153 |
+| 17 | Woglar, Gönczy et al. (2022) — molecular architecture of C. elegans centriole, PLoS Biol | 36107993 |
+| 18 | Serwas, Gönczy et al. (2025) — SAS-1 ensures centriole integrity, PLoS Genet | 41124206 |
+
+> **Marker note:** SAS-4::GFP (Gönczy lab) validated for centriole tracking. Centrin1-GFP alternative. Pilot compares both. Balestra (2015, PMID 25906994) confirms paternal centrioles persist — GFP signal stable through embryogenesis. Magescas (2023, PMID 37987153): centriole elimination initiates with SAS-1 loss — potential mechanistic link to pedigree.
 
 ---
 
-*C. elegans only. Pedigree = 5 metrics. V7. $126K. 15 refs. Pilot validates stochasticity at all stages.*
+*C. elegans only. Pedigree = 5 metrics. V7. $126K. 18 refs. Pilot with Go/No-Go criteria.*
