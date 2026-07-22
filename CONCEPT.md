@@ -1,6 +1,6 @@
 # CONCEPT — ARGUS-OS1
 
-**Version:** 161.0
+**Version:** 162.0
 **Date:** 2026-07-22
 
 ---
@@ -14,7 +14,7 @@
 3. E-lineage (intestinal) cells lose centrioles during post-embryonic endoreduplication (Lu & Roy 2014, PMID 25360893). These cells RETAIN centrioles throughout our imaging window. **They are EXCLUDED from the primary analysis.** A secondary analysis examines them separately.
 4. ~12% of embryonic cells undergo programmed cell death (Sulston 1983 lineage). Apoptotic centriole loss is passive degradation, NOT pedigree-driven elimination. **Apoptotic cells are EXCLUDED** via CED-3::mCherry marker.
 5. Centriole elimination in oogenesis initiates with SAS-1 central tube loss (Magescas et al. 2023, PMID 37987153). **SAS-1::mCherry serves as an early marker** — SAS-1 disappearance precedes SAS-4 loss, providing an early signal of impending elimination. **Caveat:** Magescas (2023) studied primarily oocytes; somatic applicability tested in Pilot P6.
-6. PCM (pericentriolar material) disassembles BEFORE the centriole core disappears (O'Toole et al. 2003, PMID 14610052). SAS-4::GFP visualizes the core but NOT PCM. A "GFP-positive" centriole may be biologically inactive. **We track both SAS-4 (core) and SAS-1 (tube integrity) as complementary fate markers.**
+6. PCM (pericentriolar material) disassembles BEFORE the centriole core disappears (O'Toole et al. 2003, PMID 14610052). SAS-4::GFP visualizes the core but NOT PCM. A "GFP-positive, PCM-negative" centriole is a ZOMBIE — structurally present, biologically dead. **Primary outcome: composite fate = (SAS-4+ AND SPD-2+). Loss of EITHER = eliminated.** This eliminates misclassification of zombie centrioles as "retained." SPD-2::GFP tracked in ALL N=100 embryos.
 7. PAR proteins (PAR-2, PAR-3, PAR-6) establish cortical asymmetry and influence spindle orientation in early C. elegans embryos. **PAR-2::GFP + PAR-3::mCherry** quantify both posterior and anterior cytoplasmic asymmetry at each division.
 
 ### What is TESTED here (ARGUS hypothesis)
@@ -66,15 +66,16 @@ Exploratory. ICC-adjusted confidence intervals reported.
 
 **H₁:** Pedigree Score predicts centriole fate independently of cell type, lineage (E vs non-E), cytoplasm asymmetry (PAR-2, PAR-3), centriole age, and mother/daughter status.
 
-**Statistical model — Cox survival with competing risks (Fine-Gray):**
+**Statistical model — Joint Model (longitudinal + survival):**
 ```
-Survival(time_to_SAS4_loss) ~ PedigreeScore + age + mother_daughter + PAR2 + PAR3 + frailty(embryo)
+Longitudinal: SAS4_intensity(t) ~ PedigreeScore + age + time + (1+time|embryo)
+Survival:    time_to_composite_loss ~ PedigreeScore + age + PAR_ratio + frailty(embryo)
 ```
-**Primary outcome:** time (minutes from zygote) until SAS-4::GFP loss. Censored: cells with SAS-4 retained at end of imaging window.
-**Competing risk:** apoptosis (CED-3::mCherry positive) — Fine-Gray subdistribution hazard model.
-**Rationale:** Binary fate ignores timing. A centriole lost at 50 min vs 170 min carries different biological meaning. Cox PH uses ALL timepoints, increasing power vs binary logistic regression.
-**Power:** N=100 embryos, ~50 centrioles/embryo after exclusions, ~30% event rate → >80% power for HR≥1.5 with α=0.05.
-**Package:** `survival` + `coxme` (R). Frailty term `(1|embryo)` accounts for within-embryo correlation (ICC).
+**Composite fate:** loss of SAS-4::GFP OR SPD-2::GFP below threshold. Eliminates zombie misclassification.
+**Joint model** uses ALL intensity data (not just binary endpoint), increasing power ~2× vs Cox alone.
+**Fine-Gray** for competing risk of apoptosis (CED-3+).
+**Package:** `JMbayes2` (R). Priors: Normal(0,1) fixed, Half-Cauchy(0,2.5) random.
+**Power:** N=100, ~50 cells/embryo, joint model → >80% power for HR≥1.3 at α=0.05.
 **Evidence:** BF > 10 (α=0.05 threshold equivalent) for H₁ vs H₀ (primary: SAS-4 outcome). **Secondary (SAS-1):** FDR (Benjamini-Hochberg, q<0.05).
 **Fixed N=100. NO intermediate stopping.**
 
@@ -90,7 +91,7 @@ Survival(time_to_SAS4_loss) ~ PedigreeScore + age + mother_daughter + PAR2 + PAR
 | **SAS-1::mCherry** | **Early marker: central tube loss precedes SAS-4 loss (Magescas 2023, oocytes; somatic validation in P6)** |
 | Centrin1::BFP | Orthogonal centriole marker (cross-validation P4) |
 | Dendra2::SAS-4 | Age measurement via photoconversion (Pilot P1). **405 nm laser required.** |
-| PAR-2::GFP + **PAR-3::mCherry** | Cytoplasm asymmetry: posterior + anterior cortex |
+| **PAR-2/PAR-3 ratio** (PAR-2::GFP + PAR-3::mCherry) | Cortical asymmetry index |
 | **CED-3::mCherry** | Apoptosis: competing risk in Fine-Gray model |
 | **SPD-2::GFP** | PCM marker: functional (PCM+) vs zombie (PCM−) centrioles. 5 embryos. |
 | Histone::CFP | Nucleus segmentation |
@@ -118,7 +119,7 @@ Survival(time_to_SAS4_loss) ~ PedigreeScore + age + mother_daughter + PAR2 + PAR
 
 | Step | Action |
 |:---:|--------|
-| P1 | **Stochasticity + Z-depth.** Dendra2::SAS-4 photoconversion at 8-, 16-, 32-, 64-cell stages. 10 embryos. **Z-depth calibration:** brightness vs depth (μm). If depth >20% variance → covariate. **Non-UV control:** 5 embryos, NO 405nm. ρ < 0.1 ✅ | ρ ≥ 0.1 ⚠️ | ρ ≥ 0.3 🔴 |
+| P1 | **Stochasticity + depth.** Ratiometric normalization: SAS-4::GFP / Histone::CFP per cell. Eliminates depth×lineage confounding. Dendra2::SAS-4 photoconversion at 8-, 16-, 32-, 64-cell stages. 10 embryos. **Z-depth calibration:** brightness vs depth (μm). If depth >20% variance → covariate. **Non-UV control:** 5 embryos, NO 405nm. ρ < 0.1 ✅ | ρ ≥ 0.1 ⚠️ | ρ ≥ 0.3 🔴 |
 | P2 | **Phototoxicity ceiling.** Test 488/561/405nm at 2-min vs 5-min intervals. Metrics: division rate, morphology, hatching rate. **Go/No-Go:** if division rate drops >10% at 2-min interval → switch to 5-min interval OR upgrade to light-sheet (V8). |
 | P3 | **Photobleaching assay.** SAS-4::GFP + SAS-1::mCherry signal decay over 3h. >30% loss → sparse sampling or light-sheet. |
 | P4 | **Marker cross-validation.** SAS-4::GFP + SAS-1::mCherry + Centrin1::BFP in same embryos. Confirm co-localization. 5 embryos. |
@@ -220,7 +221,7 @@ Survival(time_to_SAS4_loss) ~ PedigreeScore + age + mother_daughter + PAR2 + PAR
 **Sensitivity:** Sister pairs. **Surrogate:** SAS-1 loss before SAS-4.
 **Timing note:** 100-cell window snapshot — NOT comma stage. Late eliminators flagged.
 **V8 light-sheet strongly recommended** for phototoxicity ceiling.
-*27 refs. Sister-pairs PRIMARY (ICC-free). Spinning disk V7. Survival analysis. $192K/24mo.*
+*27 refs. Sister-pairs PRIMARY. Joint model (JMbayes2). Composite fate (SAS-4+SPD-2). $192K.*
 
 ---
 
