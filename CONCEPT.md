@@ -1,6 +1,6 @@
 # CONCEPT — ARGUS-OS1
 
-**Version:** 165.0
+**Version:** 166.0
 **Date:** 2026-07-22
 
 ---
@@ -14,7 +14,7 @@
 3. E-lineage (intestinal) cells lose centrioles during post-embryonic endoreduplication (Lu & Roy 2014, PMID 25360893). **EXCLUDED from primary analysis** (different elimination mechanism). Separate secondary analysis on E-lineage only.
 4. ~12% of embryonic cells undergo programmed cell death (Sulston 1983). **EXCLUDED via CED-3::mCherry** (competing risk in Fine-Gray model).
 5. Centriole elimination in oogenesis initiates with SAS-1 central tube loss (Magescas et al. 2023, PMID 37987153). **SAS-1::mCherry serves as an early marker** — SAS-1 disappearance precedes SAS-4 loss, providing an early signal of impending elimination. **Caveat:** Magescas (2023) studied primarily oocytes; somatic applicability tested in Pilot P6.
-6. Based on OToole (2003) centriole ultrastructure and Magescas (2023) SAS-1 dynamics, we HYPOTHESIZE PCM disassembles before the core. Tested directly via SPD-2::GFP, PMID 14610052). SAS-4::GFP visualizes the core but NOT PCM. A "GFP-positive, PCM-negative" centriole is a ZOMBIE — structurally present, biologically dead. **Primary outcome: composite fate = (SAS-4+ AND SPD-2+). Loss of EITHER = eliminated.** This eliminates misclassification of zombie centrioles as "retained." SPD-2::GFP tracked in ALL N=100 embryos.
+6. Based on OToole (2003) centriole ultrastructure and Magescas (2023) SAS-1 dynamics, we HYPOTHESIZE PCM disassembles before the core. Tested directly via SPD-2::mCherry, PMID 14610052). SAS-4::GFP visualizes the core but NOT PCM. A "GFP-positive, PCM-negative" centriole is a ZOMBIE — structurally present, biologically dead. **Primary outcome: composite fate = (SAS-4+ AND SPD-2+). Loss of EITHER = eliminated.** This eliminates misclassification of zombie centrioles as "retained." SPD-2::mCherry tracked in ALL N=100 embryos.
 7. PAR proteins (PAR-2, PAR-3, PAR-6) establish cortical asymmetry and influence spindle orientation in early C. elegans embryos. **PAR-2::GFP + PAR-3::mCherry** quantify both posterior and anterior cytoplasmic asymmetry at each division.
 
 ### What is TESTED here (ARGUS hypothesis)
@@ -71,7 +71,7 @@ Exploratory. ICC-adjusted confidence intervals reported.
 Longitudinal: SAS4_intensity(t) ~ PedigreeScore + age + time + (1+time|embryo)
 Survival:    time_to_composite_loss ~ PedigreeScore + age + PAR_ratio + frailty(embryo)
 ```
-**Composite fate:** loss of SAS-4::GFP OR SPD-2::GFP below threshold. Eliminates zombie misclassification.
+**Composite fate:** loss of SAS-4::GFP OR SPD-2::mCherry below threshold. Eliminates zombie misclassification.
 **Joint model** uses ALL intensity data (not just binary endpoint), increasing power ~2× vs Cox alone.
 **Fine-Gray** for competing risk of apoptosis (CED-3+).
 **Package:** `JMbayes2` (R). Priors: Normal(0,1) fixed, Half-Cauchy(0,2.5) random.
@@ -93,7 +93,7 @@ Survival:    time_to_composite_loss ~ PedigreeScore + age + PAR_ratio + frailty(
 | Dendra2::SAS-4 | Age measurement via photoconversion (Pilot P1). **405 nm laser required.** |
 | **PAR-2/PAR-3 ratio** (PAR-2::GFP + PAR-3::mCherry) | Cortical asymmetry index |
 | **CED-3::mCherry** | Apoptosis: competing risk in Fine-Gray model |
-| **SPD-2::GFP** | PCM marker: functional (PCM+) vs zombie (PCM−) centrioles. 5 embryos. |
+| **SPD-2::mCherry** (561nm) | PCM marker: functional vs zombie. ALL N=100 embryos. Distinct λ from SAS-4::GFP (488nm). |
 | Histone::CFP | Nucleus segmentation |
 | spd-2(or165) / plk-1(RNAi) | Positive control: centriole loss mutants |
 
@@ -192,7 +192,7 @@ If Pedigree Score correlates with fate in OS1, OS2 tests causality via **centrio
 
 - **Temperature calibration (Pilot P0):** Compare 20°C (Sulston standard) vs 25°C. If elimination pattern differs → use 20°C.
 
-- **Spectral unmixing:** SPD-2::GFP + SAS-4::GFP + CED-3::mCherry channels unmixed to prevent cross-excitation.
+- **Spectral unmixing:** SPD-2::mCherry + SAS-4::GFP + CED-3::mCherry channels unmixed to prevent cross-excitation.
 
 ## 5. Key References
 
@@ -237,4 +237,4 @@ If Pedigree Score correlates with fate in OS1, OS2 tests causality via **centrio
 
 ---
 
-**Limitations:** (1) 100-cell window ≠ comma stage — Pilot P0 validates dynamics specifically in 0→100-cell window. (2) E-lineage EXCLUDED (post-embryonic elimination mechanism differs). (3) CED-3 for apoptosis exclusion. (4) SAS-1 somatic applicability tested in P6; secondary outcome until validated. (5) V7 spinning disk with adaptive illumination; V8 light-sheet deferred to OS2. (6) PCM loss before core (O'Toole 2003). (7) SPD-2::GFP composite fate in ALL N=100 embryos. (8) Temperature control ±0.1°C. (9) Sister-pair count: Sulston (1983) → ~5 same-type pairs/embryo → ~500 total pairs across 100 embryos. Power >80% for OR≥1.5 with paired design.
+**Limitations:** (1) 100-cell window ≠ comma stage — Pilot P0 validates dynamics specifically in 0→100-cell window. (2) E-lineage EXCLUDED (post-embryonic elimination mechanism differs). (3) CED-3 for apoptosis exclusion. (4) SAS-1 somatic applicability tested in P6; secondary outcome until validated. (5) V7 spinning disk with adaptive illumination; V8 light-sheet deferred to OS2. (6) PCM loss before core (O'Toole 2003). (7) SPD-2::mCherry composite fate in ALL N=100 embryos. (8) Temperature control ±0.1°C. (9) Sister-pair count: Sulston (1983) → ~5 same-type pairs/embryo → ~500 total pairs across 100 embryos. Power >80% for OR≥1.5 with paired design.
