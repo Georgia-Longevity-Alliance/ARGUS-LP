@@ -1,6 +1,6 @@
 # PARAMETERS — ARGUS-OS1
 
-**Version: 147.0
+**Version:** 150.0  
 **Date:** 2026-07-21
 
 ## Model
@@ -36,4 +36,4 @@
 | Duration | ~3h per embryo |
 | Temperature | 25°C |
 | Analysis | Mixed-effects logistic regression: fate ~ pedigree + age + (1|embryo) |
-| Budget | ~$35,000 (hardware only) |
+| Budget | ~$98,000 (hardware: ~$35,000 + personnel/lab/contingency: ~$63,000) |

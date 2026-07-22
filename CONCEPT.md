@@ -10,7 +10,7 @@
 
 **Centriole pedigree (∥/⟂) → centriole fate (retained/eliminated).**
 
-In C. elegans, ~88% of cells eliminate centrioles during embryogenesis. ~68 cells retain them: 41 proliferating + 20 intestinal + 7 terminally differentiated (Kalbfuss & Gönczy 2023, PMID 37256957; EM confirmation in Croisier et al. 2025, PMID 40475707). **Note:** intestinal cells later lose centrioles during endoreduplication (Lu & Roy 2014). Centrioles segregate STOCHASTICALLY at 4-cell stage (Gönczy & Balestra 2023, PMID 36988082) and in ABpr lineage (Erpf & Mikeladze-Dvali 2020). Extrapolated to full embryogenesis — testable in this project.
+In C. elegans, ~88% of cells eliminate centrioles during embryogenesis. ~68 cells retain them: 41 proliferating + 20 intestinal + 7 terminally differentiated (Kalbfuss & Gönczy 2023, PMID 37256957; EM confirmation in Croisier et al. 2025, PMID 40475707). **Gönczy (pers. comm., 21 Jul 2026):** centrioles retained in terminally differentiated cells of the adult somatic gonad likely remain for a functional reason — "to be able to build a centrosome or for some signaling function." Retained centrioles are not inert remnants. **Note:** intestinal cells later lose centrioles during endoreduplication (Lu & Roy 2014). Centrioles segregate STOCHASTICALLY at 4-cell stage (Gönczy & Balestra 2023, PMID 36988082) and in ABpr lineage (Erpf & Mikeladze-Dvali 2020). Extrapolated to full embryogenesis — testable in this project.
 
 **Stochastic segregation makes age ORTHOGONAL to pedigree.** If which centriole goes where is random, age and pedigree are statistically independent. This eliminates age as a confound — any observed pedigree↔fate effect must come from the pedigree itself.
 
@@ -43,6 +43,34 @@ Control: age → function quality (Anderson 2009).
 ---
 
 ## 3. Experiment
+
+### 🆕 Iron-Based Centriole Detection (Heidenhain's Iron Haematoxylin)
+
+> **Идея (Jaba Tqemaladze, 2026-07-21):** Железный гематоксилин по Гейденгайну — метод, которым Бовери открыл центриоли в 1900 году (Scheer 2014, PMID 25047623). В отличие от GFP, не требует трансгенных линий. Центриоль удерживает железо после дифференцировки, когда всё окружающее уже отмыто.
+
+**Почему это важно для ARGUS:**
+1. **Рутинный гистологический метод** — не требует трансгенных Constructs
+2. **Окрашивает всю центриоль** — не только белки (SAS-4, Centrin1), но и железосвязывающий core
+3. **Независим от GFP** — можно верифицировать GFP-данные ортогональным методом
+4. **$5-10 на образец** — vs $500+ на трансгенные линии
+
+**Протокол (адаптация для C. elegans whole-mount):**
+| Шаг | Действие | Время |
+|:---:|---------|:----:|
+| 1 | Фиксация: Bouin's fluid или 4% PFA + 2.5% glutaraldehyde | 30 мин |
+| 2 | Пермеабилизация: freeze-crack или acetone | 10 мин |
+| 3 | Протравка: 2.5% железо-аммонийные квасцы | 1-12 ч |
+| 4 | Окраска: 0.5% гематоксилин | 1-12 ч |
+| 5 | Дифференцировка: 2.5% железо-аммонийные квасцы (контроль под микроскопом) | 5-30 мин |
+| 6 | Дегидратация + mounting | 30 мин |
+
+**Предсказание:** Центриоли видны как чёрные точки даже в клетках, где GFP-сигнал SAS-4/Centrin1 потерян.
+
+**Референс:** Scheer 2014 (PMID 25047623), Fig. 7b.
+
+---
+
+### Основной эксперимент (GFP)
 
 | Step | Action |
 |:---:|--------|
@@ -99,21 +127,21 @@ Control: age → function quality (Anderson 2009).
 |---|-----------|------|
 | 1 | Sulston & Horvitz (1977) — post-embryonic lineage | 838129 |
 | 2 | Sulston et al. (1983) — embryonic lineage | 6684600 |
-| 2 | Kalbfuss & Gönczy (2023) — 88% eliminate, cell fate→centriole fate, Sci Adv | 37256957 |
-| 3 | Kalbfuss, Berger & Gönczy (2023) — centriolar protein mapping, Dev Biol | 37414202 |
-| 4 | Gönczy & Balestra (2023) — stochastic segregation | 36988082 |
-| 5 | Anderson & Stearns (2009) — age → cilium timing (EXPERIMENTAL, NIH/3T3) | 19682908 |
-| 6 | Erpf & Mikeladze-Dvali (2020) — Dendra2::SAS-4 centriole tracking | microPublication |
-| 7 | Balestra et al. (2015) — SAS-4::GFP stability in embryos, Cell Research | 25892868 |
-| 7 | Yamashita et al. (2007) — Drosophila mGSC | 17255513 |
-| 8 | Januschke et al. (2011) — Drosophila NB | 21407209 |
-| 9 | Wang et al. (2009) — mouse radial glia | 19829375 |
-| 10 | Coffman et al. (2016) — MT asymmetry in C. elegans, MBoC | 27733624 |
-| 11 | Kalbfuss & Gönczy (2023) — centriole elimination review, Open Biol | 37963546 |
-| 12 | Croisier et al. (2025) — EM confirms centrioles in rectal cells, microPublication | 40475707 |
+| 3 | Kalbfuss & Gönczy (2023) — 88% eliminate, cell fate→centriole fate, Sci Adv | 37256957 |
+| 4 | Kalbfuss, Berger & Gönczy (2023) — centriolar protein mapping, Dev Biol | 37414202 |
+| 5 | Gönczy & Balestra (2023) — stochastic segregation | 36988082 |
+| 6 | Anderson & Stearns (2009) — age → cilium timing (EXPERIMENTAL, NIH/3T3) | 19682908 |
+| 7 | Erpf & Mikeladze-Dvali (2020) — Dendra2::SAS-4 centriole tracking | microPublication |
+| 8 | Balestra et al. (2015) — SAS-4::GFP stability in embryos, Cell Research | 25892868 |
+| 9 | Yamashita et al. (2007) — Drosophila mGSC | 17255513 |
+| 10 | Januschke et al. (2011) — Drosophila NB | 21407209 |
+| 11 | Wang et al. (2009) — mouse radial glia | 19829375 |
+| 12 | Coffman et al. (2016) — MT asymmetry in C. elegans, MBoC | 27733624 |
+| 13 | Kalbfuss & Gönczy (2023) — centriole elimination review, Open Biol | 37963546 |
+| 14 | Croisier et al. (2025) — EM confirms centrioles in rectal cells, microPublication | 40475707 |
 
 > **Marker note:** SAS-4::GFP (Gönczy lab) is validated for centriole tracking in C. elegans. Centrin1-GFP is the alternative. Pilot will compare both.
 
 ---
 
-*C. elegans only. Pedigree = 3D angle. V7. $35K HW. 15 refs.*
+*C. elegans only. Pedigree = 3D angle. V7. $98K. 14 refs.*

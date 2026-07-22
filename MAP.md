@@ -3,19 +3,19 @@
 ```
 ARGUS-OS1/
 ├── README.md               # Homepage (platform versions table)
-├── CONCEPT.md              # Concept (v49 — hypothesis + 23 refs)
+├── CONCEPT.md              # Concept (v150 — hypothesis + 14 refs)
 ├── PARAMETERS.md           # Budget, technical specs, timeline
 ├── TODO.md                 # Tasks
 ├── STATE.md                # Current status
 ├── MEMORY.md               # Decision history
 ├── _pi.md                  # Rules for pi
-├── CONTRIBUTING.md         # How to contribute
-├── CODE_OF_CONDUCT.md      # Code of conduct
-├── SECURITY.md             # Security
 ├── LICENSE                 # MIT + GPLv3 + CC-BY-SA
 ├── .gitignore
 │
 ├── docs/                   # Documentation
+│   ├── CONTRIBUTING.md     # How to contribute
+│   ├── CODE_OF_CONDUCT.md  # Code of conduct
+│   ├── SECURITY.md         # Security
 │   ├── DEEP_AUDIT_2026-07-18.md
 │   ├── ARGUS_ACTION_PLAN_2026-07-18.md
 │   ├── PEER_REVIEW_STRICT_2026-07-18.md
@@ -38,11 +38,21 @@ ARGUS-OS1/
 ├── firmware/               # Firmware
 │   └── README.md
 │
+├── scripts/                # Automation scripts
+│   ├── autopush.sh
+│   └── watchdog.sh
+│
 ├── letters/                # Outreach correspondence
 │   ├── letter-bowman-2026-07-18.md
 │   ├── letter-bowman-openflexure-2026-07-18.md
 │   ├── openflexure-forum-post-2026-07-18.md
-│   └── centrin1-gfp-request-post-2026-07-18.md
+│   ├── openflexure-forum-reply-williamw-2026-07-19.txt
+│   ├── centrin1-gfp-request-post-2026-07-18.md
+│   ├── Follow_up_Pierre_Gonczy_2026-07-19.md
+│   ├── alex-reply-v6-2026-07-20.md
+│   ├── alex-v6-minimal-spec-2026-07-20.md
+│   ├── alex-v6-sborka-2026-07-20.md
+│   └── RSI_reviewers_2026-07-20.md
 │
 ├── grants/                 # Grant applications (planned)
 │
