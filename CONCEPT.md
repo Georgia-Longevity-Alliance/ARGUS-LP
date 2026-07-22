@@ -1,6 +1,6 @@
 # CONCEPT — ARGUS-OS1
 
-**Version:** 175.0
+**Version:** 176.0
 **Date:** 2026-07-22
 
 ---
@@ -175,11 +175,11 @@ Survival:    time_to_composite_loss ~ PedigreeScore + age + PAR_ratio + frailty(
 | Consumables (coverslips, agarose, plates) | 4,000 |
 | Conference travel | 3,000 |
 | Open Access fees | 5,000 |
-| PI salary (25% FTE, 24 months) | 30,000 |
+| PI salary (50% FTE, 24 months) | 60,000 |
 | Engineer salary (50% FTE, 24 months) | 60,000 |
 | Lab space (Abastumani, 24 months) | 10,000 |
-| Contingency (20%) | 32,000 |
-| **Total** | **~192,000** |
+| Contingency (20%) | 44,000 |
+| **Total** | **~264,000** |
 
 ---
 
@@ -236,7 +236,7 @@ If Pedigree Score correlates with fate in OS1, OS2 tests causality via **centrio
 **Sensitivity:** Sister pairs. **Surrogate:** SAS-1 loss before SAS-4.
 **Timing note:** 100-cell window snapshot — NOT comma stage. Late eliminators flagged.
 **V8 light-sheet strongly recommended** for phototoxicity ceiling.
-*33 refs. Sister-pairs PRIMARY. Joint model (JMbayes2). Composite fate (SAS-4+SPD-2). $192K.*
+*33 refs. Sister-pairs PRIMARY. Joint model (JMbayes2). Composite fate (SAS-4+SPD-2). $264K.*
 
 ---
 
