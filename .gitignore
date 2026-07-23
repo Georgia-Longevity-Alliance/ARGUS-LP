@@ -30,3 +30,17 @@ _pi.md
 
 # Private correspondence
 letters/
+
+# Internal reviews, audits, letters — not for public repo
+docs/peer_review_*.md
+docs/PEER_REVIEW_*.md
+docs/REVIEW*.md
+docs/*AUDIT*.md
+docs/META_ANALYSIS*.md
+docs/Alex_*.md
+docs/alex-*.md
+docs/RESPONSE_TO_METHODOLOGY_REVIEW.md
+
+# docs/ — local only, not on GitHub
+docs/
+scripts/
