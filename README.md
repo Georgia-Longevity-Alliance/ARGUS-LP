@@ -21,11 +21,11 @@ We test this in C. elegans. It's the only organism with a complete cell lineage 
 
 ## OS1 → OS2 → OS3
 
-```
-OS1 (V7, $126K) — measure pedigrees + fate in C. elegans (N=100 embryos)
-OS2 (V7→V8, +$141K HW) — test convergence + centriole transplantation
-OS3 — progenitor maps as graphs with genetic networks
-```
+| Stage | Hardware | Budget | Goal |
+|:---:|------|:---:|------|
+| **OS1** | V0 | ~$1K | Proof of concept. C. elegans on a bench. |
+| **OS2** | V7 | ~$126K | Core science. Measure pedigrees + fate (N=100). |
+| **OS3** | V7→V8 | +$141K | Full platform. Light-sheet + ablation + tweezers + microfluidic. |
 
 ## References
 

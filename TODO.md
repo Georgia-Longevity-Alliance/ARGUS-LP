@@ -11,6 +11,7 @@
 
 ## 🟡 Phase 1: Build (Aug–Sep 2026)
 - [ ] Build ARGUS V7 (OpenFlexure + 60×/1.2 NA WI + sCMOS + phase contrast) — Owner: Alex, Deadline: 2026-09-30
+- [ ] **Motor release API** — expose Sangaboard motor_release() in REST API (WilliamW: already in firmware!) — Owner: PI, Deadline: 2026-08-15
 - [ ] Triple transgenic strain: Centrin1-GFP + SAS-4::mCherry + histone::BFP — Owner: PI, Deadline: 2026-09-01
 
 ## 🟢 Phase 2: Main Experiment (Oct 2026 – Jan 2027)

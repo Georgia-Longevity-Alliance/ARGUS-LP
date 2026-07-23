@@ -1,7 +1,15 @@
 # PARAMETERS — ARGUS-OS1
 
-**Version:** 162.0
-**Date:** 2026-07-22
+**Version:** 186.0
+**Date:** 2026-07-23
+
+## OS Stages
+
+| Stage | Hardware | Budget | Status |
+|:---:|------|:---:|:---:|
+| **OS1** | V0 — stock OpenFlexure + Camera HQ | ~$1K | 🔵 Alex building |
+| **OS2** | V7 — 60×/1.2 WI + sCMOS + phase contrast + Jetson + microfluidic | ~$126K | 🟡 Planning |
+| **OS3** | V8 — OS2 + light-sheet + fs-laser + tweezers | +$141K | ⚪ Future |
 
 ## Model
 
@@ -40,4 +48,4 @@
 | Intermediate | After 50 embryos: BF<3→N=200, BF>10→stop |
 | Controls | Negative: RNAi-PLK-4. Positive: spd-2(or165)/plk-1(RNAi) |
 | Blind protocol | AI tracks → human classifies fate → pedigree computed last |
-| Budget | ~$192000 (HW: ~$59.7K + personnel: $50K + contingency: $33K) |
+| Budget | ~$264000 (HW: ~$59.7K + personnel: $50K + contingency: $33K) |
