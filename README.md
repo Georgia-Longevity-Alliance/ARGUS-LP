@@ -14,18 +14,18 @@ We test this in C. elegans. It's the only organism with a complete cell lineage 
 
 | Version | What | Budget |
 |:---:|------|:---:|
-| V0 | Minimal — stock OpenFlexure (Alex) | ~$930 |
-| V6 | Dry 40×/0.75 | $3-4K |
-| **V7** | **60×/1.2 NA WI + sCMOS + phase contrast + Jetson AGX + microfluidic** | **~$126,000** |
-| V8 | V7 upgrade: light-sheet + fs-laser + tweezers + manipulators | +~$141K (HW) |
+| V0 | Bare OpenFlexure — no AI, no fluorescence. Proof of mechanics. | ~$930 |
+| **V6** | **OS1: OpenFlexure + Camera HQ + Jetson Orin NX + Dry 40×/0.75. Локальный AI — CellPose + трекинг + lineage на своём железе.** | **~$3-5K** |
+| **V7** | **OS2: 60×/1.2 NA WI + sCMOS + phase contrast + Jetson AGX + microfluidic** | **~$126,000** |
+| V8 | OS3: V7 upgrade — light-sheet + fs-laser + tweezers + manipulators | +~$141K (HW) |
 
 ## OS1 → OS2 → OS3
 
 | Stage | Hardware | Budget | Goal |
 |:---:|------|:---:|------|
-| **OS1** | OpenFlexure + Camera HQ + Jetson Orin NX (локальный AI — CellPose + трекинг + lineage) | ~$3-5K | Локальная AI-платформа. Графически мощный сервис на своём железе. |
-| **OS2** | V7 — 60×/1.2 WI + sCMOS + phase contrast + Jetson AGX + microfluidic | ~$126K | Core science. Measure pedigrees + fate (N=100). |
-| **OS3** | V8 — OS2 + light-sheet + fs-laser + tweezers | +$141K | Full platform. Progenitor maps + convergence. |
+| **OS1** | V6 | ~$3-5K | Локальная AI-платформа. OpenFlexure + Jetson Orin NX + Dry 40×. Графически мощный сервис на своём железе. |
+| **OS2** | V7 | ~$126K | Core science. 60× WI + sCMOS + microfluidic. Main experiment (N=100). |
+| **OS3** | V8 | +$141K | Full platform. Light-sheet + fs-laser + tweezers. |
 
 ## References
 

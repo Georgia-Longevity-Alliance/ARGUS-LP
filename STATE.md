@@ -1,12 +1,13 @@
 # STATE — ARGUS-OS1
 
 **Date:** 2026-07-23
-**Status:** 🔵 OS1 — OpenFlexure + Jetson Orin NX (локальный AI). Алекс собирает.
+**Status:** 🔵 OS1 = V6 — OpenFlexure + Jetson Orin NX + Dry 40×/0.75 (~$3-5K). Локальный edge-AI. Алекс собирает.
 
 ## OS Stages
-- **OS1:** ~$3-5K — OpenFlexure + Camera HQ + Jetson Orin NX — локальная AI-платформа. Не V0 (без мозгов), а полноценный edge-AI сервис.
-- **OS2:** ~$126K — V7 = OS1 + 60×/1.2 WI + sCMOS + microfluidic
-- **OS3:** +$141K — V8 = OS2 + light-sheet + fs-laser + tweezers
+- **V0:** ~$930 — голая механика OpenFlexure, без AI
+- **OS1 = V6:** ~$3-5K — локальный AI (Jetson Orin NX, CellPose + трекинг + lineage)
+- **OS2 = V7:** ~$126K — 60×/1.2 WI + sCMOS + microfluidic
+- **OS3 = V8:** +$141K — light-sheet + fs-laser + tweezers
 
 ## 23 июл: Motor release — прорыв от WilliamW
 - Sangaboard firmware **уже содержит** motor release command
