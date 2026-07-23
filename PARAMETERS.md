@@ -7,8 +7,8 @@
 
 | Stage | Hardware | Budget | Status |
 |:---:|------|:---:|:---:|
-| **OS1** | V0 — stock OpenFlexure + Camera HQ | ~$1K | 🔵 Alex building |
-| **OS2** | V7 — 60×/1.2 WI + sCMOS + phase contrast + Jetson + microfluidic | ~$126K | 🟡 Planning |
+| **OS1** | OpenFlexure + Jetson Orin NX (локальный AI: CellPose + трекинг + lineage) | ~$3-5K | 🔵 Alex building |
+| **OS2** | V7 — 60×/1.2 WI + sCMOS + phase contrast + Jetson AGX + microfluidic | ~$126K | 🟡 Planning |
 | **OS3** | V8 — OS2 + light-sheet + fs-laser + tweezers | +$141K | ⚪ Future |
 
 ## Model

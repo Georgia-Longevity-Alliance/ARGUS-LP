@@ -23,9 +23,9 @@ We test this in C. elegans. It's the only organism with a complete cell lineage 
 
 | Stage | Hardware | Budget | Goal |
 |:---:|------|:---:|------|
-| **OS1** | V0 | ~$1K | Proof of concept. C. elegans on a bench. |
-| **OS2** | V7 | ~$126K | Core science. Measure pedigrees + fate (N=100). |
-| **OS3** | V7→V8 | +$141K | Full platform. Light-sheet + ablation + tweezers + microfluidic. |
+| **OS1** | OpenFlexure + Camera HQ + Jetson Orin NX (локальный AI — CellPose + трекинг + lineage) | ~$3-5K | Локальная AI-платформа. Графически мощный сервис на своём железе. |
+| **OS2** | V7 — 60×/1.2 WI + sCMOS + phase contrast + Jetson AGX + microfluidic | ~$126K | Core science. Measure pedigrees + fate (N=100). |
+| **OS3** | V8 — OS2 + light-sheet + fs-laser + tweezers | +$141K | Full platform. Progenitor maps + convergence. |
 
 ## References
 
