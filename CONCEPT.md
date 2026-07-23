@@ -157,9 +157,9 @@ Survival:    time_to_composite_loss ~ PedigreeScore + age + PAR_ratio + frailty(
 
 ---
 
-## 4. Budget (ARGUS V7, 24 months)
+## 4. Budget (OS2 = ARGUS V7, 24 months)
 
-**Platform:** Spinning disk confocal (CSU-W1) + sCMOS. V8 light-sheet deferred to OS2 (separate proposal).
+**Platform:** Spinning disk confocal (CSU-W1) + sCMOS. OS3 (V8) light-sheet deferred to separate proposal.
 
 | Item | $ |
 |------|--:|
@@ -241,4 +241,4 @@ If Pedigree Score correlates with fate in OS1, OS2 tests causality via **centrio
 
 ---
 
-**Limitations:** (1) 100-cell window ≠ comma stage — Pilot P0 validates dynamics specifically in 0→100-cell window. (2) E-lineage EXCLUDED from primary (post-embryonic elimination via endoreduplication — Lu & Roy 2014). Separate secondary analysis.. (3) CED-3::mKate2 + DIC morphology (cell rounding, refractility) for apoptosis exclusion. (4) SAS-1 somatic applicability tested in P6; secondary outcome until validated. (5) V7 spinning disk with adaptive illumination; V8 light-sheet deferred to OS2. (6) PCM loss before core (O'Toole 2003). (7) SPD-2::mCherry composite fate in ALL N=100 embryos. (8) Temperature control ±0.1°C. (9) Sister-pair count: Sulston (1983) → ~5 same-type pairs/embryo → ~500 total pairs across 100 embryos. Power >80% for OR≥1.5 with paired design.
+**Limitations:** (1) 100-cell window ≠ comma stage — Pilot P0 validates dynamics specifically in 0→100-cell window. (2) E-lineage EXCLUDED from primary (post-embryonic elimination via endoreduplication — Lu & Roy 2014). Separate secondary analysis.. (3) CED-3::mKate2 + DIC morphology (cell rounding, refractility) for apoptosis exclusion. (4) SAS-1 somatic applicability tested in P6; secondary outcome until validated. (5) OS2 (V7) spinning disk with adaptive illumination; OS3 (V8) light-sheet deferred. (6) PCM loss before core (O'Toole 2003). (7) SPD-2::mCherry composite fate in ALL N=100 embryos. (8) Temperature control ±0.1°C. (9) Sister-pair count: Sulston (1983) → ~5 same-type pairs/embryo → ~500 total pairs across 100 embryos. Power >80% for OR≥1.5 with paired design.

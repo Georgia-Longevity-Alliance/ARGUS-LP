@@ -10,7 +10,8 @@
 - [ ] P7: Heidenhain haematoxylin validation — anti-SAS-4 co-stain — Owner: PI, Deadline: 2026-10-15
 
 ## 🟡 Phase 1: Build (Aug–Sep 2026)
-- [ ] Build ARGUS V7 (OpenFlexure + 60×/1.2 NA WI + sCMOS + phase contrast) — Owner: Alex, Deadline: 2026-09-30
+- [ ] Build ARGUS V6 = OS1 (OpenFlexure + 40×/0.75 dry + Jetson Orin NX) — Owner: Alex, Deadline: 2026-09-30
+- [ ] Build ARGUS V7 = OS2 (60×/1.2 NA WI + sCMOS + phase contrast) — Owner: Alex, Deadline: 2026-12-31
 - [ ] **Motor release API** — expose Sangaboard motor_release() in REST API (WilliamW: already in firmware!) — Owner: PI, Deadline: 2026-08-15
 - [ ] Triple transgenic strain: Centrin1-GFP + SAS-4::mCherry + histone::BFP — Owner: PI, Deadline: 2026-09-01
 
@@ -24,6 +25,6 @@
 - [ ] Pre-submission inquiry to journal editor — Owner: PI
 
 ## ⚪ Backlog
-- [ ] ARGUS V8 (light-sheet upgrade) — Owner: Alex
+- [ ] ARGUS V8 = OS3 (light-sheet upgrade) — Owner: Alex
 - [ ] Cross-strain validation (N2 + CB4856) — Owner: PI
 - [ ] Cross-species validation — Owner: PI

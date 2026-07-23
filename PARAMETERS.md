@@ -26,11 +26,11 @@
 
 | Parameter | Value |
 |-----------|-------|
-| Version | ARGUS V7 + V8 light-sheet (MANDATORY) |
+| Version | OS2 = ARGUS V7 (+ OS3 light-sheet recommended) |
 | Objective | 60×/1.2 NA WI |
 | Camera | sCMOS (Hamamatsu ORCA-Fusion BT) |
 | Lasers | 405 nm + 488 nm + 561 nm + 640 nm |
-| Light-sheet | V8 module — 10× lower phototoxicity vs widefield |
+| Light-sheet | OS3 (V8) module — 10× lower phototoxicity vs widefield |
 | Interval | 2-min (5-min fallback per Pilot P2) |
 | AI | Jetson AGX Orin 64GB (blind pedigree computation) |
 | Markers (7) | SAS-4::GFP, SAS-1::mCherry, Centrin1::BFP, Dendra2::SAS-4, PAR-2::GFP, PAR-3::mCherry, CED-3::mCherry, Histone::CFP |
