@@ -43,7 +43,7 @@ Exploratory. ICC-adjusted confidence intervals reported.
 - **Permanent retainers:** centriole present at 200+ cells
 **Primary outcome:** binary (retained vs eliminated at 100 cells). **Secondary:** 3-category ordinal model.
 
-**Mother/daughter centriole tracking:** In each division, the older (mother) centriole is identified by Dendra2::SAS-4 signal ratio (older = dimmer, more photoconverted protein diluted). **Mother/daughter status added as fixed effect.**
+**Mother/daughter centriole tracking:** In each division, the older (mother) centriole is identified by Dendra2::SAS-4 signal ratio (older = dimmer, more photoconverted protein diluted). **Mother/daughter status added as fixed effect.** Mother centriole inheritance bias is explicitly tested: C. elegans lineage-based tracking enables direct measurement of asymmetric inheritance patterns across all divisions.
 
 **Sensitivity — Sister pairs:** If ≥40 same-type pairs → within-pair comparison (secondary).
 
@@ -174,6 +174,7 @@ Survival:    time_to_composite_loss ~ PedigreeScore + age + PAR_ratio + frailty(
 | C. elegans strains (8 markers + RNAi + mutants) + reagents | 10,000 |
 | Equipment maintenance (2 years) | 8,000 |
 | Consumables (coverslips, agarose, plates) | 4,000 |
+| **Glove-box/Incubator consumables (HEPA H13 filters ×4, UV-C lamps ×2, CO₂ sensor cal, N₂ gas, gloves, seals, tubing)** | **12,000** |
 | Conference travel | 3,000 |
 | Open Access fees | 5,000 |
 | PI salary (50% FTE, 24 months) | 60,000 |
@@ -242,3 +243,8 @@ If Pedigree Score correlates with fate in OS1, OS2 tests causality via **centrio
 ---
 
 **Limitations:** (1) 100-cell window ≠ comma stage — Pilot P0 validates dynamics specifically in 0→100-cell window. (2) E-lineage EXCLUDED from primary (post-embryonic elimination via endoreduplication — Lu & Roy 2014). Separate secondary analysis.. (3) CED-3::mKate2 + DIC morphology (cell rounding, refractility) for apoptosis exclusion. (4) SAS-1 somatic applicability tested in P6; secondary outcome until validated. (5) OS2 (V7) spinning disk with adaptive illumination; OS3 (V8) light-sheet deferred. (6) PCM loss before core (O'Toole 2003). (7) SPD-2::mCherry composite fate in ALL N=100 embryos. (8) Temperature control ±0.1°C. (9) Sister-pair count: Sulston (1983) → ~5 same-type pairs/embryo → ~500 total pairs across 100 embryos. Power >80% for OR≥1.5 with paired design.
+
+
+## References
+
+*See project MEMORY.md for reference history.*

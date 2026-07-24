@@ -33,4 +33,4 @@ Sulston & Horvitz (1977) PMID 838129 | Sulston et al. (1983) PMID 6684600 | Kalb
 
 ---
 
-*Jaba Tqemaladze. Georgia Longevity Alliance. 2026-07-22. v152.*
+*Jaba Tqemaladze. Georgia Longevity Alliance. 2026-07-22. v186.*
